@@ -43,3 +43,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# 3D vehicle models are too large for git (pushed separately)
+/assets/models/
