@@ -212,6 +212,16 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.en: 'Service',
     AppLanguage.ru: 'Сервис',
   },
+  'qa_showroom': {
+    AppLanguage.tk: 'Täze ulaglar',
+    AppLanguage.en: 'Showroom',
+    AppLanguage.ru: 'Шоурум',
+  },
+  'qa_trade_in': {
+    AppLanguage.tk: 'Takas bahasy',
+    AppLanguage.en: 'Trade-In Value',
+    AppLanguage.ru: 'Стоимость трейд-ин',
+  },
   // My Car
   'my_car_title': {
     AppLanguage.tk: 'Ulagym',
@@ -700,6 +710,589 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.tk: 'Hemmesini gör',
     AppLanguage.en: 'See all',
     AppLanguage.ru: 'Показать все',
+  },
+  // Campaigns carousel
+  'campaign_details': {
+    AppLanguage.tk: 'Kampaniýa barada',
+    AppLanguage.en: 'Campaign details',
+    AppLanguage.ru: 'О кампании',
+  },
+  'campaign_view_product': {
+    AppLanguage.tk: 'Önümi gör',
+    AppLanguage.en: 'View product',
+    AppLanguage.ru: 'Посмотреть товар',
+  },
+  // Showroom
+  'showroom_title': {
+    AppLanguage.tk: 'Täze ulaglar',
+    AppLanguage.en: 'New Vehicles',
+    AppLanguage.ru: 'Новые автомобили',
+  },
+  'showroom_from': {
+    AppLanguage.tk: 'başlangyç baha',
+    AppLanguage.en: 'starting from',
+    AppLanguage.ru: 'от',
+  },
+  'showroom_select_trim': {
+    AppLanguage.tk: 'Donanym derejesini saýlaň',
+    AppLanguage.en: 'Select trim level',
+    AppLanguage.ru: 'Выберите комплектацию',
+  },
+  'showroom_select_color': {
+    AppLanguage.tk: 'Reňk saýlaň',
+    AppLanguage.en: 'Select color',
+    AppLanguage.ru: 'Выберите цвет',
+  },
+  'showroom_features': {
+    AppLanguage.tk: 'Aýratynlyklar',
+    AppLanguage.en: 'Features',
+    AppLanguage.ru: 'Особенности',
+  },
+  'showroom_request_quote': {
+    AppLanguage.tk: 'Bahalandyryş sora',
+    AppLanguage.en: 'Request a Quote',
+    AppLanguage.ru: 'Запросить предложение',
+  },
+  'showroom_quote_sent_title': {
+    AppLanguage.tk: 'Sorag ugradyldy!',
+    AppLanguage.en: 'Quote requested!',
+    AppLanguage.ru: 'Запрос отправлен!',
+  },
+  'showroom_quote_sent_body': {
+    AppLanguage.tk:
+        'Bahalandyryş soragyňyz kabul edildi. 24 sagadyň dowamynda siz bilen habarlaşarys.',
+    AppLanguage.en:
+        'Your quote request has been received. We will contact you within 24 hours.',
+    AppLanguage.ru:
+        'Ваш запрос принят. Мы свяжемся с вами в течение 24 часов.',
+  },
+  'showroom_engine': {
+    AppLanguage.tk: 'Motor',
+    AppLanguage.en: 'Engine',
+    AppLanguage.ru: 'Двигатель',
+  },
+  'showroom_fuel_consumption': {
+    AppLanguage.tk: 'Ýangyç sarpy',
+    AppLanguage.en: 'Fuel Consumption',
+    AppLanguage.ru: 'Расход топлива',
+  },
+  'showroom_trunk_capacity': {
+    AppLanguage.tk: 'Bagaž göwrümi',
+    AppLanguage.en: 'Trunk Capacity',
+    AppLanguage.ru: 'Объём багажника',
+  },
+  'showroom_compare': {
+    AppLanguage.tk: 'Deňeşdir',
+    AppLanguage.en: 'Compare',
+    AppLanguage.ru: 'Сравнить',
+  },
+  'showroom_body_sedan': {
+    AppLanguage.tk: 'Sedan',
+    AppLanguage.en: 'Sedan',
+    AppLanguage.ru: 'Седан',
+  },
+  'showroom_body_suv': {
+    AppLanguage.tk: 'SUV',
+    AppLanguage.en: 'SUV',
+    AppLanguage.ru: 'Внедорожник',
+  },
+  'showroom_body_minivan': {
+    AppLanguage.tk: 'Miniwen',
+    AppLanguage.en: 'Minivan',
+    AppLanguage.ru: 'Минивэн',
+  },
+  // Compare
+  'compare_title': {
+    AppLanguage.tk: 'Ulaglary deňeşdir',
+    AppLanguage.en: 'Compare Vehicles',
+    AppLanguage.ru: 'Сравнение автомобилей',
+  },
+  'compare_pick_car': {
+    AppLanguage.tk: 'Ulag saýlaň',
+    AppLanguage.en: 'Select a vehicle',
+    AppLanguage.ru: 'Выберите автомобиль',
+  },
+  'compare_price': {
+    AppLanguage.tk: 'Baha',
+    AppLanguage.en: 'Price',
+    AppLanguage.ru: 'Цена',
+  },
+  'showroom_book_test_drive': {
+    AppLanguage.tk: 'Synag sürüşi belläň',
+    AppLanguage.en: 'Book a Test Drive',
+    AppLanguage.ru: 'Записаться на тест-драйв',
+  },
+  'showroom_calc_finance': {
+    AppLanguage.tk: 'Kredit hasapla',
+    AppLanguage.en: 'Calculate Financing',
+    AppLanguage.ru: 'Рассчитать кредит',
+  },
+  'showroom_trade_in': {
+    AppLanguage.tk: 'Köne ulagymy tabşyr',
+    AppLanguage.en: 'Trade In My Car',
+    AppLanguage.ru: 'Обменять мой автомобиль',
+  },
+  // Test drive
+  'qa_test_drive': {
+    AppLanguage.tk: 'Synag sürüşi',
+    AppLanguage.en: 'Test Drive',
+    AppLanguage.ru: 'Тест-драйв',
+  },
+  'td_title': {
+    AppLanguage.tk: 'Synag sürüşini belläň',
+    AppLanguage.en: 'Book a Test Drive',
+    AppLanguage.ru: 'Запись на тест-драйв',
+  },
+  'td_select_model': {
+    AppLanguage.tk: 'Modeli saýlaň',
+    AppLanguage.en: 'Select a model',
+    AppLanguage.ru: 'Выберите модель',
+  },
+  'td_select_dealer': {
+    AppLanguage.tk: 'Dileri saýlaň',
+    AppLanguage.en: 'Select a dealer',
+    AppLanguage.ru: 'Выберите дилера',
+  },
+  'td_select_datetime': {
+    AppLanguage.tk: 'Senäni saýlaň',
+    AppLanguage.en: 'Select a date',
+    AppLanguage.ru: 'Выберите дату',
+  },
+  'td_your_info': {
+    AppLanguage.tk: 'Maglumatlaryňyz',
+    AppLanguage.en: 'Your information',
+    AppLanguage.ru: 'Ваши данные',
+  },
+  'td_name': {
+    AppLanguage.tk: 'Ady we familiýasy',
+    AppLanguage.en: 'Full name',
+    AppLanguage.ru: 'Имя и фамилия',
+  },
+  'td_phone': {
+    AppLanguage.tk: 'Telefon belgisi',
+    AppLanguage.en: 'Phone number',
+    AppLanguage.ru: 'Номер телефона',
+  },
+  'td_confirm': {
+    AppLanguage.tk: 'Belläp tassykla',
+    AppLanguage.en: 'Confirm Booking',
+    AppLanguage.ru: 'Подтвердить запись',
+  },
+  'td_confirmed_title': {
+    AppLanguage.tk: 'Synag sürüşi bellendi!',
+    AppLanguage.en: 'Test drive booked!',
+    AppLanguage.ru: 'Тест-драйв забронирован!',
+  },
+  'td_confirmed_body': {
+    AppLanguage.tk: 'Diler siz bilen tassyklamak üçin habarlaşar.',
+    AppLanguage.en: 'The dealer will contact you to confirm the details.',
+    AppLanguage.ru: 'Дилер свяжется с вами для подтверждения деталей.',
+  },
+  // Finance calculator
+  'finance_title': {
+    AppLanguage.tk: 'Kredit hasaplaýjy',
+    AppLanguage.en: 'Finance Calculator',
+    AppLanguage.ru: 'Кредитный калькулятор',
+  },
+  'finance_vehicle_price': {
+    AppLanguage.tk: 'Ulagyň bahasy',
+    AppLanguage.en: 'Vehicle price',
+    AppLanguage.ru: 'Цена автомобиля',
+  },
+  'finance_down_payment': {
+    AppLanguage.tk: 'Başlangyç töleg',
+    AppLanguage.en: 'Down payment',
+    AppLanguage.ru: 'Первоначальный взнос',
+  },
+  'finance_term': {
+    AppLanguage.tk: 'Möhlet',
+    AppLanguage.en: 'Term',
+    AppLanguage.ru: 'Срок',
+  },
+  'finance_months_suffix': {
+    AppLanguage.tk: 'aý',
+    AppLanguage.en: 'mo',
+    AppLanguage.ru: 'мес',
+  },
+  'finance_monthly_payment': {
+    AppLanguage.tk: 'Aýlyk töleg',
+    AppLanguage.en: 'Monthly payment',
+    AppLanguage.ru: 'Ежемесячный платёж',
+  },
+  'finance_principal': {
+    AppLanguage.tk: 'Esasy bergi',
+    AppLanguage.en: 'Principal',
+    AppLanguage.ru: 'Основной долг',
+  },
+  'finance_total_interest': {
+    AppLanguage.tk: 'Jemi göterim',
+    AppLanguage.en: 'Total interest',
+    AppLanguage.ru: 'Общие проценты',
+  },
+  'finance_total_payment': {
+    AppLanguage.tk: 'Jemi töleg',
+    AppLanguage.en: 'Total payment',
+    AppLanguage.ru: 'Общая сумма',
+  },
+  // Trade-in
+  'tradein_title': {
+    AppLanguage.tk: 'Köne ulagyňyzy bahalandyryň',
+    AppLanguage.en: 'Value Your Trade-In',
+    AppLanguage.ru: 'Оценка вашего авто в трейд-ин',
+  },
+  'tradein_pick_vehicle': {
+    AppLanguage.tk: 'Ulaglarym',
+    AppLanguage.en: 'My vehicles',
+    AppLanguage.ru: 'Мои автомобили',
+  },
+  'tradein_manual_entry': {
+    AppLanguage.tk: 'Elde girizmek',
+    AppLanguage.en: 'Manual entry',
+    AppLanguage.ru: 'Ручной ввод',
+  },
+  'tradein_model': {
+    AppLanguage.tk: 'Model',
+    AppLanguage.en: 'Model',
+    AppLanguage.ru: 'Модель',
+  },
+  'tradein_year': {
+    AppLanguage.tk: 'Öndürilen ýyly',
+    AppLanguage.en: 'Year',
+    AppLanguage.ru: 'Год выпуска',
+  },
+  'tradein_mileage': {
+    AppLanguage.tk: 'Ýöreýşi (km)',
+    AppLanguage.en: 'Mileage (km)',
+    AppLanguage.ru: 'Пробег (км)',
+  },
+  'tradein_condition': {
+    AppLanguage.tk: 'Ýagdaýy',
+    AppLanguage.en: 'Condition',
+    AppLanguage.ru: 'Состояние',
+  },
+  'tradein_condition_excellent': {
+    AppLanguage.tk: 'Ajaýyp',
+    AppLanguage.en: 'Excellent',
+    AppLanguage.ru: 'Отличное',
+  },
+  'tradein_condition_good': {
+    AppLanguage.tk: 'Gowy',
+    AppLanguage.en: 'Good',
+    AppLanguage.ru: 'Хорошее',
+  },
+  'tradein_condition_fair': {
+    AppLanguage.tk: 'Ortaça',
+    AppLanguage.en: 'Fair',
+    AppLanguage.ru: 'Среднее',
+  },
+  'tradein_estimate_button': {
+    AppLanguage.tk: 'Bahalandyr',
+    AppLanguage.en: 'Get Estimate',
+    AppLanguage.ru: 'Получить оценку',
+  },
+  'tradein_estimated_value': {
+    AppLanguage.tk: 'Çak edilýän baha',
+    AppLanguage.en: 'Estimated value',
+    AppLanguage.ru: 'Примерная стоимость',
+  },
+  'tradein_apply_to_showroom': {
+    AppLanguage.tk: 'Täze ulaga ulan',
+    AppLanguage.en: 'Apply to new car',
+    AppLanguage.ru: 'Применить к новому авто',
+  },
+  'tradein_price_after_tradein': {
+    AppLanguage.tk: 'Tabşyrandan soň töleg',
+    AppLanguage.en: 'Price after trade-in',
+    AppLanguage.ru: 'Цена после трейд-ин',
+  },
+  // Live service tracking
+  'svc_track_title': {
+    AppLanguage.tk: 'Servis yzarlamasy',
+    AppLanguage.en: 'Service Tracking',
+    AppLanguage.ru: 'Отслеживание сервиса',
+  },
+  'svc_step_received': {
+    AppLanguage.tk: 'Kabul edildi',
+    AppLanguage.en: 'Received',
+    AppLanguage.ru: 'Принят',
+  },
+  'svc_step_diagnosis': {
+    AppLanguage.tk: 'Arıza tespiti',
+    AppLanguage.en: 'Diagnosis',
+    AppLanguage.ru: 'Диагностика',
+  },
+  'svc_step_parts': {
+    AppLanguage.tk: 'Şaý çalyşmak',
+    AppLanguage.en: 'Parts Replacement',
+    AppLanguage.ru: 'Замена деталей',
+  },
+  'svc_step_wash': {
+    AppLanguage.tk: 'Ýuwmak',
+    AppLanguage.en: 'Wash',
+    AppLanguage.ru: 'Мойка',
+  },
+  'svc_step_ready': {
+    AppLanguage.tk: 'Taýýar',
+    AppLanguage.en: 'Ready',
+    AppLanguage.ru: 'Готово',
+  },
+  'svc_estimated_ready': {
+    AppLanguage.tk: 'Çak edilýän taýýarlyk wagty',
+    AppLanguage.en: 'Estimated ready time',
+    AppLanguage.ru: 'Ожидаемое время готовности',
+  },
+  'svc_home_card_title': {
+    AppLanguage.tk: 'Ulagyňyz serwisde',
+    AppLanguage.en: 'Your car is in service',
+    AppLanguage.ru: 'Ваш автомобиль на сервисе',
+  },
+  'svc_step_label': {
+    AppLanguage.tk: 'Ädim',
+    AppLanguage.en: 'Step',
+    AppLanguage.ru: 'Шаг',
+  },
+  // Loyalty
+  'loyalty_title': {
+    AppLanguage.tk: 'Sadyklyk maksatnamasy',
+    AppLanguage.en: 'Loyalty Program',
+    AppLanguage.ru: 'Программа лояльности',
+  },
+  'loyalty_points_balance': {
+    AppLanguage.tk: 'Bal balansy',
+    AppLanguage.en: 'Points balance',
+    AppLanguage.ru: 'Баланс баллов',
+  },
+  'loyalty_tier_bronze': {
+    AppLanguage.tk: 'Bürünç',
+    AppLanguage.en: 'Bronze',
+    AppLanguage.ru: 'Бронза',
+  },
+  'loyalty_tier_silver': {
+    AppLanguage.tk: 'Kümüş',
+    AppLanguage.en: 'Silver',
+    AppLanguage.ru: 'Серебро',
+  },
+  'loyalty_tier_gold': {
+    AppLanguage.tk: 'Altyn',
+    AppLanguage.en: 'Gold',
+    AppLanguage.ru: 'Золото',
+  },
+  'loyalty_history': {
+    AppLanguage.tk: 'Bal taryhy',
+    AppLanguage.en: 'Points history',
+    AppLanguage.ru: 'История баллов',
+  },
+  'loyalty_member': {
+    AppLanguage.tk: 'Agza',
+    AppLanguage.en: 'Member',
+    AppLanguage.ru: 'Участник',
+  },
+  'loyalty_earned_toast': {
+    AppLanguage.tk: 'puan gazanyldy',
+    AppLanguage.en: 'points earned',
+    AppLanguage.ru: 'баллов начислено',
+  },
+  'loyalty_from_parts': {
+    AppLanguage.tk: 'Ätiýaçlyk şaý satyn alnyşy',
+    AppLanguage.en: 'Spare part purchase',
+    AppLanguage.ru: 'Покупка запчасти',
+  },
+  // Service history / digital service booklet
+  'svc_history_title': {
+    AppLanguage.tk: 'Sanly servis depderçesi',
+    AppLanguage.en: 'Digital Service Booklet',
+    AppLanguage.ru: 'Цифровая сервисная книжка',
+  },
+  'qa_service_history': {
+    AppLanguage.tk: 'Servis depderçesi',
+    AppLanguage.en: 'Service Booklet',
+    AppLanguage.ru: 'Сервисная книжка',
+  },
+  'svc_history_empty': {
+    AppLanguage.tk: 'Heniz servis ýazgysy ýok',
+    AppLanguage.en: 'No service records yet',
+    AppLanguage.ru: 'Пока нет записей о сервисе',
+  },
+  'svc_history_share_pdf': {
+    AppLanguage.tk: 'PDF görnüşinde paýlaş',
+    AppLanguage.en: 'Share as PDF',
+    AppLanguage.ru: 'Поделиться как PDF',
+  },
+  'svc_history_share_success': {
+    AppLanguage.tk: 'Taýýarlandy we paýlaşyldy',
+    AppLanguage.en: 'Prepared and shared',
+    AppLanguage.ru: 'Подготовлено и отправлено',
+  },
+  'svc_history_warranty_title': {
+    AppLanguage.tk: 'Kepillik ýagdaýy',
+    AppLanguage.en: 'Warranty Status',
+    AppLanguage.ru: 'Статус гарантии',
+  },
+  'svc_history_warranty_time': {
+    AppLanguage.tk: 'Wagt boýunça galan',
+    AppLanguage.en: 'Time remaining',
+    AppLanguage.ru: 'Осталось по времени',
+  },
+  'svc_history_warranty_km': {
+    AppLanguage.tk: 'Ýöreýiş boýunça galan',
+    AppLanguage.en: 'Mileage remaining',
+    AppLanguage.ru: 'Осталось по пробегу',
+  },
+  'svc_history_cost': {
+    AppLanguage.tk: 'Bahasy',
+    AppLanguage.en: 'Cost',
+    AppLanguage.ru: 'Стоимость',
+  },
+  'svc_history_dealer': {
+    AppLanguage.tk: 'Dilerçilik',
+    AppLanguage.en: 'Dealer',
+    AppLanguage.ru: 'Дилер',
+  },
+  // Fuel & cost tracking
+  'expenses_title': {
+    AppLanguage.tk: 'Masraflar',
+    AppLanguage.en: 'Fuel & Costs',
+    AppLanguage.ru: 'Расходы',
+  },
+  'qa_expenses': {
+    AppLanguage.tk: 'Masraflar',
+    AppLanguage.en: 'Expenses',
+    AppLanguage.ru: 'Расходы',
+  },
+  'expenses_fuel': {
+    AppLanguage.tk: 'Ýangyç',
+    AppLanguage.en: 'Fuel',
+    AppLanguage.ru: 'Топливо',
+  },
+  'expenses_service': {
+    AppLanguage.tk: 'Servis',
+    AppLanguage.en: 'Service',
+    AppLanguage.ru: 'Сервис',
+  },
+  'expenses_parts': {
+    AppLanguage.tk: 'Şaýlar',
+    AppLanguage.en: 'Parts',
+    AppLanguage.ru: 'Запчасти',
+  },
+  'expenses_this_month': {
+    AppLanguage.tk: 'Bu aý',
+    AppLanguage.en: 'This month',
+    AppLanguage.ru: 'В этом месяце',
+  },
+  'expenses_insight_lower': {
+    AppLanguage.tk: 'Bu aý geçen aýa görä %{n} az',
+    AppLanguage.en: 'This month is %{n} lower than last month',
+    AppLanguage.ru: 'В этом месяце на %{n} меньше, чем в прошлом',
+  },
+  'expenses_insight_higher': {
+    AppLanguage.tk: 'Bu aý geçen aýa görä %{n} köp',
+    AppLanguage.en: 'This month is %{n} higher than last month',
+    AppLanguage.ru: 'В этом месяце на %{n} больше, чем в прошлом',
+  },
+  // SOS roadside assistance
+  'sos_title': {
+    AppLanguage.tk: 'Ýol kömegi',
+    AppLanguage.en: 'Roadside Assistance',
+    AppLanguage.ru: 'Помощь на дороге',
+  },
+  'sos_hold_to_call': {
+    AppLanguage.tk: 'Kömek çagyrmak üçin basyp saklaň',
+    AppLanguage.en: 'Hold to call for help',
+    AppLanguage.ru: 'Удерживайте, чтобы вызвать помощь',
+  },
+  'sos_help_dispatched': {
+    AppLanguage.tk: 'Kömek ýola çykdy',
+    AppLanguage.en: 'Help is on the way',
+    AppLanguage.ru: 'Помощь в пути',
+  },
+  'sos_eta_minutes': {
+    AppLanguage.tk: 'Çak edilýän wagt: ~25 min',
+    AppLanguage.en: 'Estimated arrival: ~25 min',
+    AppLanguage.ru: 'Ожидаемое время: ~25 мин',
+  },
+  'sos_tow_truck_label': {
+    AppLanguage.tk: 'Ýardam ulagy',
+    AppLanguage.en: 'Tow truck',
+    AppLanguage.ru: 'Эвакуатор',
+  },
+  'sos_your_location': {
+    AppLanguage.tk: 'Siziň ýeriňiz',
+    AppLanguage.en: 'Your location',
+    AppLanguage.ru: 'Ваше местоположение',
+  },
+  'sos_cancel_request': {
+    AppLanguage.tk: 'Islegi ýatyr',
+    AppLanguage.en: 'Cancel request',
+    AppLanguage.ru: 'Отменить запрос',
+  },
+  // Digital key sharing
+  'keyshare_title': {
+    AppLanguage.tk: 'Açary paýlaşmak',
+    AppLanguage.en: 'Share Digital Key',
+    AppLanguage.ru: 'Поделиться ключом',
+  },
+  'keyshare_card_title': {
+    AppLanguage.tk: 'Sanly açary paýlaşyň',
+    AppLanguage.en: 'Share a digital key',
+    AppLanguage.ru: 'Поделитесь цифровым ключом',
+  },
+  'keyshare_card_body': {
+    AppLanguage.tk:
+        'Maşgala agzasyna wagtlaýyn açar beriň, olar ulagy açyp/gulplap bilerler.',
+    AppLanguage.en:
+        'Grant a family member temporary access to unlock/lock the car.',
+    AppLanguage.ru:
+        'Предоставьте члену семьи временный доступ для открытия/блокировки авто.',
+  },
+  'keyshare_recipient_name': {
+    AppLanguage.tk: 'Alyjynyň ady',
+    AppLanguage.en: 'Recipient name',
+    AppLanguage.ru: 'Имя получателя',
+  },
+  'keyshare_duration': {
+    AppLanguage.tk: 'Möhleti',
+    AppLanguage.en: 'Duration',
+    AppLanguage.ru: 'Срок',
+  },
+  'keyshare_duration_1day': {
+    AppLanguage.tk: '1 gün',
+    AppLanguage.en: '1 day',
+    AppLanguage.ru: '1 день',
+  },
+  'keyshare_duration_1week': {
+    AppLanguage.tk: '1 hepde',
+    AppLanguage.en: '1 week',
+    AppLanguage.ru: '1 неделя',
+  },
+  'keyshare_duration_1month': {
+    AppLanguage.tk: '1 aý',
+    AppLanguage.en: '1 month',
+    AppLanguage.ru: '1 месяц',
+  },
+  'keyshare_active_keys': {
+    AppLanguage.tk: 'Işjeň açarlar',
+    AppLanguage.en: 'Active keys',
+    AppLanguage.ru: 'Активные ключи',
+  },
+  'keyshare_grant': {
+    AppLanguage.tk: 'Açar ber',
+    AppLanguage.en: 'Grant Key',
+    AppLanguage.ru: 'Выдать ключ',
+  },
+  'keyshare_revoke': {
+    AppLanguage.tk: 'Yza al',
+    AppLanguage.en: 'Revoke',
+    AppLanguage.ru: 'Отозвать',
+  },
+  'keyshare_expires_in': {
+    AppLanguage.tk: 'Möhleti gutarýar',
+    AppLanguage.en: 'Expires',
+    AppLanguage.ru: 'Истекает',
+  },
+  'keyshare_no_active_keys': {
+    AppLanguage.tk: 'Heniz işjeň açar ýok',
+    AppLanguage.en: 'No active keys yet',
+    AppLanguage.ru: 'Пока нет активных ключей',
   },
 };
 

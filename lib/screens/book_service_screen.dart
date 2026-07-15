@@ -10,6 +10,7 @@ import '../utils/responsive.dart';
 import '../widgets/app_back_button.dart';
 import '../widgets/app_card.dart';
 import '../widgets/section_header.dart';
+import 'service_tracking_screen.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 const _weekdayShort = {
@@ -430,35 +431,90 @@ class _BookServiceScreenState extends State<BookServiceScreen> {
   }
 
   void _confirm(BuildContext context) {
+    final appState = context.read<AppState>();
+    appState.startServiceTicket(
+      ServiceTicket(
+        vehicle: MockData.myVehicle,
+        currentStep: 0,
+        startedAt: DateTime.now(),
+        estimatedReadyAt: DateTime.now().add(const Duration(hours: 3)),
+      ),
+    );
     showDialog(
       context: context,
-      builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        icon: const HugeIcon(
-          icon: HugeIcons.strokeRoundedCheckmarkCircle02,
-          color: AppColors.success,
-          size: 40,
-        ),
-        title: Text(
-          context.tr('booking_confirmed'),
-          textAlign: TextAlign.center,
-        ),
-        content: Text(
-          '${MockData.dealers[_dealerIndex].name}\n${_date.day.toString().padLeft(2, '0')}.${_date.month.toString().padLeft(2, '0')}.${_date.year}',
-          textAlign: TextAlign.center,
-        ),
-        actions: [
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.pop(context);
-              },
-              child: const Text('OK'),
-            ),
+      builder: (_) => Dialog(
+        backgroundColor: Colors.transparent,
+        insetPadding: const EdgeInsets.symmetric(horizontal: 36),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(24, 28, 24, 20),
+          decoration: BoxDecoration(
+            color: AppColors.card,
+            borderRadius: BorderRadius.circular(24),
           ),
-        ],
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 60,
+                height: 60,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: AppColors.success.withValues(alpha: 0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: const HugeIcon(
+                  icon: HugeIcons.strokeRoundedCheckmarkCircle02,
+                  color: AppColors.success,
+                  size: 28,
+                ),
+              ),
+              const SizedBox(height: 18),
+              Text(
+                context.tr('booking_confirmed'),
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                '${MockData.dealers[_dealerIndex].name}\n${_date.day.toString().padLeft(2, '0')}.${_date.month.toString().padLeft(2, '0')}.${_date.year}',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 24),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const ServiceTrackingScreen(),
+                      ),
+                    );
+                  },
+                  child: Text(context.tr('svc_track_title')),
+                ),
+              ),
+              const SizedBox(height: 8),
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: AppColors.textSecondary,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                  ),
+                  child: const Text('OK'),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

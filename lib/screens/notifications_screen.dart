@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../data/mock_data.dart';
 import '../l10n/model_localization.dart';
 import '../l10n/strings.dart';
 import '../models/models.dart';
@@ -145,8 +144,9 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lang = context.watch<AppState>().language;
-    final notifications = MockData.notifications;
+    final appState = context.watch<AppState>();
+    final lang = appState.language;
+    final notifications = appState.notifications;
     final tablet = context.isTablet;
 
     return Scaffold(

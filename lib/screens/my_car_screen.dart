@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../data/mock_data.dart';
+import '../l10n/model_localization.dart';
 import '../l10n/strings.dart';
 import '../models/models.dart';
+import '../state/app_state.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_card.dart';
 import '../widgets/quick_action_grid.dart';
@@ -13,7 +16,11 @@ import 'book_service_screen.dart';
 import 'climate_screen.dart';
 import 'health_check_screen.dart';
 import 'location_screen.dart';
+import 'expenses_screen.dart';
 import 'notifications_screen.dart';
+import 'service_history_screen.dart';
+import 'service_tracking_screen.dart';
+import 'trade_in_screen.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class MyCarScreen extends StatefulWidget {
@@ -100,6 +107,32 @@ class _MyCarScreenState extends State<MyCarScreen> {
           MaterialPageRoute(builder: (_) => const NotificationsScreen()),
         ),
       ),
+      QuickAction(
+        icon: HugeIcons.strokeRoundedExchange02,
+        label: context.tr('qa_trade_in'),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const TradeInScreen()),
+        ),
+      ),
+      QuickAction(
+        icon: HugeIcons.strokeRoundedFile02,
+        label: context.tr('qa_service_history'),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => ServiceHistoryScreen(vehicle: vehicle),
+          ),
+        ),
+      ),
+      QuickAction(
+        icon: HugeIcons.strokeRoundedChartBarLine,
+        label: context.tr('qa_expenses'),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const ExpensesScreen()),
+        ),
+      ),
     ];
   }
 
@@ -140,13 +173,29 @@ class _MyCarScreenState extends State<MyCarScreen> {
     );
   }
 
-  Widget _serviceHistoryCard(BuildContext context, bool tablet) {
+  Widget _serviceHistoryCard(BuildContext context, Vehicle vehicle, bool tablet) {
+    final lang = context.watch<AppState>().language;
+    final records = MockData.serviceHistory
+        .where((r) => r.vehicle == vehicle)
+        .toList()
+      ..sort((a, b) => b.date.compareTo(a.date));
+    final preview = records.take(3).toList();
+
+    if (preview.isEmpty) {
+      return AppCard(
+        child: Text(
+          context.tr('svc_history_empty'),
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+      );
+    }
+
     return AppCard(
       padding: EdgeInsets.zero,
       child: Column(
-        children: List.generate(_serviceHistory.length, (i) {
-          final item = _serviceHistory[i];
-          final isLast = i == _serviceHistory.length - 1;
+        children: List.generate(preview.length, (i) {
+          final item = preview[i];
+          final isLast = i == preview.length - 1;
           return Column(
             children: [
               Padding(
@@ -156,12 +205,12 @@ class _MyCarScreenState extends State<MyCarScreen> {
                     Container(
                       padding: EdgeInsets.all(tablet ? 14 : 10),
                       decoration: BoxDecoration(
-                        color: item.color.withValues(alpha: 0.1),
+                        color: AppColors.toyotaRed.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: HugeIcon(
-                        icon: item.icon,
-                        color: item.color,
+                        icon: HugeIcons.strokeRoundedWrench01,
+                        color: AppColors.toyotaRed,
                         size: tablet ? 26 : 20,
                       ),
                     ),
@@ -171,7 +220,7 @@ class _MyCarScreenState extends State<MyCarScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            context.tr(item.titleKey),
+                            item.description(lang),
                             style: TextStyle(
                               fontWeight: FontWeight.w700,
                               fontSize: tablet ? 16 : 13.5,
@@ -179,7 +228,7 @@ class _MyCarScreenState extends State<MyCarScreen> {
                           ),
                           const SizedBox(height: 3),
                           Text(
-                            item.date,
+                            '${item.date.day}.${item.date.month}.${item.date.year}',
                             style: Theme.of(context).textTheme.bodyMedium
                                 ?.copyWith(fontSize: tablet ? 14 : null),
                           ),
@@ -227,8 +276,53 @@ class _MyCarScreenState extends State<MyCarScreen> {
     );
   }
 
+  Widget _activeServiceCard(BuildContext context, ServiceTicket ticket) {
+    return AppCard(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const ServiceTrackingScreen()),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppColors.warning.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: HugeIcon(
+              icon: HugeIcons.strokeRoundedWrench01,
+              color: AppColors.warning,
+            ),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  context.tr('svc_home_card_title'),
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                Text(
+                  '${context.tr('svc_step_label')} ${ticket.currentStep}/5',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ],
+            ),
+          ),
+          HugeIcon(
+            icon: HugeIcons.strokeRoundedArrowRight01,
+            color: AppColors.textSecondary,
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    context.watch<AppState>();
     return Scaffold(
       body: SafeArea(
         child: context.isTablet
@@ -262,14 +356,27 @@ class _MyCarScreenState extends State<MyCarScreen> {
             );
           }),
         ),
+        if (context.watch<AppState>().activeServiceTicket != null) ...[
+          const SizedBox(height: 16),
+          _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!),
+        ],
         const SizedBox(height: 24),
         SectionHeader(title: context.tr('my_car_title')),
         const SizedBox(height: 14),
         QuickActionGrid(actions: _quickActions(context, vehicle)),
         const SizedBox(height: 24),
-        SectionHeader(title: context.tr('qa_service_report')),
+        SectionHeader(
+          title: context.tr('qa_service_report'),
+          actionLabel: context.tr('see_all'),
+          onAction: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => ServiceHistoryScreen(vehicle: vehicle),
+            ),
+          ),
+        ),
         const SizedBox(height: 14),
-        _serviceHistoryCard(context, false),
+        _serviceHistoryCard(context, vehicle, false),
       ],
     );
   }
@@ -304,38 +411,30 @@ class _MyCarScreenState extends State<MyCarScreen> {
             );
           }),
         ),
+        if (context.watch<AppState>().activeServiceTicket != null) ...[
+          const SizedBox(height: 18),
+          _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!),
+        ],
         const SizedBox(height: 28),
         SectionHeader(title: context.tr('my_car_title')),
         const SizedBox(height: 16),
         QuickActionGrid(actions: _quickActions(context, vehicle)),
         const SizedBox(height: 28),
-        SectionHeader(title: context.tr('qa_service_report')),
+        SectionHeader(
+          title: context.tr('qa_service_report'),
+          actionLabel: context.tr('see_all'),
+          onAction: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => ServiceHistoryScreen(vehicle: vehicle),
+            ),
+          ),
+        ),
         const SizedBox(height: 16),
-        _serviceHistoryCard(context, true),
+        _serviceHistoryCard(context, vehicle, true),
       ],
     );
   }
-
-  static final List<_ServiceHistoryItem> _serviceHistory = [
-    _ServiceHistoryItem(
-      titleKey: 'periodic_maintenance',
-      date: '12.06.2026',
-      icon: HugeIcons.strokeRoundedWrench01,
-      color: AppColors.toyotaRed,
-    ),
-    _ServiceHistoryItem(
-      titleKey: 'oil_change',
-      date: '02.02.2026',
-      icon: HugeIcons.strokeRoundedOilBarrel,
-      color: AppColors.warning,
-    ),
-    _ServiceHistoryItem(
-      titleKey: 'brake_check',
-      date: '18.09.2025',
-      icon: HugeIcons.strokeRoundedDisc,
-      color: const Color(0xFF2B7DE9),
-    ),
-  ];
 
   void _showInfo(
     BuildContext context, {
@@ -399,18 +498,4 @@ class _MyCarScreenState extends State<MyCarScreen> {
       ),
     );
   }
-}
-
-class _ServiceHistoryItem {
-  final String titleKey;
-  final String date;
-  final List<List<dynamic>> icon;
-  final Color color;
-
-  const _ServiceHistoryItem({
-    required this.titleKey,
-    required this.date,
-    required this.icon,
-    required this.color,
-  });
 }

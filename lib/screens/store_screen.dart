@@ -12,6 +12,7 @@ import '../widgets/app_card.dart';
 import 'cart_screen.dart';
 import 'order_history_screen.dart';
 import 'product_detail_screen.dart';
+import 'showroom_screen.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class StoreScreen extends StatelessWidget {
@@ -83,18 +84,74 @@ class StoreScreen extends StatelessWidget {
           final tablet = context.isTablet;
           return GridView.builder(
             shrinkWrap: true,
-            padding: const EdgeInsets.fromLTRB(14, 10, 14, 32),
-            itemCount: products.length,
+            padding: EdgeInsets.fromLTRB(
+              tablet ? 20 : 14,
+              10,
+              tablet ? 20 : 14,
+              32,
+            ),
+            itemCount: products.length + 1,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: tablet ? 4 : 2,
               mainAxisSpacing: tablet ? 20 : 16,
               crossAxisSpacing: tablet ? 18 : 14,
               childAspectRatio: tablet ? 0.78 : 0.9,
             ),
-            itemBuilder: (context, i) =>
-                _ProductCard(product: products[i], tablet: tablet),
+            itemBuilder: (context, i) {
+              if (i == 0) {
+                return _ShowroomBanner(tablet: tablet);
+              }
+              return _ProductCard(product: products[i - 1], tablet: tablet);
+            },
           );
         },
+      ),
+    );
+  }
+}
+
+class _ShowroomBanner extends StatelessWidget {
+  final bool tablet;
+
+  const _ShowroomBanner({required this.tablet});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const ShowroomScreen()),
+      ),
+      child: Container(
+        padding: EdgeInsets.all(tablet ? 18 : 14),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [AppColors.toyotaRed, AppColors.toyotaRedDark],
+          ),
+          borderRadius: BorderRadius.circular(AppRadius.card),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            HugeIcon(
+              icon: HugeIcons.strokeRoundedCar05,
+              color: Colors.white,
+              size: tablet ? 30 : 24,
+            ),
+            Text(
+              context.tr('showroom_title'),
+              maxLines: 2,
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w800,
+                fontSize: tablet ? 17 : 14,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

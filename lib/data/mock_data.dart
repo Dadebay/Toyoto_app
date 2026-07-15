@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart' show Color;
+
 import '../models/models.dart';
+import '../theme/app_theme.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class MockData {
@@ -543,6 +546,367 @@ class MockData {
       statusEn: 'In Transit',
       statusRu: 'В пути',
       imageAsset: 'assets/products/instrument_cluster.png',
+    ),
+  ];
+
+  static final List<NewCarListing> newCarListings = [
+    NewCarListing(
+      id: 'camry',
+      nameTk: 'Camry',
+      nameEn: 'Camry',
+      nameRu: 'Camry',
+      basePrice: 28500,
+      modelAsset: 'assets/models/camry.glb',
+      paintMaterialName: 'BODY.001',
+      engineTk: '2.5L Hybrid',
+      engineEn: '2.5L Hybrid',
+      engineRu: '2.5L Hybrid',
+      fuelConsumption: 4.8,
+      bodyType: 'sedan',
+      trunkCapacityLiters: 524,
+      trims: [
+        TrimLevel(
+          nameTk: 'LE',
+          nameEn: 'LE',
+          nameRu: 'LE',
+          priceDelta: 0,
+          featuresTk: ['Ýylylyk oturgyçlar', 'Yzky görüş kamerasy'],
+          featuresEn: ['Heated seats', 'Rear view camera'],
+          featuresRu: ['Подогрев сидений', 'Камера заднего вида'],
+        ),
+        TrimLevel(
+          nameTk: 'XLE',
+          nameEn: 'XLE',
+          nameRu: 'XLE',
+          priceDelta: 3200,
+          featuresTk: ['Deri salon', 'JBL sesli ulgam', 'Panorama üçek'],
+          featuresEn: ['Leather interior', 'JBL sound system', 'Panoramic roof'],
+          featuresRu: ['Кожаный салон', 'Аудиосистема JBL', 'Панорамная крыша'],
+        ),
+        TrimLevel(
+          nameTk: 'Hybrid Premium',
+          nameEn: 'Hybrid Premium',
+          nameRu: 'Hybrid Premium',
+          priceDelta: 5400,
+          featuresTk: ['Sürüji kömekçisi 2.0', 'Kellidenli LED farlar'],
+          featuresEn: ['Safety Sense 2.0', 'Adaptive LED headlights'],
+          featuresRu: ['Toyota Safety Sense 2.0', 'Адаптивные LED-фары'],
+        ),
+      ],
+    ),
+    NewCarListing(
+      id: 'land_cruiser_300',
+      nameTk: 'Land Cruiser 300',
+      nameEn: 'Land Cruiser 300',
+      nameRu: 'Land Cruiser 300',
+      basePrice: 68000,
+      modelAsset: 'assets/models/land_cruiser.glb',
+      paintMaterialName: 'CarPaint',
+      engineTk: '3.3L Twin-Turbo Diesel',
+      engineEn: '3.3L Twin-Turbo Diesel',
+      engineRu: '3.3L Twin-Turbo Diesel',
+      fuelConsumption: 10.5,
+      bodyType: 'suv',
+      trunkCapacityLiters: 1131,
+      trims: [
+        TrimLevel(
+          nameTk: 'GX-R',
+          nameEn: 'GX-R',
+          nameRu: 'GX-R',
+          priceDelta: 0,
+          featuresTk: ['4x4 ulgamy', '7 orunlyk salon'],
+          featuresEn: ['4x4 drivetrain', '7-seat cabin'],
+          featuresRu: ['Привод 4x4', 'Салон на 7 мест'],
+        ),
+        TrimLevel(
+          nameTk: 'VX',
+          nameEn: 'VX',
+          nameRu: 'VX',
+          priceDelta: 8000,
+          featuresTk: ['Howa asma ulgamy', 'Deri salon'],
+          featuresEn: ['Air suspension', 'Leather interior'],
+          featuresRu: ['Пневмоподвеска', 'Кожаный салон'],
+        ),
+        TrimLevel(
+          nameTk: 'VX.R',
+          nameEn: 'VX.R',
+          nameRu: 'VX.R',
+          priceDelta: 15000,
+          featuresTk: ['Multi-Terrain ulgamy', 'Premium JBL sesli ulgam'],
+          featuresEn: ['Multi-Terrain Select', 'Premium JBL sound system'],
+          featuresRu: ['Multi-Terrain Select', 'Премиальная аудиосистема JBL'],
+        ),
+      ],
+    ),
+    NewCarListing(
+      id: 'land_cruiser_300_vxr',
+      nameTk: 'Land Cruiser 300 VX.R Sport',
+      nameEn: 'Land Cruiser 300 VX.R Sport',
+      nameRu: 'Land Cruiser 300 VX.R Sport',
+      basePrice: 92000,
+      modelAsset: 'assets/models/land_cruiser_300_vxr.glb',
+      paintMaterialName: 'TMI_1350010001_044',
+      engineTk: '3.5L Twin-Turbo V6',
+      engineEn: '3.5L Twin-Turbo V6',
+      engineRu: '3.5L Twin-Turbo V6',
+      fuelConsumption: 11.2,
+      bodyType: 'suv',
+      trunkCapacityLiters: 1131,
+      trims: [
+        TrimLevel(
+          nameTk: 'VX.R',
+          nameEn: 'VX.R',
+          nameRu: 'VX.R',
+          priceDelta: 0,
+          featuresTk: ['22" tigirler', 'Sanly yzky aýnalar'],
+          featuresEn: ['22" alloy wheels', 'Digital rearview mirrors'],
+          featuresRu: ['Литые диски 22"', 'Цифровые зеркала заднего вида'],
+        ),
+        TrimLevel(
+          nameTk: 'GR Sport',
+          nameEn: 'GR Sport',
+          nameRu: 'GR Sport',
+          priceDelta: 9000,
+          featuresTk: ['Sport tarpjama sazlamasy', 'Ekskluziw bezeg toplumy'],
+          featuresEn: ['Sport suspension tuning', 'Exclusive trim package'],
+          featuresRu: ['Спортивная настройка подвески', 'Эксклюзивный пакет отделки'],
+        ),
+      ],
+    ),
+    NewCarListing(
+      id: 'granvia',
+      nameTk: 'Granvia Hybrid',
+      nameEn: 'Granvia Hybrid',
+      nameRu: 'Granvia Hybrid',
+      basePrice: 54000,
+      modelAsset: 'assets/models/granvia.glb',
+      paintMaterialName: 'CarPaint',
+      engineTk: '2.5L Hybrid',
+      engineEn: '2.5L Hybrid',
+      engineRu: '2.5L Hybrid',
+      fuelConsumption: 6.0,
+      bodyType: 'minivan',
+      trunkCapacityLiters: 470,
+      trims: [
+        TrimLevel(
+          nameTk: 'Standard',
+          nameEn: 'Standard',
+          nameRu: 'Standard',
+          priceDelta: 0,
+          featuresTk: ['8 orunlyk salon', 'Awtomatik gapylar'],
+          featuresEn: ['8-seat cabin', 'Power sliding doors'],
+          featuresRu: ['Салон на 8 мест', 'Электрические сдвижные двери'],
+        ),
+        TrimLevel(
+          nameTk: 'Executive',
+          nameEn: 'Executive',
+          nameRu: 'Executive',
+          priceDelta: 7000,
+          featuresTk: ['Kapitan oturgyçlar', 'Salonyň arassalaýjy ulgamy'],
+          featuresEn: ['Captain chairs', 'Cabin air purifier'],
+          featuresRu: ['Капитанские кресла', 'Очиститель воздуха в салоне'],
+        ),
+      ],
+    ),
+  ];
+
+  static final List<Campaign> campaigns = [
+    const Campaign(
+      titleTk: 'Motor ýagyna %20 arzanladyş',
+      titleEn: '20% off engine oil change',
+      titleRu: 'Скидка 20% на замену масла',
+      bodyTk:
+          'Şu aý motor ýagyňyzy çalyşdyranyňyzda %20 arzanladyşdan peýdalanyň.',
+      bodyEn: 'Change your engine oil this month and enjoy a 20% discount.',
+      bodyRu:
+          'Замените моторное масло в этом месяце и получите скидку 20%.',
+      icon: HugeIcons.strokeRoundedOilBarrel,
+      gradient: [AppColors.toyotaRed, AppColors.toyotaRedDark],
+      linkedProductOemCode: 'TY-08880-01',
+    ),
+    const Campaign(
+      titleTk: '10,000 km çenli mugt hyzmat',
+      titleEn: 'Free maintenance up to 10,000 km',
+      titleRu: 'Бесплатное ТО до 10 000 км',
+      bodyTk:
+          'Täze Toyota alanlar üçin ilkinji 10,000 km çenli tehniki hyzmat mugt.',
+      bodyEn:
+          'New Toyota owners get free maintenance up to their first 10,000 km.',
+      bodyRu:
+          'Для новых владельцев Toyota бесплатное ТО до первых 10 000 км.',
+      icon: HugeIcons.strokeRoundedWrench01,
+      gradient: [AppColors.black, AppColors.charcoal],
+    ),
+    const Campaign(
+      titleTk: 'Land Cruiser 300 synag sürüşi hepdesi',
+      titleEn: 'Land Cruiser 300 test drive week',
+      titleRu: 'Неделя тест-драйва Land Cruiser 300',
+      bodyTk:
+          'Bu hepde islendik dilerde Land Cruiser 300-i mugt synag sürüşinde synaň.',
+      bodyEn:
+          'Test drive the Land Cruiser 300 for free at any dealership this week.',
+      bodyRu:
+          'На этой неделе бесплатный тест-драйв Land Cruiser 300 в любом дилерском центре.',
+      icon: HugeIcons.strokeRoundedSteering,
+      gradient: [Color(0xFF2B7DE9), Color(0xFF1B4F91)],
+    ),
+  ];
+
+  /// Mock trade-in valuation: looks up a base price from [newCarListings] by
+  /// matching model name (falls back to a flat estimate for free-text
+  /// entries), then applies age/mileage/condition depreciation.
+  static double estimateTradeInValue({
+    required String model,
+    required int year,
+    required int mileageKm,
+    required String condition,
+  }) {
+    double basePrice = 20000;
+    for (final listing in newCarListings) {
+      if (listing.nameTk.toLowerCase().contains(model.toLowerCase()) ||
+          model.toLowerCase().contains(listing.nameTk.toLowerCase())) {
+        basePrice = listing.basePrice;
+        break;
+      }
+    }
+    final yearsOld = (DateTime.now().year - year).clamp(0, 30);
+    double value = basePrice * (1 - 0.08 * yearsOld).clamp(0.35, 1.0);
+    value -= (mileageKm / 10000) * 300;
+    const conditionMultiplier = {
+      'excellent': 1.0,
+      'good': 0.92,
+      'fair': 0.8,
+    };
+    value *= conditionMultiplier[condition] ?? 0.85;
+    return value.clamp(500, basePrice);
+  }
+
+  static final List<ServiceHistoryRecord> serviceHistory = [
+    ServiceHistoryRecord(
+      vehicle: camry2020,
+      date: DateTime.now().subtract(const Duration(days: 20)),
+      mileageKm: 60800,
+      descriptionTk: 'Tehniki hyzmat + ýag çalyşmak',
+      descriptionEn: 'Maintenance service + oil change',
+      descriptionRu: 'ТО + замена масла',
+      cost: 145,
+      dealerName: 'Toyota Aşgabat',
+    ),
+    ServiceHistoryRecord(
+      vehicle: camry2020,
+      date: DateTime.now().subtract(const Duration(days: 210)),
+      mileageKm: 48200,
+      descriptionTk: 'Tormoz kolodkalaryny çalyşmak',
+      descriptionEn: 'Brake pad replacement',
+      descriptionRu: 'Замена тормозных колодок',
+      cost: 210,
+      dealerName: 'Toyota Aşgabat',
+    ),
+    ServiceHistoryRecord(
+      vehicle: camry2016,
+      date: DateTime.now().subtract(const Duration(days: 8)),
+      mileageKm: 120900,
+      descriptionTk: 'Şina çalyşmak (4 sany)',
+      descriptionEn: 'Tire replacement (set of 4)',
+      descriptionRu: 'Замена шин (комплект 4 шт.)',
+      cost: 480,
+      dealerName: 'Toyota Aşgabat',
+    ),
+    ServiceHistoryRecord(
+      vehicle: camry2016,
+      date: DateTime.now().subtract(const Duration(days: 150)),
+      mileageKm: 112400,
+      descriptionTk: 'Şanzyman ýagyny çalyşmak',
+      descriptionEn: 'Transmission fluid change',
+      descriptionRu: 'Замена трансмиссионного масла',
+      cost: 165,
+      dealerName: 'Toyota Aşgabat',
+    ),
+    ServiceHistoryRecord(
+      vehicle: camry2016,
+      date: DateTime.now().subtract(const Duration(days: 320)),
+      mileageKm: 98000,
+      descriptionTk: 'Akkumulýator çalyşmak',
+      descriptionEn: 'Battery replacement',
+      descriptionRu: 'Замена аккумулятора',
+      cost: 140,
+      dealerName: 'Toyota Daşoguz',
+    ),
+    ServiceHistoryRecord(
+      vehicle: camry,
+      date: DateTime.now().subtract(const Duration(days: 45)),
+      mileageKm: 15200,
+      descriptionTk: 'Ilkinji 15,000 km barlagy',
+      descriptionEn: 'First 15,000 km inspection',
+      descriptionRu: 'Первый осмотр на 15 000 км',
+      cost: 0,
+      dealerName: 'Toyota Aşgabat',
+    ),
+  ];
+
+  static final List<MonthlyExpense> monthlyExpenses = [
+    MonthlyExpense(
+      month: DateTime(DateTime.now().year, DateTime.now().month - 5),
+      fuelCost: 210,
+      serviceCost: 0,
+      partsCost: 40,
+    ),
+    MonthlyExpense(
+      month: DateTime(DateTime.now().year, DateTime.now().month - 4),
+      fuelCost: 195,
+      serviceCost: 145,
+      partsCost: 0,
+    ),
+    MonthlyExpense(
+      month: DateTime(DateTime.now().year, DateTime.now().month - 3),
+      fuelCost: 225,
+      serviceCost: 0,
+      partsCost: 60,
+    ),
+    MonthlyExpense(
+      month: DateTime(DateTime.now().year, DateTime.now().month - 2),
+      fuelCost: 200,
+      serviceCost: 210,
+      partsCost: 0,
+    ),
+    MonthlyExpense(
+      month: DateTime(DateTime.now().year, DateTime.now().month - 1),
+      fuelCost: 230,
+      serviceCost: 0,
+      partsCost: 25,
+    ),
+    MonthlyExpense(
+      month: DateTime(DateTime.now().year, DateTime.now().month),
+      fuelCost: 195,
+      serviceCost: 0,
+      partsCost: 29,
+    ),
+  ];
+
+  static final List<LoyaltyTransaction> seedLoyaltyTransactions = [
+    LoyaltyTransaction(
+      descriptionTk: 'Tehniki hyzmat üçin baýrak',
+      descriptionEn: 'Service visit reward',
+      descriptionRu: 'Награда за визит на ТО',
+      points: 300,
+      date: DateTime.now().subtract(const Duration(days: 12)),
+      icon: HugeIcons.strokeRoundedWrench01,
+    ),
+    LoyaltyTransaction(
+      descriptionTk: 'Ätiýaçlyk şaý satyn alnyşy',
+      descriptionEn: 'Spare part purchase',
+      descriptionRu: 'Покупка запчасти',
+      points: 120,
+      date: DateTime.now().subtract(const Duration(days: 34)),
+      icon: HugeIcons.strokeRoundedShoppingCart01,
+    ),
+    LoyaltyTransaction(
+      descriptionTk: 'Hoş geldiňiz baýragy',
+      descriptionEn: 'Welcome bonus',
+      descriptionRu: 'Приветственный бонус',
+      points: 830,
+      date: DateTime.now().subtract(const Duration(days: 96)),
+      icon: HugeIcons.strokeRoundedGift,
     ),
   ];
 

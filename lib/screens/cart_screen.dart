@@ -274,11 +274,48 @@ class CartScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
+                const SizedBox(height: 14),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 8,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.toyotaRed.withValues(alpha: 0.08),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const HugeIcon(
+                        icon: HugeIcons.strokeRoundedAward01,
+                        color: AppColors.toyotaRed,
+                        size: 16,
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        '+120 ${context.tr('loyalty_earned_toast')}',
+                        style: const TextStyle(
+                          color: AppColors.toyotaRed,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12.5,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 const SizedBox(height: 24),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
+                      appState.addLoyaltyPoints(
+                        120,
+                        descriptionTk: 'Ätiýaçlyk şaý satyn alnyşy',
+                        descriptionEn: 'Spare part purchase',
+                        descriptionRu: 'Покупка запчасти',
+                        icon: HugeIcons.strokeRoundedShoppingCart01,
+                      );
                       appState.clearCart();
                       Navigator.pop(context);
                       Navigator.pop(context);

@@ -67,6 +67,7 @@ class Car3DViewer extends StatefulWidget {
   final String targetCameraOrbit;
   final String minVerticalOrbit;
   final String maxVerticalOrbit;
+  final bool cameraControls;
 
   const Car3DViewer({
     super.key,
@@ -77,6 +78,7 @@ class Car3DViewer extends StatefulWidget {
     this.targetCameraOrbit = '25deg 78deg 105%',
     this.minVerticalOrbit = 'auto 20deg 8%',
     this.maxVerticalOrbit = 'auto 130deg auto',
+    this.cameraControls = true,
   });
 
   @override
@@ -138,7 +140,7 @@ customElements.whenDefined('model-viewer').then(() => {
           backgroundColor: Colors.transparent,
           src: widget.modelAsset,
           alt: 'Toyota 3D model',
-          cameraControls: true,
+          cameraControls: widget.cameraControls,
           disableZoom: false,
           disablePan: true,
           autoRotate: widget.autoRotate,

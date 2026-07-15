@@ -6,10 +6,12 @@ import '../theme/app_theme.dart';
 import '../utils/responsive.dart';
 import '../widgets/app_card.dart';
 import '../widgets/section_header.dart';
+import 'loyalty_screen.dart';
 import 'my_car_screen.dart';
 import 'notifications_screen.dart';
 import 'order_history_screen.dart';
 import 'settings_screen.dart';
+import 'sos_screen.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -34,6 +36,8 @@ class ProfileScreen extends StatelessWidget {
         ),
         const SizedBox(height: 18),
         const _ProfileHeaderCard(),
+        const SizedBox(height: 16),
+        const _SosCard(),
         const SizedBox(height: 24),
         SectionHeader(title: context.tr('my_vehicles')),
         const SizedBox(height: 12),
@@ -63,6 +67,16 @@ class ProfileScreen extends StatelessWidget {
                 onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(builder: (_) => const OrderHistoryScreen()),
+                ),
+              ),
+              const Divider(height: 1, indent: 68),
+              _MenuTile(
+                icon: HugeIcons.strokeRoundedAward01,
+                iconColor: AppColors.warning,
+                label: context.tr('loyalty_title'),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const LoyaltyScreen()),
                 ),
               ),
             ],
@@ -133,7 +147,7 @@ class ProfileScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: 360,
+              width: 340,
               child: Column(
                 children: [
                   const _ProfileHeaderCard(tablet: true),
@@ -160,93 +174,105 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   SectionHeader(title: context.tr('my_vehicles')),
                   const SizedBox(height: 12),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: AppCard(
-                          padding: EdgeInsets.zero,
-                          child: _MenuTile(
-                            icon: HugeIcons.strokeRoundedCar05,
-                            iconColor: AppColors.toyotaRed,
-                            label: context.tr('my_vehicles'),
-                            trailingLabel: '${MockData.vehicles.length}',
-                            tablet: true,
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const MyCarScreen(),
-                              ),
+                  AppCard(
+                    padding: EdgeInsets.zero,
+                    child: Column(
+                      children: [
+                        _MenuTile(
+                          icon: HugeIcons.strokeRoundedCar05,
+                          iconColor: AppColors.toyotaRed,
+                          label: context.tr('my_vehicles'),
+                          trailingLabel: '${MockData.vehicles.length}',
+                          tablet: true,
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const MyCarScreen(),
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: AppCard(
-                          padding: EdgeInsets.zero,
-                          child: _MenuTile(
-                            icon: HugeIcons.strokeRoundedInvoice03,
-                            iconColor: const Color(0xFF2B7DE9),
-                            label: context.tr('order_history_title'),
-                            trailingLabel: '${MockData.orders.length}',
-                            previewImages: MockData.orders
-                                .map((o) => o.imageAsset)
-                                .toList(),
-                            tablet: true,
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const OrderHistoryScreen(),
-                              ),
+                        const Divider(height: 1, indent: 76),
+                        _MenuTile(
+                          icon: HugeIcons.strokeRoundedInvoice03,
+                          iconColor: const Color(0xFF2B7DE9),
+                          label: context.tr('order_history_title'),
+                          trailingLabel: '${MockData.orders.length}',
+                          previewImages: MockData.orders
+                              .map((o) => o.imageAsset)
+                              .toList(),
+                          tablet: true,
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const OrderHistoryScreen(),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                        const Divider(height: 1, indent: 76),
+                        _MenuTile(
+                          icon: HugeIcons.strokeRoundedAward01,
+                          iconColor: AppColors.warning,
+                          label: context.tr('loyalty_title'),
+                          tablet: true,
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const LoyaltyScreen(),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 24),
                   SectionHeader(title: context.tr('settings_title')),
                   const SizedBox(height: 12),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: AppCard(
-                          padding: EdgeInsets.zero,
-                          child: _MenuTile(
-                            icon: HugeIcons.strokeRoundedNotification01,
-                            iconColor: AppColors.warning,
-                            label: context.tr('notifications_title'),
-                            tablet: true,
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const NotificationsScreen(),
-                              ),
+                  AppCard(
+                    padding: EdgeInsets.zero,
+                    child: Column(
+                      children: [
+                        _MenuTile(
+                          icon: HugeIcons.strokeRoundedNotification01,
+                          iconColor: AppColors.warning,
+                          label: context.tr('notifications_title'),
+                          tablet: true,
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const NotificationsScreen(),
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: AppCard(
-                          padding: EdgeInsets.zero,
-                          child: _MenuTile(
-                            icon: HugeIcons.strokeRoundedSettings02,
-                            iconColor: AppColors.textSecondary,
-                            label: context.tr('settings_title'),
-                            tablet: true,
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const SettingsScreen(),
-                              ),
+                        const Divider(height: 1, indent: 76),
+                        _MenuTile(
+                          icon: HugeIcons.strokeRoundedSettings02,
+                          iconColor: AppColors.textSecondary,
+                          label: context.tr('settings_title'),
+                          tablet: true,
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const SettingsScreen(),
                             ),
                           ),
                         ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  AppCard(
+                    padding: EdgeInsets.zero,
+                    child: _MenuTile(
+                      icon: HugeIcons.strokeRoundedAlert02,
+                      iconColor: AppColors.toyotaRed,
+                      label: context.tr('sos_title'),
+                      labelColor: AppColors.toyotaRed,
+                      tablet: true,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const SosScreen()),
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
@@ -667,6 +693,60 @@ class _MenuTile extends StatelessWidget {
                 color: AppColors.textSecondary,
                 size: tablet ? 22 : 18,
               ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _SosCard extends StatelessWidget {
+  const _SosCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(AppRadius.card),
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const SosScreen()),
+      ),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: AppColors.toyotaRed,
+          borderRadius: BorderRadius.circular(AppRadius.card),
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(9),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.15),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const HugeIcon(
+                icon: HugeIcons.strokeRoundedAlert02,
+                color: Colors.white,
+                size: 20,
+              ),
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Text(
+                context.tr('sos_title'),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+            HugeIcon(
+              icon: HugeIcons.strokeRoundedArrowRight01,
+              color: Colors.white.withValues(alpha: 0.8),
+              size: 18,
+            ),
           ],
         ),
       ),

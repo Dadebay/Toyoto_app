@@ -49,6 +49,104 @@ extension OrderLocalization on Order {
   }
 }
 
+extension TrimLevelLocalization on TrimLevel {
+  String name(AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.tk:
+        return nameTk;
+      case AppLanguage.en:
+        return nameEn;
+      case AppLanguage.ru:
+        return nameRu;
+    }
+  }
+
+  List<String> features(AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.tk:
+        return featuresTk;
+      case AppLanguage.en:
+        return featuresEn;
+      case AppLanguage.ru:
+        return featuresRu;
+    }
+  }
+}
+
+extension NewCarListingLocalization on NewCarListing {
+  String name(AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.tk:
+        return nameTk;
+      case AppLanguage.en:
+        return nameEn;
+      case AppLanguage.ru:
+        return nameRu;
+    }
+  }
+
+  String engine(AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.tk:
+        return engineTk;
+      case AppLanguage.en:
+        return engineEn;
+      case AppLanguage.ru:
+        return engineRu;
+    }
+  }
+}
+
+extension LoyaltyTransactionLocalization on LoyaltyTransaction {
+  String description(AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.tk:
+        return descriptionTk;
+      case AppLanguage.en:
+        return descriptionEn;
+      case AppLanguage.ru:
+        return descriptionRu;
+    }
+  }
+}
+
+extension ServiceHistoryRecordLocalization on ServiceHistoryRecord {
+  String description(AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.tk:
+        return descriptionTk;
+      case AppLanguage.en:
+        return descriptionEn;
+      case AppLanguage.ru:
+        return descriptionRu;
+    }
+  }
+}
+
+extension CampaignLocalization on Campaign {
+  String title(AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.tk:
+        return titleTk;
+      case AppLanguage.en:
+        return titleEn;
+      case AppLanguage.ru:
+        return titleRu;
+    }
+  }
+
+  String body(AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.tk:
+        return bodyTk;
+      case AppLanguage.en:
+        return bodyEn;
+      case AppLanguage.ru:
+        return bodyRu;
+    }
+  }
+}
+
 extension NotificationLocalization on AppNotification {
   String title(AppLanguage lang) {
     switch (lang) {

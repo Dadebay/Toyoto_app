@@ -8,6 +8,7 @@ import '../services/sound_service.dart';
 import '../state/app_state.dart';
 import '../theme/app_theme.dart';
 import '../utils/responsive.dart';
+import 'key_sharing_screen.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class RemoteConnectScreen extends StatelessWidget {
@@ -214,6 +215,51 @@ class RemoteConnectScreen extends StatelessWidget {
                           tablet: tablet,
                         ),
                       ],
+                    ),
+                    SizedBox(height: tablet ? 28 : 22),
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const KeySharingScreen(),
+                        ),
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: tablet ? 22 : 18,
+                          vertical: tablet ? 16 : 14,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.08),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Row(
+                          children: [
+                            HugeIcon(
+                              icon: HugeIcons.strokeRoundedUserSharing,
+                              color: Colors.white,
+                              size: tablet ? 22 : 18,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                context.tr('keyshare_title'),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: tablet ? 15 : 13,
+                                ),
+                              ),
+                            ),
+                            HugeIcon(
+                              icon: HugeIcons.strokeRoundedArrowRight01,
+                              color: Colors.white.withValues(alpha: 0.6),
+                              size: tablet ? 20 : 16,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 24),
                   ],

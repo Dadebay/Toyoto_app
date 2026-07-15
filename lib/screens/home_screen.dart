@@ -5,6 +5,7 @@ import '../l10n/strings.dart';
 import '../models/models.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_card.dart';
+import '../widgets/campaign_carousel.dart';
 import '../widgets/quick_action_grid.dart';
 import '../widgets/section_header.dart';
 import '../widgets/toyota_badge.dart';
@@ -16,7 +17,12 @@ import 'location_screen.dart';
 import 'nearby_service_screen.dart';
 import 'notifications_screen.dart';
 import 'remote_connect_screen.dart';
+import 'service_tracking_screen.dart';
+import 'showroom_screen.dart';
+import 'test_drive_screen.dart';
 import 'package:hugeicons/hugeicons.dart';
+import 'package:provider/provider.dart';
+import '../state/app_state.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -37,6 +43,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<QuickAction> _quickActions(BuildContext context) {
     return [
+      QuickAction(
+        icon: HugeIcons.strokeRoundedCar05,
+        label: context.tr('qa_showroom'),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const ShowroomScreen()),
+        ),
+      ),
+      QuickAction(
+        icon: HugeIcons.strokeRoundedSteering,
+        label: context.tr('qa_test_drive'),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const TestDriveScreen()),
+        ),
+      ),
       QuickAction(
         icon: HugeIcons.strokeRoundedSquareUnlock01,
         label: context.tr('qa_remote'),
@@ -82,15 +104,20 @@ class _HomeScreenState extends State<HomeScreen> {
         label: context.tr('qa_warranty'),
         onTap: () => _showInfo(
           context,
-          context.tr('qa_warranty'),
-          '3 ýyl / 100,000 km · Active',
+          icon: HugeIcons.strokeRoundedShieldUser,
+          title: context.tr('qa_warranty'),
+          body: '3 ýyl / 100,000 km · Active',
         ),
       ),
       QuickAction(
         icon: HugeIcons.strokeRoundedHeadphones,
         label: context.tr('qa_support'),
-        onTap: () =>
-            _showInfo(context, context.tr('qa_support'), '+993 12 456 789'),
+        onTap: () => _showInfo(
+          context,
+          icon: HugeIcons.strokeRoundedHeadphones,
+          title: context.tr('qa_support'),
+          body: '+993 12 456 789',
+        ),
       ),
       QuickAction(
         icon: HugeIcons.strokeRoundedNotification02,
@@ -222,8 +249,53 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Widget _activeServiceCard(BuildContext context, ServiceTicket ticket) {
+    return AppCard(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const ServiceTrackingScreen()),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppColors.warning.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: HugeIcon(
+              icon: HugeIcons.strokeRoundedWrench01,
+              color: AppColors.warning,
+            ),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  context.tr('svc_home_card_title'),
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                Text(
+                  '${context.tr('svc_step_label')} ${ticket.currentStep}/5',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ],
+            ),
+          ),
+          HugeIcon(
+            icon: HugeIcons.strokeRoundedArrowRight01,
+            color: AppColors.textSecondary,
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    context.watch<AppState>();
     return SafeArea(
       child: context.isTablet
           ? _buildTabletLayout(context)
@@ -252,8 +324,14 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }),
         ),
+        const SizedBox(height: 18),
+        const CampaignCarousel(),
         const SizedBox(height: 14),
         _upcomingServiceCard(context, vehicle),
+        if (context.watch<AppState>().activeServiceTicket != null) ...[
+          const SizedBox(height: 14),
+          _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!),
+        ],
         const SizedBox(height: 24),
         SectionHeader(title: context.tr('nav_home')),
         const SizedBox(height: 14),
@@ -288,8 +366,14 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }),
         ),
+        const SizedBox(height: 22),
+        const CampaignCarousel(),
         const SizedBox(height: 18),
         _upcomingServiceCard(context, vehicle),
+        if (context.watch<AppState>().activeServiceTicket != null) ...[
+          const SizedBox(height: 18),
+          _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!),
+        ],
         const SizedBox(height: 28),
         SectionHeader(title: context.tr('nav_home')),
         const SizedBox(height: 16),
@@ -298,19 +382,58 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void _showInfo(BuildContext context, String title, String body) {
+  void _showInfo(
+    BuildContext context, {
+    required List<List<dynamic>> icon,
+    required String title,
+    required String body,
+  }) {
     showDialog(
       context: context,
-      builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: Text(title),
-        content: Text(body),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('OK'),
+      builder: (_) => Dialog(
+        backgroundColor: Colors.transparent,
+        insetPadding: const EdgeInsets.symmetric(horizontal: 36),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(24, 28, 24, 20),
+          decoration: BoxDecoration(
+            color: AppColors.card,
+            borderRadius: BorderRadius.circular(24),
           ),
-        ],
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 60,
+                height: 60,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: AppColors.toyotaRed.withValues(alpha: 0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: HugeIcon(icon: icon, color: AppColors.toyotaRed, size: 28),
+              ),
+              const SizedBox(height: 18),
+              Text(
+                title,
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                body,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 24),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text(context.tr('got_it')),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
