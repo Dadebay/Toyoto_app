@@ -801,6 +801,11 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.en: 'Minivan',
     AppLanguage.ru: 'Минивэн',
   },
+  'showroom_body_coupe': {
+    AppLanguage.tk: 'Kupe',
+    AppLanguage.en: 'Coupe',
+    AppLanguage.ru: 'Купе',
+  },
   // Compare
   'compare_title': {
     AppLanguage.tk: 'Ulaglary deňeşdir',

@@ -125,6 +125,8 @@ class _ShowroomCard extends StatelessWidget {
     switch (listing.bodyType) {
       case 'suv':
         return context.tr('showroom_body_suv');
+      case 'coupe':
+        return context.tr('showroom_body_coupe');
       case 'minivan':
         return context.tr('showroom_body_minivan');
       default:

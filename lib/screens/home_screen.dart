@@ -32,7 +32,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late int _selected = MockData.vehicles.indexOf(MockData.series3_2020);
+  late int _selected = MockData.vehicles.indexOf(MockData.m5);
   final Set<int> _loadedVehicles = {};
 
   @override
