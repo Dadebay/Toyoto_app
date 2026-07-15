@@ -115,7 +115,7 @@ class _ClimateScreenState extends State<ClimateScreen> {
                     HugeIcon(
                       icon: HugeIcons.strokeRoundedFan01,
                       color: _fanLevel == 0
-                          ? AppColors.toyotaRed
+                          ? AppColors.bmwBlue
                           : Colors.white54,
                       size: tablet ? 28 : 22,
                     )
@@ -125,7 +125,7 @@ class _ClimateScreenState extends State<ClimateScreen> {
                       width: barWidth,
                       height: (tablet ? 18.0 : 14.0) + i * (tablet ? 10 : 8),
                       decoration: BoxDecoration(
-                        color: active ? AppColors.toyotaRed : Colors.white24,
+                        color: active ? AppColors.bmwBlue : Colors.white24,
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
@@ -134,7 +134,7 @@ class _ClimateScreenState extends State<ClimateScreen> {
                     i == 0 ? '0' : '$i',
                     style: TextStyle(
                       color: i == _fanLevel
-                          ? AppColors.toyotaRed
+                          ? AppColors.bmwBlue
                           : Colors.white54,
                       fontSize: tablet ? 13 : 11,
                       fontWeight: FontWeight.w700,
@@ -361,12 +361,12 @@ class _ToggleCard extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: on
-              ? AppColors.toyotaRed.withValues(alpha: 0.15)
+              ? AppColors.bmwBlue.withValues(alpha: 0.15)
               : Colors.white.withValues(alpha: 0.06),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: on
-                ? AppColors.toyotaRed
+                ? AppColors.bmwBlue
                 : Colors.white.withValues(alpha: 0.1),
           ),
         ),
@@ -374,7 +374,7 @@ class _ToggleCard extends StatelessWidget {
           children: [
             HugeIcon(
               icon: icon,
-              color: on ? AppColors.toyotaRed : Colors.white70,
+              color: on ? AppColors.bmwBlue : Colors.white70,
               size: tablet ? 28 : 22,
             ),
             SizedBox(height: tablet ? 10 : 8),

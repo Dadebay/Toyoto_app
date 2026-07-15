@@ -7,7 +7,7 @@ import '../models/models.dart';
 import '../state/app_state.dart';
 import '../theme/app_theme.dart';
 import '../utils/responsive.dart';
-import '../widgets/toyota_badge.dart';
+import '../widgets/bmw_badge.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class AiAssistantScreen extends StatefulWidget {
@@ -72,7 +72,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
       appBar: AppBar(
         title: Row(
           children: [
-            ToyotaBadge(size: tablet ? 34 : 30),
+            BmwBadge(size: tablet ? 34 : 30),
             const SizedBox(width: 10),
             Text(context.tr('ai_title')),
           ],
@@ -171,7 +171,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
                         child: Container(
                           padding: EdgeInsets.all(tablet ? 17 : 14),
                           decoration: const BoxDecoration(
-                            color: AppColors.toyotaRed,
+                            color: AppColors.bmwBlue,
                             shape: BoxShape.circle,
                           ),
                           child: HugeIcon(
@@ -215,7 +215,7 @@ class _BubbleRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           if (!isUser) ...[
-            ToyotaBadge(size: tablet ? 32 : 28),
+            BmwBadge(size: tablet ? 32 : 28),
             const SizedBox(width: 8),
           ],
           Flexible(
@@ -229,7 +229,7 @@ class _BubbleRow extends StatelessWidget {
                   vertical: tablet ? 15 : 12,
                 ),
                 decoration: BoxDecoration(
-                  color: isUser ? AppColors.toyotaRed : AppColors.card,
+                  color: isUser ? AppColors.bmwBlue : AppColors.card,
                   borderRadius: BorderRadius.only(
                     topLeft: const Radius.circular(18),
                     topRight: const Radius.circular(18),
@@ -266,7 +266,7 @@ class _TypingIndicator extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
         children: [
-          ToyotaBadge(size: tablet ? 32 : 28),
+          BmwBadge(size: tablet ? 32 : 28),
           const SizedBox(width: 8),
           Container(
             padding: EdgeInsets.symmetric(

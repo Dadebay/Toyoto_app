@@ -53,7 +53,7 @@ class SettingsScreen extends StatelessWidget {
                   if (selected)
                     HugeIcon(
                       icon: HugeIcons.strokeRoundedCheckmarkCircle02,
-                      color: AppColors.toyotaRed,
+                      color: AppColors.bmwBlue,
                       size: tablet ? 26 : 24,
                     )
                   else

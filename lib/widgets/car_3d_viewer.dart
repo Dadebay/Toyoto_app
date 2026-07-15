@@ -139,7 +139,7 @@ customElements.whenDefined('model-viewer').then(() => {
           id: 'car',
           backgroundColor: Colors.transparent,
           src: widget.modelAsset,
-          alt: 'Toyota 3D model',
+          alt: 'BMW 3D model',
           cameraControls: widget.cameraControls,
           disableZoom: false,
           disablePan: true,
@@ -178,7 +178,7 @@ customElements.whenDefined('model-viewer').then(() => {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const CircularProgressIndicator(
-                      color: AppColors.toyotaRed,
+                      color: AppColors.bmwBlue,
                       strokeWidth: 2.5,
                     ),
                     const SizedBox(height: 12),

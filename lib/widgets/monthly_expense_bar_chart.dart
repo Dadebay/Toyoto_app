@@ -4,7 +4,7 @@ import '../models/models.dart';
 import '../theme/app_theme.dart';
 
 const _kExpenseColors = [
-  AppColors.toyotaRed,
+  AppColors.bmwBlue,
   AppColors.warning,
   Color(0xFF2B7DE9),
 ];

@@ -104,7 +104,7 @@ class _SosScreenState extends State<SosScreen>
         builder: (context, child) => CustomPaint(
           painter: _FillRingPainter(
             progress: _fillController.value,
-            color: AppColors.toyotaRed,
+            color: AppColors.bmwBlue,
           ),
           child: SizedBox(
             width: size,
@@ -114,7 +114,7 @@ class _SosScreenState extends State<SosScreen>
                 width: size * 0.76,
                 height: size * 0.76,
                 decoration: const BoxDecoration(
-                  color: AppColors.toyotaRed,
+                  color: AppColors.bmwBlue,
                   shape: BoxShape.circle,
                 ),
                 child: HugeIcon(
@@ -152,12 +152,12 @@ class _SosScreenState extends State<SosScreen>
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: AppColors.toyotaRed.withValues(alpha: 0.1),
+                  color: AppColors.bmwBlue.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: HugeIcon(
                   icon: HugeIcons.strokeRoundedCarAlert,
-                  color: AppColors.toyotaRed,
+                  color: AppColors.bmwBlue,
                   size: tablet ? 20 : 17,
                 ),
               ),
@@ -186,8 +186,8 @@ class _SosScreenState extends State<SosScreen>
             child: OutlinedButton(
               onPressed: () => Navigator.pop(context),
               style: OutlinedButton.styleFrom(
-                foregroundColor: AppColors.toyotaRed,
-                side: const BorderSide(color: AppColors.toyotaRed),
+                foregroundColor: AppColors.bmwBlue,
+                side: const BorderSide(color: AppColors.bmwBlue),
                 padding: EdgeInsets.symmetric(vertical: tablet ? 16 : 14),
               ),
               child: Text(context.tr('sos_cancel_request')),
@@ -247,11 +247,11 @@ class _SosScreenState extends State<SosScreen>
       children: [
         TileLayer(
           urlTemplate: 'https://map.ayterek.com/tile/{z}/{x}/{y}.png',
-          userAgentPackageName: 'com.toyotatm.mobileapp',
+          userAgentPackageName: 'com.bmwconnect.mobileapp',
         ),
         PolylineLayer(
           polylines: [
-            Polyline(points: _route, strokeWidth: 3, color: AppColors.toyotaRed.withValues(alpha: 0.6)),
+            Polyline(points: _route, strokeWidth: 3, color: AppColors.bmwBlue.withValues(alpha: 0.6)),
           ],
         ),
         MarkerLayer(
@@ -279,7 +279,7 @@ class _SosScreenState extends State<SosScreen>
               height: 46,
               child: Container(
                 decoration: const BoxDecoration(
-                  color: AppColors.toyotaRed,
+                  color: AppColors.bmwBlue,
                   shape: BoxShape.circle,
                 ),
                 alignment: Alignment.center,

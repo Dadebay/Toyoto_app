@@ -34,7 +34,7 @@ const List<_PaintOption> _kPaintOptions = [
   _PaintOption('Silver', Color(0xFFC8CDD1)),
   _PaintOption('Gray', Color(0xFF54585C)),
   _PaintOption('Black', Color(0xFF0A0A0C)),
-  _PaintOption('Red', AppColors.toyotaRed),
+  _PaintOption('Red', AppColors.bmwBlue),
   _PaintOption('Maroon', Color(0xFF6B1522)),
   _PaintOption('Blue', Color(0xFF1E3F73)),
   _PaintOption('Green', Color(0xFF2F4538)),
@@ -228,7 +228,7 @@ class _Car3DFullscreenScreenState extends State<Car3DFullscreenScreen>
                             ),
                             decoration: BoxDecoration(
                               color: selected
-                                  ? AppColors.toyotaRed
+                                  ? AppColors.bmwBlue
                                   : Colors.white.withValues(alpha: 0.08),
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -311,11 +311,11 @@ class _Car3DFullscreenScreenState extends State<Car3DFullscreenScreen>
                             vertical: tablet ? 18 : 14,
                           ),
                           decoration: BoxDecoration(
-                            color: AppColors.toyotaRed,
+                            color: AppColors.bmwBlue,
                             borderRadius: BorderRadius.circular(30),
                             boxShadow: [
                               BoxShadow(
-                                color: AppColors.toyotaRed.withValues(
+                                color: AppColors.bmwBlue.withValues(
                                   alpha: 0.5,
                                 ),
                                 blurRadius: 20,

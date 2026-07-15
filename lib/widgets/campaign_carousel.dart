@@ -213,7 +213,7 @@ class _CampaignCarouselState extends State<CampaignCarousel> {
               width: selected ? 18 : 6,
               height: 6,
               decoration: BoxDecoration(
-                color: selected ? AppColors.toyotaRed : AppColors.divider,
+                color: selected ? AppColors.bmwBlue : AppColors.divider,
                 borderRadius: BorderRadius.circular(3),
               ),
             );

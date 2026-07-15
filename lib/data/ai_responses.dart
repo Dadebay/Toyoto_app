@@ -11,22 +11,22 @@ String getAiResponse(String input, AppLanguage lang) {
   if (has(['salam', 'hello', 'hi', 'привет', 'здравств'])) {
     return {
       AppLanguage.tk:
-          'Salam! Size Toyota Camry 2025 ulagyňyz barada nähili kömek gerek?',
+          'Salam! Size BMW BMW 530i ulagyňyz barada nähili kömek gerek?',
       AppLanguage.en:
-          'Hello! How can I help with your Toyota Camry 2025 today?',
+          'Hello! How can I help with your BMW BMW 530i today?',
       AppLanguage.ru:
-          'Здравствуйте! Чем могу помочь с вашим Toyota Camry 2025?',
+          'Здравствуйте! Чем могу помочь с вашим BMW BMW 530i?',
     }[lang]!;
   }
 
   if (has(['servis', 'service', 'сервис', 'bron', 'appointment', 'запис'])) {
     return {
       AppLanguage.tk:
-          'Elbetde! Iň ýakyn Toyota Aşgabat merkezine 3 günden bron edip bilerin. Dowam etjekmi?',
+          'Elbetde! Iň ýakyn BMW Aşgabat merkezine 3 günden bron edip bilerin. Dowam etjekmi?',
       AppLanguage.en:
-          'Sure! I can book you the nearest slot at Toyota Aşgabat in 3 days. Shall I proceed?',
+          'Sure! I can book you the nearest slot at BMW Aşgabat in 3 days. Shall I proceed?',
       AppLanguage.ru:
-          'Конечно! Могу записать вас в ближайший Toyota Aşgabat через 3 дня. Продолжить?',
+          'Конечно! Могу записать вас в ближайший BMW Aşgabat через 3 дня. Продолжить?',
     }[lang]!;
   }
 
@@ -86,10 +86,10 @@ String getAiResponse(String input, AppLanguage lang) {
 
   return {
     AppLanguage.tk:
-        'Düşnükli. Bu barada size iň ýakyn Toyota hyzmat merkezi arkaly jikme-jik maglumat berip bilerin. Servis bron etmek isleýärsiňizmi?',
+        'Düşnükli. Bu barada size iň ýakyn BMW hyzmat merkezi arkaly jikme-jik maglumat berip bilerin. Servis bron etmek isleýärsiňizmi?',
     AppLanguage.en:
-        'Got it. I can connect you with the nearest Toyota service center for more details. Would you like to book a service?',
+        'Got it. I can connect you with the nearest BMW service center for more details. Would you like to book a service?',
     AppLanguage.ru:
-        'Понял вас. Могу подробнее уточнить это в ближайшем сервисном центре Toyota. Хотите записаться на сервис?',
+        'Понял вас. Могу подробнее уточнить это в ближайшем сервисном центре BMW. Хотите записаться на сервис?',
   }[lang]!;
 }

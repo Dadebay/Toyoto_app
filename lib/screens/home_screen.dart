@@ -8,7 +8,7 @@ import '../widgets/app_card.dart';
 import '../widgets/campaign_carousel.dart';
 import '../widgets/quick_action_grid.dart';
 import '../widgets/section_header.dart';
-import '../widgets/toyota_badge.dart';
+import '../widgets/bmw_badge.dart';
 import '../widgets/vehicle_card.dart';
 import '../utils/responsive.dart';
 import 'book_service_screen.dart';
@@ -32,7 +32,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late int _selected = MockData.vehicles.indexOf(MockData.camry2020);
+  late int _selected = MockData.vehicles.indexOf(MockData.series3_2020);
   final Set<int> _loadedVehicles = {};
 
   @override
@@ -133,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _header(BuildContext context) {
     return Row(
       children: [
-        const ToyotaBadge(size: 42),
+        const BmwBadge(size: 42),
         const SizedBox(width: 12),
         Expanded(
           child: Column(
@@ -188,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
               _selected = i;
               _loadedVehicles.add(i);
             }),
-            selectedColor: AppColors.toyotaRed,
+            selectedColor: AppColors.bmwBlue,
             backgroundColor: AppColors.card,
             labelStyle: TextStyle(
               color: selected ? Colors.white : AppColors.textPrimary,
@@ -216,12 +216,12 @@ class _HomeScreenState extends State<HomeScreen> {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: AppColors.toyotaRed.withValues(alpha: 0.1),
+              color: AppColors.bmwBlue.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: HugeIcon(
               icon: HugeIcons.strokeRoundedWrench02,
-              color: AppColors.toyotaRed,
+              color: AppColors.bmwBlue,
             ),
           ),
           const SizedBox(width: 14),
@@ -407,10 +407,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 60,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: AppColors.toyotaRed.withValues(alpha: 0.1),
+                  color: AppColors.bmwBlue.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
-                child: HugeIcon(icon: icon, color: AppColors.toyotaRed, size: 28),
+                child: HugeIcon(icon: icon, color: AppColors.bmwBlue, size: 28),
               ),
               const SizedBox(height: 18),
               Text(

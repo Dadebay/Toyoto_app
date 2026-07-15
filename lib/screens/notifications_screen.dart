@@ -61,7 +61,7 @@ class NotificationsScreen extends StatelessWidget {
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: unread
-                ? AppColors.toyotaRed.withValues(alpha: 0.045)
+                ? AppColors.bmwBlue.withValues(alpha: 0.045)
                 : AppColors.card,
             border: Border.all(color: AppColors.divider),
           ),
@@ -71,7 +71,7 @@ class NotificationsScreen extends StatelessWidget {
               children: [
                 // Left accent bar signals unread state without needing a
                 // non-uniform (per-side-colored) border.
-                Container(width: unread ? 3 : 0, color: AppColors.toyotaRed),
+                Container(width: unread ? 3 : 0, color: AppColors.bmwBlue),
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.all(tablet ? 20 : 16),
@@ -82,14 +82,14 @@ class NotificationsScreen extends StatelessWidget {
                           padding: EdgeInsets.all(tablet ? 14 : 10),
                           decoration: BoxDecoration(
                             color: unread
-                                ? AppColors.toyotaRed.withValues(alpha: 0.12)
+                                ? AppColors.bmwBlue.withValues(alpha: 0.12)
                                 : AppColors.surface,
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: HugeIcon(
                             icon: n.icon,
                             color: unread
-                                ? AppColors.toyotaRed
+                                ? AppColors.bmwBlue
                                 : AppColors.textSecondary,
                             size: tablet ? 26 : 20,
                           ),

@@ -19,7 +19,7 @@ String _statusKey(int score) {
 Color _statusColor(int score) {
   if (score >= 90) return AppColors.success;
   if (score >= 75) return AppColors.warning;
-  return AppColors.toyotaRed;
+  return AppColors.bmwBlue;
 }
 
 class HealthCheckScreen extends StatelessWidget {

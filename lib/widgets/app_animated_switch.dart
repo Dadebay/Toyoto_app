@@ -50,7 +50,7 @@ class _AppAnimatedSwitchState extends State<AppAnimatedSwitch> {
         padding: EdgeInsets.all(3 * scale),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          color: on ? AppColors.toyotaRed : AppColors.divider,
+          color: on ? AppColors.bmwBlue : AppColors.divider,
         ),
         child: AnimatedAlign(
           duration: const Duration(milliseconds: 300),
@@ -80,7 +80,7 @@ class _AppAnimatedSwitchState extends State<AppAnimatedSwitch> {
                     ? HugeIcon(
                         key: const ValueKey('on'),
                         icon: HugeIcons.strokeRoundedTick01,
-                        color: AppColors.toyotaRed,
+                        color: AppColors.bmwBlue,
                         size: 13 * scale,
                       )
                     : const SizedBox.shrink(key: ValueKey('off')),

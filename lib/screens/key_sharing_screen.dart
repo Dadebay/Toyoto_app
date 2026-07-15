@@ -95,7 +95,7 @@ class _KeySharingScreenState extends State<KeySharingScreen> {
                     vertical: 10,
                   ),
                   decoration: BoxDecoration(
-                    color: selected ? AppColors.toyotaRed : AppColors.surface,
+                    color: selected ? AppColors.bmwBlue : AppColors.surface,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
@@ -136,12 +136,12 @@ class _KeySharingScreenState extends State<KeySharingScreen> {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: AppColors.toyotaRed.withValues(alpha: 0.1),
+              color: AppColors.bmwBlue.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: HugeIcon(
               icon: HugeIcons.strokeRoundedUserSharing,
-              color: AppColors.toyotaRed,
+              color: AppColors.bmwBlue,
               size: tablet ? 22 : 18,
             ),
           ),
@@ -168,7 +168,7 @@ class _KeySharingScreenState extends State<KeySharingScreen> {
             onPressed: () => context.read<AppState>().revokeKey(key.id),
             icon: HugeIcon(
               icon: HugeIcons.strokeRoundedDelete02,
-              color: AppColors.toyotaRed,
+              color: AppColors.bmwBlue,
               size: tablet ? 20 : 18,
             ),
           ),

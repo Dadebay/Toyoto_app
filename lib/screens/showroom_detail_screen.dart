@@ -26,7 +26,7 @@ const List<_PaintOption> _kPaintOptions = [
   _PaintOption('Silver', Color(0xFFC8CDD1)),
   _PaintOption('Gray', Color(0xFF54585C)),
   _PaintOption('Black', Color(0xFF0A0A0C)),
-  _PaintOption('Red', AppColors.toyotaRed),
+  _PaintOption('Red', AppColors.bmwBlue),
   _PaintOption('Blue', Color(0xFF1E3F73)),
 ];
 
@@ -208,7 +208,7 @@ class _ShowroomDetailScreenState extends State<ShowroomDetailScreen> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             decoration: BoxDecoration(
-              color: selected ? AppColors.toyotaRed : Colors.white.withValues(alpha: 0.08),
+              color: selected ? AppColors.bmwBlue : Colors.white.withValues(alpha: 0.08),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(

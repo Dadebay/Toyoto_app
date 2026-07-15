@@ -55,7 +55,7 @@ class _FinanceCalculatorScreenState extends State<FinanceCalculatorScreen> {
             _money(_monthlyPayment),
             key: ValueKey(_monthlyPayment),
             style: TextStyle(
-              color: AppColors.toyotaRed,
+              color: AppColors.bmwBlue,
               fontWeight: FontWeight.w800,
               fontSize: tablet ? 46 : 38,
             ),
@@ -96,7 +96,7 @@ class _FinanceCalculatorScreenState extends State<FinanceCalculatorScreen> {
           min: 0,
           max: 0.5,
           divisions: 50,
-          activeColor: AppColors.toyotaRed,
+          activeColor: AppColors.bmwBlue,
           onChanged: (v) => setState(() => _downPaymentPercent = v),
         ),
         const SizedBox(height: 12),
@@ -118,7 +118,7 @@ class _FinanceCalculatorScreenState extends State<FinanceCalculatorScreen> {
                   vertical: 10,
                 ),
                 decoration: BoxDecoration(
-                  color: selected ? AppColors.toyotaRed : AppColors.surface,
+                  color: selected ? AppColors.bmwBlue : AppColors.surface,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
@@ -145,7 +145,7 @@ class _FinanceCalculatorScreenState extends State<FinanceCalculatorScreen> {
           size: tablet ? 160 : 130,
         ),
         const SizedBox(height: 20),
-        _breakdownRow(context.tr('finance_principal'), _principal, AppColors.toyotaRed),
+        _breakdownRow(context.tr('finance_principal'), _principal, AppColors.bmwBlue),
         _breakdownRow(context.tr('finance_total_interest'), _totalInterest, AppColors.warning),
         const Divider(height: 24),
         _breakdownRow(context.tr('finance_total_payment'), _totalPayment, AppColors.textPrimary, bold: true),

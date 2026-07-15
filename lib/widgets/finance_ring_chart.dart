@@ -66,7 +66,7 @@ class _FinanceRingPainter extends CustomPainter {
     canvas.drawArc(rect, 0, 2 * pi, false, trackPaint);
 
     final principalPaint = Paint()
-      ..color = AppColors.toyotaRed
+      ..color = AppColors.bmwBlue
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;

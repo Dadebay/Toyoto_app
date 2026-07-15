@@ -112,7 +112,7 @@ class _ServiceTrackingScreenState extends State<ServiceTrackingScreen> {
         final color = isDone
             ? AppColors.success
             : isActive
-            ? AppColors.toyotaRed
+            ? AppColors.bmwBlue
             : AppColors.divider;
 
         Widget circle = Container(

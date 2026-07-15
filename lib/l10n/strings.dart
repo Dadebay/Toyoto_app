@@ -31,9 +31,9 @@ extension AppLanguageLabel on AppLanguage {
 
 const Map<String, Map<AppLanguage, String>> _strings = {
   'app_name': {
-    AppLanguage.tk: 'Toyota TM',
-    AppLanguage.en: 'Toyota TM',
-    AppLanguage.ru: 'Toyota TM',
+    AppLanguage.tk: 'BMW Connect',
+    AppLanguage.en: 'BMW Connect',
+    AppLanguage.ru: 'BMW Connect',
   },
   'greeting': {
     AppLanguage.tk: 'Salam, Ahmet!',
@@ -312,9 +312,9 @@ const Map<String, Map<AppLanguage, String>> _strings = {
   },
   // Nearby service
   'nearby_title': {
-    AppLanguage.tk: 'Ýakyn Toyota Servisleri',
-    AppLanguage.en: 'Nearby Toyota Service',
-    AppLanguage.ru: 'Ближайшие сервисы Toyota',
+    AppLanguage.tk: 'Ýakyn BMW Servisleri',
+    AppLanguage.en: 'Nearby BMW Service',
+    AppLanguage.ru: 'Ближайшие сервисы BMW',
   },
   'showroom': {
     AppLanguage.tk: 'Showroom',
@@ -465,9 +465,9 @@ const Map<String, Map<AppLanguage, String>> _strings = {
   },
   // AI assistant
   'ai_title': {
-    AppLanguage.tk: 'Toyota AI Kömekçisi',
-    AppLanguage.en: 'Toyota AI Assistant',
-    AppLanguage.ru: 'AI Помощник Toyota',
+    AppLanguage.tk: 'BMW AI Kömekçisi',
+    AppLanguage.en: 'BMW AI Assistant',
+    AppLanguage.ru: 'AI Помощник BMW',
   },
   'ai_greeting': {
     AppLanguage.tk: 'Salam! Size nädip kömek edip bilerin?',
@@ -506,9 +506,9 @@ const Map<String, Map<AppLanguage, String>> _strings = {
   },
   // Store
   'store_title': {
-    AppLanguage.tk: 'Toyota Store',
-    AppLanguage.en: 'Toyota Store',
-    AppLanguage.ru: 'Магазин Toyota',
+    AppLanguage.tk: 'BMW Store',
+    AppLanguage.en: 'BMW Store',
+    AppLanguage.ru: 'Магазин BMW',
   },
   'add_to_cart': {
     AppLanguage.tk: 'Sebede goş',

@@ -64,7 +64,7 @@ class _LocationScreenState extends State<LocationScreen> {
             children: [
               TileLayer(
                 urlTemplate: 'https://map.ayterek.com/tile/{z}/{x}/{y}.png',
-                userAgentPackageName: 'com.toyotatm.mobileapp',
+                userAgentPackageName: 'com.bmwconnect.mobileapp',
               ),
               MarkerLayer(
                 markers: List.generate(vehicles.length, (i) {
@@ -86,7 +86,7 @@ class _LocationScreenState extends State<LocationScreen> {
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               color: selected
-                                  ? AppColors.toyotaRed
+                                  ? AppColors.bmwBlue
                                   : AppColors.black,
                               shape: BoxShape.circle,
                               border: Border.all(color: Colors.white, width: 2),
@@ -94,7 +94,7 @@ class _LocationScreenState extends State<LocationScreen> {
                                 BoxShadow(
                                   color:
                                       (selected
-                                              ? AppColors.toyotaRed
+                                              ? AppColors.bmwBlue
                                               : AppColors.black)
                                           .withValues(alpha: 0.4),
                                   blurRadius: 12,
@@ -111,7 +111,7 @@ class _LocationScreenState extends State<LocationScreen> {
                           HugeIcon(
                             icon: HugeIcons.strokeRoundedArrowDown01,
                             color: selected
-                                ? AppColors.toyotaRed
+                                ? AppColors.bmwBlue
                                 : AppColors.black,
                             size: 22,
                           ),
@@ -177,12 +177,12 @@ class _VehicleLocationCard extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(tablet ? 10 : 8),
                 decoration: BoxDecoration(
-                  color: AppColors.toyotaRed.withValues(alpha: 0.1),
+                  color: AppColors.bmwBlue.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: HugeIcon(
                   icon: HugeIcons.strokeRoundedCar02,
-                  color: AppColors.toyotaRed,
+                  color: AppColors.bmwBlue,
                   size: tablet ? 19 : 16,
                 ),
               ),

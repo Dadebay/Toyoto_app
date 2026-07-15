@@ -67,7 +67,7 @@ class ExpensesScreen extends StatelessWidget {
           const SizedBox(height: 18),
           Row(
             children: [
-              _iconAmount(context, HugeIcons.strokeRoundedFuelStation, AppColors.toyotaRed, context.tr('expenses_fuel'), thisMonth.fuelCost),
+              _iconAmount(context, HugeIcons.strokeRoundedFuelStation, AppColors.bmwBlue, context.tr('expenses_fuel'), thisMonth.fuelCost),
               _iconAmount(context, HugeIcons.strokeRoundedWrench01, AppColors.warning, context.tr('expenses_service'), thisMonth.serviceCost),
               _iconAmount(context, HugeIcons.strokeRoundedSettings02, const Color(0xFF2B7DE9), context.tr('expenses_parts'), thisMonth.partsCost),
             ],
@@ -133,7 +133,7 @@ class ExpensesScreen extends StatelessWidget {
       builder: (context) => Wrap(
         spacing: 16,
         children: [
-          dot(AppColors.toyotaRed, context.tr('expenses_fuel')),
+          dot(AppColors.bmwBlue, context.tr('expenses_fuel')),
           dot(AppColors.warning, context.tr('expenses_service')),
           dot(const Color(0xFF2B7DE9), context.tr('expenses_parts')),
         ],

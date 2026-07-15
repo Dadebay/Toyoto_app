@@ -36,7 +36,7 @@ class SectionHeader extends StatelessWidget {
             child: Text(
               actionLabel!,
               style: TextStyle(
-                color: AppColors.toyotaRed,
+                color: AppColors.bmwBlue,
                 fontWeight: FontWeight.w600,
                 fontSize: tablet ? 15 : 13,
               ),

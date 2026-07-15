@@ -50,7 +50,7 @@ class StoreScreen extends StatelessWidget {
                       vertical: 1,
                     ),
                     decoration: const BoxDecoration(
-                      color: AppColors.toyotaRed,
+                      color: AppColors.bmwBlue,
                       shape: BoxShape.circle,
                     ),
                     constraints: const BoxConstraints(
@@ -128,7 +128,7 @@ class _ShowroomBanner extends StatelessWidget {
           gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [AppColors.toyotaRed, AppColors.toyotaRedDark],
+            colors: [AppColors.bmwBlue, AppColors.bmwBlueDark],
           ),
           borderRadius: BorderRadius.circular(AppRadius.card),
         ),
@@ -242,7 +242,7 @@ class _ProductCardState extends State<_ProductCard> {
                                 vertical: 3,
                               ),
                               decoration: BoxDecoration(
-                                color: AppColors.toyotaRed,
+                                color: AppColors.bmwBlue,
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(
@@ -282,7 +282,7 @@ class _ProductCardState extends State<_ProductCard> {
                   '\$${p.price.toStringAsFixed(0)}',
                   style: TextStyle(
                     fontWeight: FontWeight.w800,
-                    color: AppColors.toyotaRed,
+                    color: AppColors.bmwBlue,
                     fontSize: tablet ? 18 : 15,
                   ),
                 ),
@@ -301,14 +301,14 @@ class _ProductCardState extends State<_ProductCard> {
                       decoration: BoxDecoration(
                         color: _justAdded
                             ? AppColors.success
-                            : AppColors.toyotaRed,
+                            : AppColors.bmwBlue,
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
                             color:
                                 (_justAdded
                                         ? AppColors.success
-                                        : AppColors.toyotaRed)
+                                        : AppColors.bmwBlue)
                                     .withValues(alpha: 0.35),
                             blurRadius: 8,
                             offset: const Offset(0, 3),

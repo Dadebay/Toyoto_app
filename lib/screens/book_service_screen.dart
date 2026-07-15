@@ -70,7 +70,7 @@ class _BookServiceScreenState extends State<BookServiceScreen> {
           avatar: HugeIcon(
             icon: _serviceIcons[i],
             size: tablet ? 19 : 16,
-            color: selected ? Colors.white : AppColors.toyotaRed,
+            color: selected ? Colors.white : AppColors.bmwBlue,
           ),
           labelStyle: TextStyle(
             color: selected ? Colors.white : AppColors.textPrimary,
@@ -80,7 +80,7 @@ class _BookServiceScreenState extends State<BookServiceScreen> {
           padding: tablet
               ? const EdgeInsets.symmetric(horizontal: 8, vertical: 6)
               : null,
-          selectedColor: AppColors.toyotaRed,
+          selectedColor: AppColors.bmwBlue,
           backgroundColor: AppColors.card,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -100,12 +100,12 @@ class _BookServiceScreenState extends State<BookServiceScreen> {
           Container(
             padding: EdgeInsets.all(tablet ? 14 : 10),
             decoration: BoxDecoration(
-              color: AppColors.toyotaRed.withValues(alpha: 0.1),
+              color: AppColors.bmwBlue.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: HugeIcon(
               icon: HugeIcons.strokeRoundedStore02,
-              color: AppColors.toyotaRed,
+              color: AppColors.bmwBlue,
               size: tablet ? 26 : 20,
             ),
           ),
@@ -286,7 +286,7 @@ class _BookServiceScreenState extends State<BookServiceScreen> {
           data: Theme.of(context).copyWith(
             colorScheme: Theme.of(
               context,
-            ).colorScheme.copyWith(primary: AppColors.toyotaRed),
+            ).colorScheme.copyWith(primary: AppColors.bmwBlue),
           ),
           child: child!,
         );
@@ -344,12 +344,12 @@ class _BookServiceScreenState extends State<BookServiceScreen> {
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
                         color: selected
-                            ? AppColors.toyotaRed.withValues(alpha: 0.06)
+                            ? AppColors.bmwBlue.withValues(alpha: 0.06)
                             : AppColors.card,
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
                           color: selected
-                              ? AppColors.toyotaRed
+                              ? AppColors.bmwBlue
                               : AppColors.divider,
                           width: selected ? 1.5 : 1,
                         ),
@@ -359,12 +359,12 @@ class _BookServiceScreenState extends State<BookServiceScreen> {
                           Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: AppColors.toyotaRed.withValues(alpha: 0.1),
+                              color: AppColors.bmwBlue.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: const HugeIcon(
                               icon: HugeIcons.strokeRoundedStore02,
-                              color: AppColors.toyotaRed,
+                              color: AppColors.bmwBlue,
                               size: 20,
                             ),
                           ),
@@ -413,7 +413,7 @@ class _BookServiceScreenState extends State<BookServiceScreen> {
                             const SizedBox(width: 8),
                             const HugeIcon(
                               icon: HugeIcons.strokeRoundedCheckmarkCircle02,
-                              color: AppColors.toyotaRed,
+                              color: AppColors.bmwBlue,
                               size: 20,
                             ),
                           ],
@@ -543,10 +543,10 @@ class _DateChip extends StatelessWidget {
         duration: const Duration(milliseconds: 180),
         width: tablet ? 68 : 56,
         decoration: BoxDecoration(
-          color: selected ? AppColors.toyotaRed : AppColors.card,
+          color: selected ? AppColors.bmwBlue : AppColors.card,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: selected ? AppColors.toyotaRed : AppColors.divider,
+            color: selected ? AppColors.bmwBlue : AppColors.divider,
           ),
         ),
         alignment: Alignment.center,
@@ -597,16 +597,16 @@ class _MoreDateButton extends StatelessWidget {
       child: Container(
         width: tablet ? 68 : 56,
         decoration: BoxDecoration(
-          color: selected ? AppColors.toyotaRed : AppColors.card,
+          color: selected ? AppColors.bmwBlue : AppColors.card,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: selected ? AppColors.toyotaRed : AppColors.divider,
+            color: selected ? AppColors.bmwBlue : AppColors.divider,
           ),
         ),
         alignment: Alignment.center,
         child: HugeIcon(
           icon: HugeIcons.strokeRoundedCalendar03,
-          color: selected ? Colors.white : AppColors.toyotaRed,
+          color: selected ? Colors.white : AppColors.bmwBlue,
           size: tablet ? 26 : 22,
         ),
       ),

@@ -14,7 +14,7 @@ import 'package:hugeicons/hugeicons.dart';
 const _tierGradients = {
   'bronze': [Color(0xFF8D6E4B), Color(0xFF5C4630)],
   'silver': [Color(0xFFB0B4BA), Color(0xFF7C818A)],
-  'gold': [AppColors.toyotaRed, AppColors.toyotaRedDark],
+  'gold': [AppColors.bmwBlue, AppColors.bmwBlueDark],
 };
 
 class LoyaltyScreen extends StatelessWidget {
@@ -133,7 +133,7 @@ class LoyaltyScreen extends StatelessWidget {
             value: _tierProgress(points, tier),
             minHeight: 8,
             backgroundColor: AppColors.divider,
-            valueColor: const AlwaysStoppedAnimation(AppColors.toyotaRed),
+            valueColor: const AlwaysStoppedAnimation(AppColors.bmwBlue),
           ),
         ),
       ],
@@ -155,12 +155,12 @@ class LoyaltyScreen extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(tablet ? 12 : 9),
             decoration: BoxDecoration(
-              color: AppColors.toyotaRed.withValues(alpha: 0.1),
+              color: AppColors.bmwBlue.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: HugeIcon(
               icon: t.icon,
-              color: AppColors.toyotaRed,
+              color: AppColors.bmwBlue,
               size: tablet ? 22 : 18,
             ),
           ),
@@ -186,7 +186,7 @@ class LoyaltyScreen extends StatelessWidget {
           Text(
             '${positive ? '+' : ''}${t.points}',
             style: TextStyle(
-              color: positive ? AppColors.success : AppColors.toyotaRed,
+              color: positive ? AppColors.success : AppColors.bmwBlue,
               fontWeight: FontWeight.w800,
               fontSize: tablet ? 16 : 14,
             ),

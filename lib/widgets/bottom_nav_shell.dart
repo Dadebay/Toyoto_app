@@ -70,7 +70,7 @@ class _BottomNavShellState extends State<BottomNavShell> {
                         HugeIcon(
                           icon: icon,
                           color: selected
-                              ? AppColors.toyotaRed
+                              ? AppColors.bmwBlue
                               : AppColors.textSecondary,
                           size: 24,
                         ),
@@ -83,7 +83,7 @@ class _BottomNavShellState extends State<BottomNavShell> {
                                 ? FontWeight.w700
                                 : FontWeight.w500,
                             color: selected
-                                ? AppColors.toyotaRed
+                                ? AppColors.bmwBlue
                                 : AppColors.textSecondary,
                           ),
                         ),

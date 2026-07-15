@@ -45,7 +45,7 @@ class NearbyServiceScreen extends StatelessWidget {
                     alignment: Alignment(offset.dx * 2 - 1, offset.dy * 2 - 1),
                     child: HugeIcon(
                       icon: HugeIcons.strokeRoundedLocation05,
-                      color: i == 0 ? AppColors.toyotaRed : AppColors.black,
+                      color: i == 0 ? AppColors.bmwBlue : AppColors.black,
                       size: i == 0 ? (tablet ? 38 : 32) : (tablet ? 26 : 22),
                     ),
                   );
@@ -135,13 +135,13 @@ class _DealerTile extends StatelessWidget {
                   vertical: tablet ? 6 : 5,
                 ),
                 decoration: BoxDecoration(
-                  color: AppColors.toyotaRed.withValues(alpha: 0.1),
+                  color: AppColors.bmwBlue.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
                   '${dealer.distanceKm.toStringAsFixed(1)} km',
                   style: TextStyle(
-                    color: AppColors.toyotaRed,
+                    color: AppColors.bmwBlue,
                     fontWeight: FontWeight.w700,
                     fontSize: tablet ? 13.5 : 12,
                   ),

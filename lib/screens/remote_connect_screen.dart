@@ -139,7 +139,7 @@ class RemoteConnectScreen extends StatelessWidget {
                         children: [
                           _PulseRings(
                             color: locked
-                                ? AppColors.toyotaRed
+                                ? AppColors.bmwBlue
                                 : AppColors.success,
                             size: lockButtonSize,
                           ),
@@ -152,13 +152,13 @@ class RemoteConnectScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: locked
-                                    ? AppColors.toyotaRed
+                                    ? AppColors.bmwBlue
                                     : AppColors.success,
                                 boxShadow: [
                                   BoxShadow(
                                     color:
                                         (locked
-                                                ? AppColors.toyotaRed
+                                                ? AppColors.bmwBlue
                                                 : AppColors.success)
                                             .withValues(alpha: 0.4),
                                     blurRadius: 30,

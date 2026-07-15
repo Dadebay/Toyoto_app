@@ -50,7 +50,7 @@ class _ShowroomScreenState extends State<ShowroomScreen> {
             selected: selected,
             label: Text(listings[i].name(lang)),
             onSelected: (_) => _select(i),
-            selectedColor: AppColors.toyotaRed,
+            selectedColor: AppColors.bmwBlue,
             backgroundColor: AppColors.card,
             labelStyle: TextStyle(
               color: selected ? Colors.white : AppColors.textPrimary,

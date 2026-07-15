@@ -58,7 +58,7 @@ class CartScreen extends StatelessWidget {
                 Text(
                   '\$${product.price.toStringAsFixed(0)}',
                   style: TextStyle(
-                    color: AppColors.toyotaRed,
+                    color: AppColors.bmwBlue,
                     fontWeight: FontWeight.w800,
                     fontSize: tablet ? 15 : 13,
                   ),
@@ -198,7 +198,7 @@ class CartScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: tablet ? 22 : 18,
                                 fontWeight: FontWeight.w800,
-                                color: AppColors.toyotaRed,
+                                color: AppColors.bmwBlue,
                               ),
                             ),
                           ],
@@ -281,7 +281,7 @@ class CartScreen extends StatelessWidget {
                     vertical: 8,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.toyotaRed.withValues(alpha: 0.08),
+                    color: AppColors.bmwBlue.withValues(alpha: 0.08),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
@@ -289,14 +289,14 @@ class CartScreen extends StatelessWidget {
                     children: [
                       const HugeIcon(
                         icon: HugeIcons.strokeRoundedAward01,
-                        color: AppColors.toyotaRed,
+                        color: AppColors.bmwBlue,
                         size: 16,
                       ),
                       const SizedBox(width: 6),
                       Text(
                         '+120 ${context.tr('loyalty_earned_toast')}',
                         style: const TextStyle(
-                          color: AppColors.toyotaRed,
+                          color: AppColors.bmwBlue,
                           fontWeight: FontWeight.w700,
                           fontSize: 12.5,
                         ),

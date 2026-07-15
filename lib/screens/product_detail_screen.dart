@@ -53,7 +53,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         style: TextStyle(
           fontSize: tablet ? 28 : 22,
           fontWeight: FontWeight.w800,
-          color: AppColors.toyotaRed,
+          color: AppColors.bmwBlue,
         ),
       ),
       SizedBox(height: tablet ? 22 : 18),
@@ -262,7 +262,7 @@ class _SpecChip extends StatelessWidget {
         children: [
           HugeIcon(
             icon: icon,
-            color: AppColors.toyotaRed,
+            color: AppColors.bmwBlue,
             size: tablet ? 24 : 18,
           ),
           const SizedBox(height: 6),

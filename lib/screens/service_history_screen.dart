@@ -68,7 +68,7 @@ class _ServiceHistoryScreenState extends State<ServiceHistoryScreen> {
               value: timeFraction,
               minHeight: 8,
               backgroundColor: AppColors.divider,
-              valueColor: const AlwaysStoppedAnimation(AppColors.toyotaRed),
+              valueColor: const AlwaysStoppedAnimation(AppColors.bmwBlue),
             ),
           ),
           const SizedBox(height: 16),
@@ -100,7 +100,7 @@ class _ServiceHistoryScreenState extends State<ServiceHistoryScreen> {
           icon: _shared
               ? HugeIcons.strokeRoundedTick01
               : HugeIcons.strokeRoundedShare08,
-          color: AppColors.toyotaRed,
+          color: AppColors.bmwBlue,
           size: 18,
         ).animate(target: _shared ? 1 : 0).scaleXY(begin: 1, end: 1.2, duration: const Duration(milliseconds: 200)),
         label: Text(context.tr('svc_history_share_pdf')),
@@ -137,7 +137,7 @@ class _ServiceHistoryScreenState extends State<ServiceHistoryScreen> {
                     width: 12,
                     height: 12,
                     decoration: const BoxDecoration(
-                      color: AppColors.toyotaRed,
+                      color: AppColors.bmwBlue,
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -172,7 +172,7 @@ class _ServiceHistoryScreenState extends State<ServiceHistoryScreen> {
                                   ? context.tr('completed')
                                   : '\$${r.cost.toStringAsFixed(0)}',
                               style: const TextStyle(
-                                color: AppColors.toyotaRed,
+                                color: AppColors.bmwBlue,
                                 fontWeight: FontWeight.w800,
                               ),
                             ),

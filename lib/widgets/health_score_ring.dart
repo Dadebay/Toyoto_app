@@ -24,7 +24,7 @@ class HealthScoreRing extends StatelessWidget {
   Color get _color {
     if (score >= 90) return AppColors.success;
     if (score >= 75) return AppColors.warning;
-    return AppColors.toyotaRed;
+    return AppColors.bmwBlue;
   }
 
   @override

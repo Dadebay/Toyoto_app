@@ -47,7 +47,7 @@ class ProfileScreen extends StatelessWidget {
             children: [
               _MenuTile(
                 icon: HugeIcons.strokeRoundedCar05,
-                iconColor: AppColors.toyotaRed,
+                iconColor: AppColors.bmwBlue,
                 label: context.tr('my_vehicles'),
                 trailingLabel: '${MockData.vehicles.length}',
                 onTap: () => Navigator.push(
@@ -118,9 +118,9 @@ class ProfileScreen extends StatelessWidget {
           padding: EdgeInsets.zero,
           child: _MenuTile(
             icon: HugeIcons.strokeRoundedLogout03,
-            iconColor: AppColors.toyotaRed,
+            iconColor: AppColors.bmwBlue,
             label: context.tr('logout'),
-            labelColor: AppColors.toyotaRed,
+            labelColor: AppColors.bmwBlue,
             showChevron: false,
             onTap: () => _confirmLogout(context),
           ),
@@ -156,9 +156,9 @@ class ProfileScreen extends StatelessWidget {
                     padding: EdgeInsets.zero,
                     child: _MenuTile(
                       icon: HugeIcons.strokeRoundedLogout03,
-                      iconColor: AppColors.toyotaRed,
+                      iconColor: AppColors.bmwBlue,
                       label: context.tr('logout'),
-                      labelColor: AppColors.toyotaRed,
+                      labelColor: AppColors.bmwBlue,
                       showChevron: false,
                       tablet: true,
                       onTap: () => _confirmLogout(context),
@@ -180,7 +180,7 @@ class ProfileScreen extends StatelessWidget {
                       children: [
                         _MenuTile(
                           icon: HugeIcons.strokeRoundedCar05,
-                          iconColor: AppColors.toyotaRed,
+                          iconColor: AppColors.bmwBlue,
                           label: context.tr('my_vehicles'),
                           trailingLabel: '${MockData.vehicles.length}',
                           tablet: true,
@@ -264,9 +264,9 @@ class ProfileScreen extends StatelessWidget {
                     padding: EdgeInsets.zero,
                     child: _MenuTile(
                       icon: HugeIcons.strokeRoundedAlert02,
-                      iconColor: AppColors.toyotaRed,
+                      iconColor: AppColors.bmwBlue,
                       label: context.tr('sos_title'),
-                      labelColor: AppColors.toyotaRed,
+                      labelColor: AppColors.bmwBlue,
                       tablet: true,
                       onTap: () => Navigator.push(
                         context,
@@ -304,13 +304,13 @@ class ProfileScreen extends StatelessWidget {
                   width: 60,
                   height: 60,
                   decoration: BoxDecoration(
-                    color: AppColors.toyotaRed.withValues(alpha: 0.1),
+                    color: AppColors.bmwBlue.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
                   alignment: Alignment.center,
                   child: const HugeIcon(
                     icon: HugeIcons.strokeRoundedLogout03,
-                    color: AppColors.toyotaRed,
+                    color: AppColors.bmwBlue,
                     size: 28,
                   ),
                 ),
@@ -334,7 +334,7 @@ class ProfileScreen extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () => Navigator.pop(context),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.toyotaRed,
+                      backgroundColor: AppColors.bmwBlue,
                     ),
                     child: Text(context.tr('logout')),
                   ),
@@ -388,7 +388,7 @@ class _ProfileHeaderCard extends StatelessWidget {
                     width: avatarSize,
                     height: avatarSize,
                     decoration: const BoxDecoration(
-                      color: AppColors.toyotaRed,
+                      color: AppColors.bmwBlue,
                       shape: BoxShape.circle,
                     ),
                     alignment: Alignment.center,
@@ -448,10 +448,10 @@ class _ProfileHeaderCard extends StatelessWidget {
                         vertical: tablet ? 5 : 4,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.toyotaRed.withValues(alpha: 0.15),
+                        color: AppColors.bmwBlue.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: AppColors.toyotaRed.withValues(alpha: 0.4),
+                          color: AppColors.bmwBlue.withValues(alpha: 0.4),
                         ),
                       ),
                       child: Row(
@@ -459,7 +459,7 @@ class _ProfileHeaderCard extends StatelessWidget {
                         children: [
                           HugeIcon(
                             icon: HugeIcons.strokeRoundedAward01,
-                            color: AppColors.toyotaRed,
+                            color: AppColors.bmwBlue,
                             size: tablet ? 14 : 12,
                           ),
                           const SizedBox(width: 5),
@@ -714,7 +714,7 @@ class _SosCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: AppColors.toyotaRed,
+          color: AppColors.bmwBlue,
           borderRadius: BorderRadius.circular(AppRadius.card),
         ),
         child: Row(

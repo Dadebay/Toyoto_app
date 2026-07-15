@@ -9,7 +9,7 @@ class QrPattern extends StatelessWidget {
   final double size;
   final String seed;
 
-  const QrPattern({super.key, this.size = 72, this.seed = 'TOYOTA-TM-LOYALTY'});
+  const QrPattern({super.key, this.size = 72, this.seed = 'BMW-CONNECT-LOYALTY'});
 
   @override
   Widget build(BuildContext context) {

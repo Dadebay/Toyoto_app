@@ -156,7 +156,7 @@ class _MyCarScreenState extends State<MyCarScreen> {
               _selected = i;
               _loadedVehicles.add(i);
             }),
-            selectedColor: AppColors.toyotaRed,
+            selectedColor: AppColors.bmwBlue,
             backgroundColor: AppColors.card,
             labelStyle: TextStyle(
               color: selected ? Colors.white : AppColors.textPrimary,
@@ -205,12 +205,12 @@ class _MyCarScreenState extends State<MyCarScreen> {
                     Container(
                       padding: EdgeInsets.all(tablet ? 14 : 10),
                       decoration: BoxDecoration(
-                        color: AppColors.toyotaRed.withValues(alpha: 0.1),
+                        color: AppColors.bmwBlue.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: HugeIcon(
                         icon: HugeIcons.strokeRoundedWrench01,
-                        color: AppColors.toyotaRed,
+                        color: AppColors.bmwBlue,
                         size: tablet ? 26 : 20,
                       ),
                     ),
@@ -461,12 +461,12 @@ class _MyCarScreenState extends State<MyCarScreen> {
                 height: 60,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: AppColors.toyotaRed.withValues(alpha: 0.1),
+                  color: AppColors.bmwBlue.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: HugeIcon(
                   icon: icon,
-                  color: AppColors.toyotaRed,
+                  color: AppColors.bmwBlue,
                   size: 28,
                 ),
               ),

@@ -75,7 +75,7 @@ class _TestDriveScreenState extends State<TestDriveScreen> {
             fontWeight: FontWeight.w600,
             fontSize: tablet ? 15 : null,
           ),
-          selectedColor: AppColors.toyotaRed,
+          selectedColor: AppColors.bmwBlue,
           backgroundColor: AppColors.card,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -96,12 +96,12 @@ class _TestDriveScreenState extends State<TestDriveScreen> {
           Container(
             padding: EdgeInsets.all(tablet ? 14 : 10),
             decoration: BoxDecoration(
-              color: AppColors.toyotaRed.withValues(alpha: 0.1),
+              color: AppColors.bmwBlue.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: HugeIcon(
               icon: HugeIcons.strokeRoundedStore02,
-              color: AppColors.toyotaRed,
+              color: AppColors.bmwBlue,
               size: tablet ? 26 : 20,
             ),
           ),
@@ -180,10 +180,10 @@ class _TestDriveScreenState extends State<TestDriveScreen> {
               duration: const Duration(milliseconds: 180),
               width: tablet ? 68 : 56,
               decoration: BoxDecoration(
-                color: selected ? AppColors.toyotaRed : AppColors.card,
+                color: selected ? AppColors.bmwBlue : AppColors.card,
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                  color: selected ? AppColors.toyotaRed : AppColors.divider,
+                  color: selected ? AppColors.bmwBlue : AppColors.divider,
                 ),
               ),
               alignment: Alignment.center,

@@ -4,8 +4,16 @@ import 'package:flutter/services.dart';
 class AppColors {
   AppColors._();
 
-  static const Color toyotaRed = Color(0xFFEB0A1E);
-  static const Color toyotaRedDark = Color(0xFFB4000F);
+  // BMW brand — primary interactive color (BMW corporate / M blue).
+  static const Color bmwBlue = Color(0xFF1C69D4);
+  static const Color bmwBlueDark = Color(0xFF0C4CA3);
+
+  // BMW M tricolor (Motorsport stripes): light blue → dark blue → red.
+  // Used for hero gradients, badges and campaign accents.
+  static const Color mLightBlue = Color(0xFF2E9BDF);
+  static const Color mDarkBlue = Color(0xFF16244C);
+  static const Color mRed = Color(0xFFE2001A);
+
   static const Color black = Color(0xFF0B0B0C);
   static const Color charcoal = Color(0xFF1B1C1F);
   static const Color surface = Color(0xFFF5F5F7);
@@ -50,8 +58,8 @@ class AppTheme {
       useMaterial3: true,
       scaffoldBackgroundColor: AppColors.card,
       colorScheme: ColorScheme.fromSeed(
-        seedColor: AppColors.toyotaRed,
-        primary: AppColors.toyotaRed,
+        seedColor: AppColors.bmwBlue,
+        primary: AppColors.bmwBlue,
         brightness: Brightness.light,
       ),
       fontFamily: 'Gilroy',
@@ -93,7 +101,7 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.toyotaRed,
+          backgroundColor: AppColors.bmwBlue,
           foregroundColor: Colors.white,
           padding: const EdgeInsets.symmetric(vertical: 16),
           shape: RoundedRectangleBorder(

@@ -96,7 +96,7 @@ class _TradeInScreenState extends State<TradeInScreen> {
             padding: const EdgeInsets.symmetric(vertical: 12),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: selected ? AppColors.toyotaRed : Colors.transparent,
+              color: selected ? AppColors.bmwBlue : Colors.transparent,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
@@ -145,7 +145,7 @@ class _TradeInScreenState extends State<TradeInScreen> {
         return ChoiceChip(
           selected: selected,
           label: Text(MockData.vehicles[i].model),
-          selectedColor: AppColors.toyotaRed,
+          selectedColor: AppColors.bmwBlue,
           backgroundColor: AppColors.card,
           labelStyle: TextStyle(
             color: selected ? Colors.white : AppColors.textPrimary,
@@ -196,7 +196,7 @@ class _TradeInScreenState extends State<TradeInScreen> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             decoration: BoxDecoration(
-              color: selected ? AppColors.toyotaRed : AppColors.surface,
+              color: selected ? AppColors.bmwBlue : AppColors.surface,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(
@@ -295,7 +295,7 @@ class _TradeInScreenState extends State<TradeInScreen> {
                 Text(
                   '\$${(widget.returnToPrice! - value).clamp(0, widget.returnToPrice!).toStringAsFixed(0)}',
                   style: const TextStyle(
-                    color: AppColors.toyotaRed,
+                    color: AppColors.bmwBlue,
                     fontWeight: FontWeight.w800,
                     fontSize: 18,
                   ),

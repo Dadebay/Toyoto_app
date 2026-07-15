@@ -61,7 +61,7 @@ class QuickActionGrid extends StatelessWidget {
                 ),
                 child: HugeIcon(
                   icon: action.icon,
-                  color: AppColors.toyotaRed,
+                  color: AppColors.bmwBlue,
                   size: iconSize,
                 ),
               ),
