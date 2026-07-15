@@ -11,11 +11,11 @@ String getAiResponse(String input, AppLanguage lang) {
   if (has(['salam', 'hello', 'hi', 'привет', 'здравств'])) {
     return {
       AppLanguage.tk:
-          'Salam! Size BMW M5 ulagyňyz barada nähili kömek gerek?',
+          'Salam! Size BMW M4 CSL ulagyňyz barada nähili kömek gerek?',
       AppLanguage.en:
-          'Hello! How can I help with your BMW M5 today?',
+          'Hello! How can I help with your BMW M4 CSL today?',
       AppLanguage.ru:
-          'Здравствуйте! Чем могу помочь с вашим BMW M5?',
+          'Здравствуйте! Чем могу помочь с вашим BMW M4 CSL?',
     }[lang]!;
   }
 

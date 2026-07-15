@@ -32,7 +32,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late int _selected = MockData.vehicles.indexOf(MockData.m5);
+  late int _selected = MockData.vehicles.indexOf(MockData.myVehicle);
   final Set<int> _loadedVehicles = {};
 
   @override
@@ -46,86 +46,52 @@ class _HomeScreenState extends State<HomeScreen> {
       QuickAction(
         icon: HugeIcons.strokeRoundedCar05,
         label: context.tr('qa_showroom'),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const ShowroomScreen()),
-        ),
+        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ShowroomScreen())),
       ),
       QuickAction(
         icon: HugeIcons.strokeRoundedSteering,
         label: context.tr('qa_test_drive'),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const TestDriveScreen()),
-        ),
+        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const TestDriveScreen())),
       ),
       QuickAction(
         icon: HugeIcons.strokeRoundedSquareUnlock01,
         label: context.tr('qa_remote'),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const RemoteConnectScreen()),
-        ),
+        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const RemoteConnectScreen())),
       ),
       QuickAction(
         icon: HugeIcons.strokeRoundedMapsLocation02,
         label: context.tr('qa_location'),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const LocationScreen()),
-        ),
+        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const LocationScreen())),
       ),
       QuickAction(
         icon: HugeIcons.strokeRoundedCustomerSupport,
         label: context.tr('qa_nearby_service'),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const NearbyServiceScreen()),
-        ),
+        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const NearbyServiceScreen())),
       ),
       QuickAction(
         icon: HugeIcons.strokeRoundedCalendar03,
         label: context.tr('qa_service_booking'),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const BookServiceScreen()),
-        ),
+        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const BookServiceScreen())),
       ),
       QuickAction(
         icon: HugeIcons.strokeRoundedFavourite,
         label: context.tr('qa_health'),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const HealthCheckScreen()),
-        ),
+        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const HealthCheckScreen())),
       ),
       QuickAction(
         icon: HugeIcons.strokeRoundedShieldUser,
         label: context.tr('qa_warranty'),
-        onTap: () => _showInfo(
-          context,
-          icon: HugeIcons.strokeRoundedShieldUser,
-          title: context.tr('qa_warranty'),
-          body: '3 ýyl / 100,000 km · Active',
-        ),
+        onTap: () => _showInfo(context, icon: HugeIcons.strokeRoundedShieldUser, title: context.tr('qa_warranty'), body: '3 ýyl / 100,000 km · Active'),
       ),
       QuickAction(
         icon: HugeIcons.strokeRoundedHeadphones,
         label: context.tr('qa_support'),
-        onTap: () => _showInfo(
-          context,
-          icon: HugeIcons.strokeRoundedHeadphones,
-          title: context.tr('qa_support'),
-          body: '+993 12 456 789',
-        ),
+        onTap: () => _showInfo(context, icon: HugeIcons.strokeRoundedHeadphones, title: context.tr('qa_support'), body: '+993 12 456 789'),
       ),
       QuickAction(
         icon: HugeIcons.strokeRoundedNotification02,
         label: context.tr('qa_notifications'),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const NotificationsScreen()),
-        ),
+        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const NotificationsScreen())),
       ),
     ];
   }
@@ -139,22 +105,13 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                context.tr('greeting'),
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              Text(
-                context.tr('greeting_sub'),
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
+              Text(context.tr('greeting'), style: Theme.of(context).textTheme.headlineMedium),
+              Text(context.tr('greeting_sub'), style: Theme.of(context).textTheme.bodyMedium),
             ],
           ),
         ),
         GestureDetector(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const NotificationsScreen()),
-          ),
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const NotificationsScreen())),
           child: Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
@@ -162,42 +119,104 @@ class _HomeScreenState extends State<HomeScreen> {
               borderRadius: BorderRadius.circular(14),
               border: Border.all(color: AppColors.divider),
             ),
-            child: HugeIcon(
-              icon: HugeIcons.strokeRoundedNotification01,
-              color: AppColors.textPrimary,
-            ),
+            child: HugeIcon(icon: HugeIcons.strokeRoundedNotification01, color: AppColors.textPrimary),
           ),
         ),
       ],
     );
   }
 
+  List<List<dynamic>> _bodyIcon(String model) {
+    if (model.contains('X6') || model.contains('XB7') || model.contains('X7')) {
+      return HugeIcons.strokeRoundedCar01;
+    }
+    if (model.contains('340i') || model.contains('530i') || model.contains('550i')) {
+      return HugeIcons.strokeRoundedCar02;
+    }
+    return HugeIcons.strokeRoundedCar05;
+  }
+
   Widget _vehicleChips(BuildContext context, List<Vehicle> vehicles) {
+    final tablet = context.isTablet;
     return SizedBox(
-      height: 36,
+      height: tablet ? 68 : 58,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: vehicles.length,
-        separatorBuilder: (_, _) => const SizedBox(width: 10),
+        separatorBuilder: (_, _) => SizedBox(width: tablet ? 12 : 10),
         itemBuilder: (context, i) {
+          final vehicle = vehicles[i];
           final selected = i == _selected;
-          return ChoiceChip(
-            selected: selected,
-            label: Text(vehicles[i].model),
-            onSelected: (_) => setState(() {
+          return GestureDetector(
+            onTap: () => setState(() {
               _selected = i;
               _loadedVehicles.add(i);
             }),
-            selectedColor: AppColors.bmwBlue,
-            backgroundColor: AppColors.card,
-            labelStyle: TextStyle(
-              color: selected ? Colors.white : AppColors.textPrimary,
-              fontWeight: FontWeight.w600,
-              fontSize: 12.5,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18),
-              side: const BorderSide(color: AppColors.divider),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 220),
+              curve: Curves.easeOut,
+              padding: EdgeInsets.symmetric(horizontal: tablet ? 16 : 12, vertical: tablet ? 8 : 6),
+              decoration: BoxDecoration(
+                color: selected ? AppColors.bmwBlue : AppColors.card,
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(color: selected ? AppColors.bmwBlue : AppColors.divider),
+                boxShadow: selected
+                    ? [
+                        BoxShadow(
+                          color: AppColors.bmwBlue.withValues(alpha: 0.3),
+                          blurRadius: 14,
+                          offset: const Offset(0, 5),
+                        ),
+                      ]
+                    : null,
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: tablet ? 34 : 28,
+                    height: tablet ? 34 : 28,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: selected ? Colors.white.withValues(alpha: 0.18) : AppColors.bmwBlue.withValues(alpha: 0.08),
+                      shape: BoxShape.circle,
+                    ),
+                    child: HugeIcon(
+                      icon: _bodyIcon(vehicle.model),
+                      color: selected ? Colors.white : AppColors.bmwBlue,
+                      size: tablet ? 18 : 15,
+                    ),
+                  ),
+                  SizedBox(width: tablet ? 10 : 8),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        vehicle.model,
+                        style: TextStyle(
+                          color: selected ? Colors.white : AppColors.textPrimary,
+                          fontWeight: FontWeight.w700,
+                          fontSize: tablet ? 14.5 : 12.5,
+                          height: 1.1,
+                        ),
+                      ),
+                      if (selected) ...[
+                        const SizedBox(height: 2),
+                        Text(
+                          vehicle.plate,
+                          style: TextStyle(
+                            color: Colors.white.withValues(alpha: 0.75),
+                            fontWeight: FontWeight.w600,
+                            fontSize: tablet ? 11.5 : 10,
+                            height: 1.1,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           );
         },
@@ -207,43 +226,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _upcomingServiceCard(BuildContext context, Vehicle vehicle) {
     return AppCard(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (_) => const BookServiceScreen()),
-      ),
+      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const BookServiceScreen())),
       child: Row(
         children: [
           Container(
             padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: AppColors.bmwBlue.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: HugeIcon(
-              icon: HugeIcons.strokeRoundedWrench02,
-              color: AppColors.bmwBlue,
-            ),
+            decoration: BoxDecoration(color: AppColors.bmwBlue.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(12)),
+            child: HugeIcon(icon: HugeIcons.strokeRoundedWrench02, color: AppColors.bmwBlue),
           ),
           const SizedBox(width: 14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  context.tr('upcoming_service'),
-                  style: const TextStyle(fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  '${vehicle.nextServiceKm} km · ${vehicle.nextServiceDate.day}.${vehicle.nextServiceDate.month}.${vehicle.nextServiceDate.year}',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
+                Text(context.tr('upcoming_service'), style: const TextStyle(fontWeight: FontWeight.w700)),
+                Text('${vehicle.nextServiceKm} km · ${vehicle.nextServiceDate.day}.${vehicle.nextServiceDate.month}.${vehicle.nextServiceDate.year}', style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
           ),
-          HugeIcon(
-            icon: HugeIcons.strokeRoundedArrowRight01,
-            color: AppColors.textSecondary,
-          ),
+          HugeIcon(icon: HugeIcons.strokeRoundedArrowRight01, color: AppColors.textSecondary),
         ],
       ),
     );
@@ -251,43 +252,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _activeServiceCard(BuildContext context, ServiceTicket ticket) {
     return AppCard(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (_) => const ServiceTrackingScreen()),
-      ),
+      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ServiceTrackingScreen())),
       child: Row(
         children: [
           Container(
             padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: AppColors.warning.withValues(alpha: 0.12),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: HugeIcon(
-              icon: HugeIcons.strokeRoundedWrench01,
-              color: AppColors.warning,
-            ),
+            decoration: BoxDecoration(color: AppColors.warning.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(12)),
+            child: HugeIcon(icon: HugeIcons.strokeRoundedWrench01, color: AppColors.warning),
           ),
           const SizedBox(width: 14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  context.tr('svc_home_card_title'),
-                  style: const TextStyle(fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  '${context.tr('svc_step_label')} ${ticket.currentStep}/5',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
+                Text(context.tr('svc_home_card_title'), style: const TextStyle(fontWeight: FontWeight.w700)),
+                Text('${context.tr('svc_step_label')} ${ticket.currentStep}/5', style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
           ),
-          HugeIcon(
-            icon: HugeIcons.strokeRoundedArrowRight01,
-            color: AppColors.textSecondary,
-          ),
+          HugeIcon(icon: HugeIcons.strokeRoundedArrowRight01, color: AppColors.textSecondary),
         ],
       ),
     );
@@ -296,11 +279,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     context.watch<AppState>();
-    return SafeArea(
-      child: context.isTablet
-          ? _buildTabletLayout(context)
-          : _buildPhoneLayout(context),
-    );
+    return SafeArea(child: context.isTablet ? _buildTabletLayout(context) : _buildPhoneLayout(context));
   }
 
   Widget _buildPhoneLayout(BuildContext context) {
@@ -318,20 +297,14 @@ class _HomeScreenState extends State<HomeScreen> {
           index: _selected,
           children: List.generate(vehicles.length, (i) {
             if (!_loadedVehicles.contains(i)) return const SizedBox.shrink();
-            return VehicleCard(
-              key: ValueKey(vehicles[i].vin),
-              vehicle: vehicles[i],
-            );
+            return VehicleCard(key: ValueKey(vehicles[i].vin), vehicle: vehicles[i]);
           }),
         ),
         const SizedBox(height: 18),
         const CampaignCarousel(),
         const SizedBox(height: 14),
         _upcomingServiceCard(context, vehicle),
-        if (context.watch<AppState>().activeServiceTicket != null) ...[
-          const SizedBox(height: 14),
-          _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!),
-        ],
+        if (context.watch<AppState>().activeServiceTicket != null) ...[const SizedBox(height: 14), _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!)],
         const SizedBox(height: 24),
         SectionHeader(title: context.tr('nav_home')),
         const SizedBox(height: 14),
@@ -360,20 +333,14 @@ class _HomeScreenState extends State<HomeScreen> {
           index: _selected,
           children: List.generate(vehicles.length, (i) {
             if (!_loadedVehicles.contains(i)) return const SizedBox.shrink();
-            return VehicleCard(
-              key: ValueKey(vehicles[i].vin),
-              vehicle: vehicles[i],
-            );
+            return VehicleCard(key: ValueKey(vehicles[i].vin), vehicle: vehicles[i]);
           }),
         ),
         const SizedBox(height: 22),
         const CampaignCarousel(),
         const SizedBox(height: 18),
         _upcomingServiceCard(context, vehicle),
-        if (context.watch<AppState>().activeServiceTicket != null) ...[
-          const SizedBox(height: 18),
-          _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!),
-        ],
+        if (context.watch<AppState>().activeServiceTicket != null) ...[const SizedBox(height: 18), _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!)],
         const SizedBox(height: 28),
         SectionHeader(title: context.tr('nav_home')),
         const SizedBox(height: 16),
@@ -382,12 +349,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void _showInfo(
-    BuildContext context, {
-    required List<List<dynamic>> icon,
-    required String title,
-    required String body,
-  }) {
+  void _showInfo(BuildContext context, {required List<List<dynamic>> icon, required String title, required String body}) {
     showDialog(
       context: context,
       builder: (_) => Dialog(
@@ -395,10 +357,7 @@ class _HomeScreenState extends State<HomeScreen> {
         insetPadding: const EdgeInsets.symmetric(horizontal: 36),
         child: Container(
           padding: const EdgeInsets.fromLTRB(24, 28, 24, 20),
-          decoration: BoxDecoration(
-            color: AppColors.card,
-            borderRadius: BorderRadius.circular(24),
-          ),
+          decoration: BoxDecoration(color: AppColors.card, borderRadius: BorderRadius.circular(24)),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -406,30 +365,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 60,
                 height: 60,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColors.bmwBlue.withValues(alpha: 0.1),
-                  shape: BoxShape.circle,
-                ),
+                decoration: BoxDecoration(color: AppColors.bmwBlue.withValues(alpha: 0.1), shape: BoxShape.circle),
                 child: HugeIcon(icon: icon, color: AppColors.bmwBlue, size: 28),
               ),
               const SizedBox(height: 18),
-              Text(
-                title,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
-              ),
+              Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
               const SizedBox(height: 8),
-              Text(
-                body,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
+              Text(body, textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyMedium),
               const SizedBox(height: 24),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: Text(context.tr('got_it')),
-                ),
+                child: ElevatedButton(onPressed: () => Navigator.pop(context), child: Text(context.tr('got_it'))),
               ),
             ],
           ),

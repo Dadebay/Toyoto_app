@@ -68,6 +68,8 @@ class Car3DViewer extends StatefulWidget {
   final String minVerticalOrbit;
   final String maxVerticalOrbit;
   final bool cameraControls;
+  final String? paintMaterialName;
+  final Color initialPaintColor;
 
   const Car3DViewer({
     super.key,
@@ -79,6 +81,8 @@ class Car3DViewer extends StatefulWidget {
     this.minVerticalOrbit = 'auto 20deg 8%',
     this.maxVerticalOrbit = 'auto 130deg auto',
     this.cameraControls = true,
+    this.paintMaterialName,
+    this.initialPaintColor = const Color(0xFFF2F3F5),
   });
 
   @override
@@ -96,6 +100,13 @@ class _Car3DViewerState extends State<Car3DViewer> {
     if (oldWidget.modelAsset != widget.modelAsset) {
       setState(() => _modelLoaded = false);
     }
+  }
+
+  String get _initialPaintJs {
+    final matName = widget.paintMaterialName;
+    if (matName == null) return '';
+    final color = widget.initialPaintColor;
+    return "window.setPaintColor('$matName', ${color.r}, ${color.g}, ${color.b});";
   }
 
   String get _flyInAndHooksJs {
@@ -123,6 +134,7 @@ customElements.whenDefined('model-viewer').then(() => {
     requestAnimationFrame(() => {
       mv.cameraOrbit = '${widget.targetCameraOrbit}';
     });
+    $_initialPaintJs
     if (window.$_bridgeChannel) window.$_bridgeChannel.postMessage('loaded');
   });
 });

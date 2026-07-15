@@ -59,34 +59,87 @@ class _BookServiceScreenState extends State<BookServiceScreen> {
   ];
 
   Widget _serviceChips(bool tablet) {
-    return Wrap(
-      spacing: 10,
-      runSpacing: 10,
+    return GridView.count(
+      crossAxisCount: 2,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      mainAxisSpacing: tablet ? 14 : 10,
+      crossAxisSpacing: tablet ? 14 : 10,
+      childAspectRatio: tablet ? 1.7 : 1.5,
       children: List.generate(_serviceKeys.length, (i) {
         final selected = _serviceIndex == i;
-        return ChoiceChip(
-          selected: selected,
-          label: Text(context.tr(_serviceKeys[i])),
-          avatar: HugeIcon(
-            icon: _serviceIcons[i],
-            size: tablet ? 19 : 16,
-            color: selected ? Colors.white : AppColors.bmwBlue,
+        return GestureDetector(
+          onTap: () => setState(() => _serviceIndex = i),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 180),
+            padding: EdgeInsets.all(tablet ? 16 : 12),
+            decoration: BoxDecoration(
+              color: selected
+                  ? AppColors.bmwBlue.withValues(alpha: 0.06)
+                  : AppColors.card,
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(
+                color: selected ? AppColors.bmwBlue : AppColors.divider,
+                width: selected ? 1.5 : 1,
+              ),
+              boxShadow: selected
+                  ? [
+                      BoxShadow(
+                        color: AppColors.bmwBlue.withValues(alpha: 0.15),
+                        blurRadius: 12,
+                        offset: const Offset(0, 4),
+                      ),
+                    ]
+                  : null,
+            ),
+            child: Stack(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: tablet ? 40 : 34,
+                      height: tablet ? 40 : 34,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: selected
+                            ? AppColors.bmwBlue
+                            : AppColors.bmwBlue.withValues(alpha: 0.1),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: HugeIcon(
+                        icon: _serviceIcons[i],
+                        size: tablet ? 21 : 18,
+                        color: selected ? Colors.white : AppColors.bmwBlue,
+                      ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      context.tr(_serviceKeys[i]),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: AppColors.textPrimary,
+                        fontWeight: FontWeight.w700,
+                        fontSize: tablet ? 14.5 : 12.5,
+                        height: 1.15,
+                      ),
+                    ),
+                  ],
+                ),
+                if (selected)
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: HugeIcon(
+                      icon: HugeIcons.strokeRoundedCheckmarkCircle02,
+                      color: AppColors.bmwBlue,
+                      size: tablet ? 20 : 17,
+                    ),
+                  ),
+              ],
+            ),
           ),
-          labelStyle: TextStyle(
-            color: selected ? Colors.white : AppColors.textPrimary,
-            fontWeight: FontWeight.w600,
-            fontSize: tablet ? 15 : null,
-          ),
-          padding: tablet
-              ? const EdgeInsets.symmetric(horizontal: 8, vertical: 6)
-              : null,
-          selectedColor: AppColors.bmwBlue,
-          backgroundColor: AppColors.card,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-            side: const BorderSide(color: AppColors.divider),
-          ),
-          onSelected: (_) => setState(() => _serviceIndex = i),
         );
       }),
     );

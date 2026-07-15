@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
 
-/// Custom-drawn dark circular "M" badge with the BMW Motorsport tricolor stripe,
-/// echoing BMW's M identity rather than reproducing BMW's registered roundel.
+/// Circular BMW roundel badge, rendered from assets/logo.png.
 class BmwBadge extends StatelessWidget {
   final double size;
 
@@ -15,7 +14,6 @@ class BmwBadge extends StatelessWidget {
       width: size,
       height: size,
       decoration: BoxDecoration(
-        color: AppColors.black,
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
@@ -26,40 +24,7 @@ class BmwBadge extends StatelessWidget {
         ],
       ),
       clipBehavior: Clip.antiAlias,
-      alignment: Alignment.center,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          // BMW M tricolor stripe running diagonally behind the mark.
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: size * 0.16,
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(height: size * 0.1, color: AppColors.mLightBlue),
-                ),
-                Expanded(
-                  child: Container(height: size * 0.1, color: AppColors.mDarkBlue),
-                ),
-                Expanded(
-                  child: Container(height: size * 0.1, color: AppColors.mRed),
-                ),
-              ],
-            ),
-          ),
-          Text(
-            'M',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w900,
-              fontSize: size * 0.42,
-              letterSpacing: 0.5,
-            ),
-          ),
-        ],
-      ),
+      child: Image.asset('assets/logo.png', fit: BoxFit.cover),
     );
   }
 }

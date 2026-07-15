@@ -78,6 +78,7 @@ class _CompareScreenState extends State<CompareScreen> {
                 modelAsset: car.modelAsset,
                 autoRotate: true,
                 cameraControls: false,
+                paintMaterialName: car.paintMaterialName,
               ),
             ),
             Padding(

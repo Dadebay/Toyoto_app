@@ -209,6 +209,7 @@ class _ShowroomCard extends StatelessWidget {
                 modelAsset: listing.modelAsset,
                 autoRotate: true,
                 cameraControls: false,
+                paintMaterialName: listing.paintMaterialName,
               ),
             ),
           ],

@@ -22,9 +22,7 @@ class CampaignCarousel extends StatefulWidget {
 }
 
 class _CampaignCarouselState extends State<CampaignCarousel> {
-  late final PageController _controller = PageController(
-    viewportFraction: 0.92,
-  );
+  late final PageController _controller = PageController(viewportFraction: 0.92);
   Timer? _timer;
   int _page = 0;
 
@@ -34,11 +32,7 @@ class _CampaignCarouselState extends State<CampaignCarousel> {
     _timer = Timer.periodic(const Duration(seconds: 4), (_) {
       if (!_controller.hasClients) return;
       final next = (_page + 1) % MockData.campaigns.length;
-      _controller.animateToPage(
-        next,
-        duration: const Duration(milliseconds: 450),
-        curve: Curves.easeInOut,
-      );
+      _controller.animateToPage(next, duration: const Duration(milliseconds: 450), curve: Curves.easeInOut);
     });
   }
 
@@ -64,9 +58,7 @@ class _CampaignCarouselState extends State<CampaignCarousel> {
     showModalBottomSheet(
       context: context,
       backgroundColor: AppColors.card,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-      ),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
       builder: (sheetContext) => Padding(
         padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
         child: Column(
@@ -82,17 +74,9 @@ class _CampaignCarouselState extends State<CampaignCarousel> {
               child: HugeIcon(icon: campaign.icon, color: Colors.white),
             ),
             const SizedBox(height: 16),
-            Text(
-              campaign.title(lang),
-              style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800),
-            ),
+            Text(campaign.title(lang), style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800)),
             const SizedBox(height: 8),
-            Text(
-              campaign.body(lang),
-              style: Theme.of(
-                sheetContext,
-              ).textTheme.bodyMedium?.copyWith(height: 1.5),
-            ),
+            Text(campaign.body(lang), style: Theme.of(sheetContext).textTheme.bodyMedium?.copyWith(height: 1.5)),
             if (product != null) ...[
               const SizedBox(height: 20),
               SizedBox(
@@ -100,12 +84,7 @@ class _CampaignCarouselState extends State<CampaignCarousel> {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pop(sheetContext);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => ProductDetailScreen(product: product!),
-                      ),
-                    );
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => ProductDetailScreen(product: product!)));
                   },
                   child: Text(sheetContext.tr('campaign_view_product')),
                 ),
@@ -141,11 +120,7 @@ class _CampaignCarouselState extends State<CampaignCarousel> {
                   child: Container(
                     padding: EdgeInsets.all(tablet ? 24 : 18),
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: campaign.gradient,
-                      ),
+                      gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: campaign.gradient),
                       borderRadius: BorderRadius.circular(AppRadius.card),
                     ),
                     child: Row(
@@ -160,23 +135,14 @@ class _CampaignCarouselState extends State<CampaignCarousel> {
                                 campaign.title(lang),
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: tablet ? 20 : 16,
-                                  fontWeight: FontWeight.w800,
-                                  height: 1.2,
-                                ),
+                                style: TextStyle(color: Colors.white, fontSize: tablet ? 20 : 16, fontWeight: FontWeight.w800, height: 1.2),
                               ),
                               const SizedBox(height: 6),
                               Text(
                                 campaign.body(lang),
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  color: Colors.white.withValues(alpha: 0.85),
-                                  fontSize: tablet ? 14 : 12,
-                                  height: 1.3,
-                                ),
+                                style: TextStyle(color: Colors.white.withValues(alpha: 0.85), fontSize: tablet ? 14 : 12, height: 1.3),
                               ),
                             ],
                           ),
@@ -184,15 +150,8 @@ class _CampaignCarouselState extends State<CampaignCarousel> {
                         const SizedBox(width: 12),
                         Container(
                           padding: EdgeInsets.all(tablet ? 16 : 12),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.15),
-                            shape: BoxShape.circle,
-                          ),
-                          child: HugeIcon(
-                            icon: campaign.icon,
-                            color: Colors.white,
-                            size: tablet ? 30 : 24,
-                          ),
+                          decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.15), shape: BoxShape.circle),
+                          child: HugeIcon(icon: campaign.icon, color: Colors.white, size: tablet ? 30 : 24),
                         ),
                       ],
                     ),
@@ -212,10 +171,7 @@ class _CampaignCarouselState extends State<CampaignCarousel> {
               margin: const EdgeInsets.symmetric(horizontal: 3),
               width: selected ? 18 : 6,
               height: 6,
-              decoration: BoxDecoration(
-                color: selected ? AppColors.bmwBlue : AppColors.divider,
-                borderRadius: BorderRadius.circular(3),
-              ),
+              decoration: BoxDecoration(color: selected ? AppColors.bmwBlue : AppColors.divider, borderRadius: BorderRadius.circular(3)),
             );
           }),
         ),

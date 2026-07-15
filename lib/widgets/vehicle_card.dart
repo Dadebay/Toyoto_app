@@ -58,7 +58,10 @@ class VehicleCard extends StatelessWidget {
               child: Stack(
                 children: [
                   Positioned.fill(
-                    child: Car3DViewer(modelAsset: vehicle.modelAsset),
+                    child: Car3DViewer(
+                      modelAsset: vehicle.modelAsset,
+                      paintMaterialName: vehicle.paintMaterialName,
+                    ),
                   ),
                   Positioned(
                     right: 4,

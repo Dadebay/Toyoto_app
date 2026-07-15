@@ -62,7 +62,7 @@ class _Car3DFullscreenScreenState extends State<Car3DFullscreenScreen>
     with SingleTickerProviderStateMixin {
   late final Car3DViewerController _controller;
   late final AnimationController _shakeController;
-  int _selectedColorIndex = -1;
+  int _selectedColorIndex = 0;
   int _selectedCameraIndex = 3;
 
   @override
@@ -178,6 +178,7 @@ class _Car3DFullscreenScreenState extends State<Car3DFullscreenScreen>
                     Car3DViewer(
                           modelAsset: widget.vehicle.modelAsset,
                           controller: _controller,
+                          paintMaterialName: widget.vehicle.paintMaterialName,
                         )
                         .animate(controller: _shakeController, autoPlay: false)
                         .shake(

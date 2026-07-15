@@ -8,21 +8,6 @@ class MockData {
   // paintMaterialName is the exact material name of the body paint inside each
   // .glb (verified by inspecting the model's glTF material list). The in-app
   // paint-color picker looks the material up by this name.
-  static final Vehicle m5 = Vehicle(
-    model: 'BMW M5 Competition',
-    vin: 'WBSJF0C51LB012345',
-    mileageKm: 18420,
-    plate: '01 AB 4521',
-    fuelPercent: 0.82,
-    nextServiceDate: DateTime.now().add(const Duration(days: 12)),
-    nextServiceKm: 20000,
-    modelAsset: 'assets/models/bmw_m5.glb',
-    paintMaterialName: 'BMW_M5SedanRewardRecycled_2024Paint_Material.001',
-    latitude: 37.9500,
-    longitude: 58.3833,
-    address: 'Arçabil şaýoly, Aşgabat',
-  );
-
   static final Vehicle xb7 = Vehicle(
     model: 'BMW Alpina XB7',
     vin: '5UXCX6C09P9E45678',
@@ -51,21 +36,6 @@ class MockData {
     latitude: 37.9452,
     longitude: 58.3701,
     address: 'Görogly köçesi, Aşgabat',
-  );
-
-  static final Vehicle m8 = Vehicle(
-    model: 'BMW M8 Coupe',
-    vin: 'WBSAE0C05LCD19284',
-    mileageKm: 24100,
-    plate: '01 AE 5602',
-    fuelPercent: 0.66,
-    nextServiceDate: DateTime.now().add(const Duration(days: 3)),
-    nextServiceKm: 30000,
-    modelAsset: 'assets/models/bmw_m8.glb',
-    paintMaterialName: 'bBMW_M8RewardRecycled_2020Paint_Material1',
-    latitude: 37.9381,
-    longitude: 58.3958,
-    address: 'Magtymguly şaýoly, Aşgabat',
   );
 
   static final Vehicle m4 = Vehicle(
@@ -98,13 +68,11 @@ class MockData {
     address: 'Görogly şaýoly, Aşgabat',
   );
 
-  static final Vehicle myVehicle = m5;
+  static final Vehicle myVehicle = m4;
 
   static final List<Vehicle> vehicles = [
-    m5,
     xb7,
     m340i,
-    m8,
     m4,
     x6m,
   ];
@@ -552,41 +520,6 @@ class MockData {
 
   static final List<NewCarListing> newCarListings = [
     NewCarListing(
-      id: 'bmw_m5',
-      nameTk: 'BMW M5 Competition',
-      nameEn: 'BMW M5 Competition',
-      nameRu: 'BMW M5 Competition',
-      basePrice: 115000,
-      modelAsset: 'assets/models/bmw_m5.glb',
-      paintMaterialName: 'BMW_M5SedanRewardRecycled_2024Paint_Material.001',
-      engineTk: '4.4L V8 M TwinPower Turbo',
-      engineEn: '4.4L V8 M TwinPower Turbo',
-      engineRu: '4.4L V8 M TwinPower Turbo',
-      fuelConsumption: 10.6,
-      bodyType: 'sedan',
-      trunkCapacityLiters: 500,
-      trims: [
-        TrimLevel(
-          nameTk: 'Competition',
-          nameEn: 'Competition',
-          nameRu: 'Competition',
-          priceDelta: 0,
-          featuresTk: ['625 at güýji', 'M xDrive doly hereket'],
-          featuresEn: ['625 hp', 'M xDrive all-wheel drive'],
-          featuresRu: ['625 л.с.', 'Полный привод M xDrive'],
-        ),
-        TrimLevel(
-          nameTk: 'First Edition',
-          nameEn: 'First Edition',
-          nameRu: 'First Edition',
-          priceDelta: 14000,
-          featuresTk: ['Merino deri salon', 'Bowers & Wilkins ses', 'Karbon üçek'],
-          featuresEn: ['Merino leather', 'Bowers & Wilkins sound', 'Carbon roof'],
-          featuresRu: ['Кожа Merino', 'Аудио Bowers & Wilkins', 'Карбоновая крыша'],
-        ),
-      ],
-    ),
-    NewCarListing(
       id: 'bmw_m4',
       nameTk: 'BMW M4 CSL',
       nameEn: 'BMW M4 CSL',
@@ -721,15 +654,15 @@ class MockData {
       gradient: [AppColors.black, AppColors.charcoal],
     ),
     const Campaign(
-      titleTk: 'BMW M5 synag sürüşi hepdesi',
-      titleEn: 'BMW M5 test drive week',
-      titleRu: 'Неделя тест-драйва BMW M5',
+      titleTk: 'BMW M4 CSL synag sürüşi hepdesi',
+      titleEn: 'BMW M4 CSL test drive week',
+      titleRu: 'Неделя тест-драйва BMW M4 CSL',
       bodyTk:
-          'Bu hepde islendik dilerde BMW M5-i mugt synag sürüşinde synaň.',
+          'Bu hepde islendik dilerde BMW M4 CSL-i mugt synag sürüşinde synaň.',
       bodyEn:
-          'Test drive the BMW M5 for free at any dealership this week.',
+          'Test drive the BMW M4 CSL for free at any dealership this week.',
       bodyRu:
-          'На этой неделе бесплатный тест-драйв BMW M5 в любом дилерском центре.',
+          'На этой неделе бесплатный тест-драйв BMW M4 CSL в любом дилерском центре.',
       icon: HugeIcons.strokeRoundedSteering,
       // BMW M tricolor accent.
       gradient: [AppColors.mLightBlue, AppColors.mDarkBlue],
@@ -787,37 +720,7 @@ class MockData {
       dealerName: 'BMW Aşgabat',
     ),
     ServiceHistoryRecord(
-      vehicle: m8,
-      date: DateTime.now().subtract(const Duration(days: 8)),
-      mileageKm: 120900,
-      descriptionTk: 'Şina çalyşmak (4 sany)',
-      descriptionEn: 'Tire replacement (set of 4)',
-      descriptionRu: 'Замена шин (комплект 4 шт.)',
-      cost: 480,
-      dealerName: 'BMW Aşgabat',
-    ),
-    ServiceHistoryRecord(
-      vehicle: m8,
-      date: DateTime.now().subtract(const Duration(days: 150)),
-      mileageKm: 112400,
-      descriptionTk: 'Şanzyman ýagyny çalyşmak',
-      descriptionEn: 'Transmission fluid change',
-      descriptionRu: 'Замена трансмиссионного масла',
-      cost: 165,
-      dealerName: 'BMW Aşgabat',
-    ),
-    ServiceHistoryRecord(
-      vehicle: m8,
-      date: DateTime.now().subtract(const Duration(days: 320)),
-      mileageKm: 98000,
-      descriptionTk: 'Akkumulýator çalyşmak',
-      descriptionEn: 'Battery replacement',
-      descriptionRu: 'Замена аккумулятора',
-      cost: 140,
-      dealerName: 'BMW Daşoguz',
-    ),
-    ServiceHistoryRecord(
-      vehicle: m5,
+      vehicle: m4,
       date: DateTime.now().subtract(const Duration(days: 45)),
       mileageKm: 15200,
       descriptionTk: 'Ilkinji 15,000 km barlagy',
@@ -899,9 +802,9 @@ class MockData {
       titleTk: 'Hyzmat wagty ýakynlaşýar',
       titleEn: 'Service due soon',
       titleRu: 'Скоро ТО',
-      bodyTk: 'BMW M5 ulagyňyz 20,000 km-de tehniki hyzmata mätäç',
-      bodyEn: 'Your BMW M5 needs maintenance at 20,000 km',
-      bodyRu: 'Вашему BMW M5 требуется ТО на 20 000 км',
+      bodyTk: 'BMW M4 CSL ulagyňyz 15,000 km-de tehniki hyzmata mätäç',
+      bodyEn: 'Your BMW M4 CSL needs maintenance at 15,000 km',
+      bodyRu: 'Вашему BMW M4 CSL требуется ТО на 15 000 км',
       icon: HugeIcons.strokeRoundedWrench01,
       time: DateTime.now().subtract(const Duration(hours: 2)),
     ),

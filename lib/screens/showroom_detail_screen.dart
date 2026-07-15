@@ -41,7 +41,7 @@ class ShowroomDetailScreen extends StatefulWidget {
 
 class _ShowroomDetailScreenState extends State<ShowroomDetailScreen> {
   late final Car3DViewerController _controller;
-  int _colorIndex = -1;
+  int _colorIndex = 0;
   int _trimIndex = 0;
 
   @override
@@ -157,6 +157,7 @@ class _ShowroomDetailScreenState extends State<ShowroomDetailScreen> {
       child: Car3DViewer(
         modelAsset: widget.listing.modelAsset,
         controller: _controller,
+        paintMaterialName: widget.listing.paintMaterialName,
       ),
     );
   }
