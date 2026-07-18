@@ -94,12 +94,27 @@ class _Car3DViewerState extends State<Car3DViewer> {
 
   bool _modelLoaded = false;
 
+  /// Each viewer costs a platform WebView with its own WebGL context holding a
+  /// 16-38MB model. Enough of them alive at once exhausts the platform GPU
+  /// process (it crashes, and every viewer then renders blank), so screens that
+  /// are alive but not visible mark their subtree inactive via [TickerMode] and
+  /// we drop the WebView entirely until they come back.
+  bool get _active => TickerMode.valuesOf(context).enabled;
+
   @override
   void didUpdateWidget(covariant Car3DViewer oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.modelAsset != widget.modelAsset) {
       setState(() => _modelLoaded = false);
     }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Going inactive tears the WebView down, so the next mount reloads the
+    // model and has to show the loading state again.
+    if (!_active) _modelLoaded = false;
   }
 
   String get _initialPaintJs {
@@ -143,6 +158,8 @@ customElements.whenDefined('model-viewer').then(() => {
 
   @override
   Widget build(BuildContext context) {
+    if (!_active) return Container(color: AppColors.black);
+
     return Stack(
       fit: StackFit.expand,
       children: [

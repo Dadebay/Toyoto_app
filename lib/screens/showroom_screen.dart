@@ -23,18 +23,9 @@ class ShowroomScreen extends StatefulWidget {
 
 class _ShowroomScreenState extends State<ShowroomScreen> {
   int _selected = 0;
-  // Only the listing(s) the user has actually picked get a live 3D
-  // WebView mounted — rendering all cards' model-viewers at once (e.g. in a
-  // grid) spawns one WKWebView per card and reliably crashes the iOS
-  // Simulator's shared GPU process, so exactly one stays live at a time,
-  // matching the same lazy pattern used by Home/My Car's vehicle cards.
-  final Set<int> _loaded = {0};
 
   void _select(int index) {
-    setState(() {
-      _selected = index;
-      _loaded.add(index);
-    });
+    setState(() => _selected = index);
   }
 
   Widget _carChips(List<NewCarListing> listings, AppLanguage lang) {
@@ -101,12 +92,10 @@ class _ShowroomScreenState extends State<ShowroomScreen> {
           const SizedBox(height: 14),
           SizedBox(
             height: tablet ? 480 : 380,
-            child: IndexedStack(
-              index: _selected,
-              children: List.generate(listings.length, (i) {
-                if (!_loaded.contains(i)) return const SizedBox.shrink();
-                return _ShowroomCard(listing: listings[i], tablet: tablet);
-              }),
+            child: _ShowroomCard(
+              key: ValueKey(listings[_selected].id),
+              listing: listings[_selected],
+              tablet: tablet,
             ),
           ),
         ],
@@ -119,7 +108,11 @@ class _ShowroomCard extends StatelessWidget {
   final NewCarListing listing;
   final bool tablet;
 
-  const _ShowroomCard({required this.listing, required this.tablet});
+  const _ShowroomCard({
+    super.key,
+    required this.listing,
+    required this.tablet,
+  });
 
   String _bodyTypeLabel(BuildContext context) {
     switch (listing.bodyType) {

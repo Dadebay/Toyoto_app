@@ -46,7 +46,16 @@ class _BottomNavShellState extends State<BottomNavShell> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: AppSystemOverlay.forLightScreens,
       child: Scaffold(
-        body: IndexedStack(index: _index, children: screens),
+        // IndexedStack keeps every tab alive to preserve its scroll/selection
+        // state, but the hidden ones must not hold on to their 3D viewers'
+        // WebGL contexts (see Car3DViewer), so mark them inactive.
+        body: IndexedStack(
+          index: _index,
+          children: List.generate(
+            screens.length,
+            (i) => TickerMode(enabled: i == _index, child: screens[i]),
+          ),
+        ),
         bottomNavigationBar: SafeArea(
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 8),

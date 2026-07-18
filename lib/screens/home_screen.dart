@@ -33,13 +33,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late int _selected = MockData.vehicles.indexOf(MockData.myVehicle);
-  final Set<int> _loadedVehicles = {};
-
-  @override
-  void initState() {
-    super.initState();
-    _loadedVehicles.add(_selected);
-  }
 
   List<QuickAction> _quickActions(BuildContext context) {
     return [
@@ -148,10 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
           final vehicle = vehicles[i];
           final selected = i == _selected;
           return GestureDetector(
-            onTap: () => setState(() {
-              _selected = i;
-              _loadedVehicles.add(i);
-            }),
+            onTap: () => setState(() => _selected = i),
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 220),
               curve: Curves.easeOut,
@@ -293,13 +283,7 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(height: 18),
         _vehicleChips(context, vehicles),
         const SizedBox(height: 14),
-        IndexedStack(
-          index: _selected,
-          children: List.generate(vehicles.length, (i) {
-            if (!_loadedVehicles.contains(i)) return const SizedBox.shrink();
-            return VehicleCard(key: ValueKey(vehicles[i].vin), vehicle: vehicles[i]);
-          }),
-        ),
+        VehicleCard(key: ValueKey(vehicle.vin), vehicle: vehicle),
         const SizedBox(height: 18),
         const CampaignCarousel(),
         const SizedBox(height: 14),
@@ -329,13 +313,7 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(height: 22),
         _vehicleChips(context, vehicles),
         const SizedBox(height: 18),
-        IndexedStack(
-          index: _selected,
-          children: List.generate(vehicles.length, (i) {
-            if (!_loadedVehicles.contains(i)) return const SizedBox.shrink();
-            return VehicleCard(key: ValueKey(vehicles[i].vin), vehicle: vehicles[i]);
-          }),
-        ),
+        VehicleCard(key: ValueKey(vehicle.vin), vehicle: vehicle),
         const SizedBox(height: 22),
         const CampaignCarousel(),
         const SizedBox(height: 18),

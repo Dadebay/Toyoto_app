@@ -32,10 +32,6 @@ class MyCarScreen extends StatefulWidget {
 
 class _MyCarScreenState extends State<MyCarScreen> {
   int _selected = 0;
-  // Tracks which vehicles' 3D cards have been built at least once, so
-  // switching back to an already-viewed vehicle is instant instead of
-  // re-loading its model from scratch every time.
-  final Set<int> _loadedVehicles = {0};
 
   List<QuickAction> _quickActions(BuildContext context, Vehicle vehicle) {
     return [
@@ -109,10 +105,7 @@ class _MyCarScreenState extends State<MyCarScreen> {
           return ChoiceChip(
             selected: selected,
             label: Text(vehicles[i].model),
-            onSelected: (_) => setState(() {
-              _selected = i;
-              _loadedVehicles.add(i);
-            }),
+            onSelected: (_) => setState(() => _selected = i),
             selectedColor: AppColors.bmwBlue,
             backgroundColor: AppColors.card,
             labelStyle: TextStyle(color: selected ? Colors.white : AppColors.textPrimary, fontWeight: FontWeight.w600, fontSize: tablet ? 14.5 : 12.5),
@@ -236,13 +229,7 @@ class _MyCarScreenState extends State<MyCarScreen> {
         const SizedBox(height: 16),
         _vehicleChips(context, vehicles, false),
         const SizedBox(height: 16),
-        IndexedStack(
-          index: _selected,
-          children: List.generate(vehicles.length, (i) {
-            if (!_loadedVehicles.contains(i)) return const SizedBox.shrink();
-            return VehicleCard(key: ValueKey(vehicles[i].vin), vehicle: vehicles[i]);
-          }),
-        ),
+        VehicleCard(key: ValueKey(vehicle.vin), vehicle: vehicle),
         if (context.watch<AppState>().activeServiceTicket != null) ...[const SizedBox(height: 16), _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!)],
         const SizedBox(height: 24),
         SectionHeader(title: context.tr('my_car_title')),
@@ -275,13 +262,7 @@ class _MyCarScreenState extends State<MyCarScreen> {
         const SizedBox(height: 20),
         _vehicleChips(context, vehicles, true),
         const SizedBox(height: 18),
-        IndexedStack(
-          index: _selected,
-          children: List.generate(vehicles.length, (i) {
-            if (!_loadedVehicles.contains(i)) return const SizedBox.shrink();
-            return VehicleCard(key: ValueKey(vehicles[i].vin), vehicle: vehicles[i]);
-          }),
-        ),
+        VehicleCard(key: ValueKey(vehicle.vin), vehicle: vehicle),
         if (context.watch<AppState>().activeServiceTicket != null) ...[const SizedBox(height: 18), _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!)],
         const SizedBox(height: 28),
         SectionHeader(title: context.tr('my_car_title')),
