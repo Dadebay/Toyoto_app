@@ -137,7 +137,7 @@ customElements.whenDefined('model-viewer').then(() => {
     return FutureBuilder<AssetManifest>(
       future: _assetManifest,
       builder: (context, snapshot) {
-        if (!snapshot.hasData) {
+        if (snapshot.connectionState != ConnectionState.done) {
           return const ColoredBox(
             color: AppColors.black,
             child: Center(
@@ -145,7 +145,7 @@ customElements.whenDefined('model-viewer').then(() => {
             ),
           );
         }
-        if (!snapshot.data!.listAssets().contains(widget.modelAsset)) {
+        if (snapshot.data?.listAssets().contains(widget.modelAsset) != true) {
           return ColoredBox(
             color: AppColors.black,
             child: Center(

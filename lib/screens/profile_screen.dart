@@ -117,7 +117,7 @@ class ProfileScreen extends StatelessWidget {
         AppCard(
           padding: EdgeInsets.zero,
           child: _MenuTile(
-            icon: HugeIcons.strokeRoundedLogout03,
+            icon: HugeIcons.strokeRoundedInformationCircle,
             iconColor: AppColors.bmwBlue,
             label: context.tr('logout'),
             labelColor: AppColors.bmwBlue,
@@ -155,7 +155,7 @@ class ProfileScreen extends StatelessWidget {
                   AppCard(
                     padding: EdgeInsets.zero,
                     child: _MenuTile(
-                      icon: HugeIcons.strokeRoundedLogout03,
+                      icon: HugeIcons.strokeRoundedInformationCircle,
                       iconColor: AppColors.bmwBlue,
                       label: context.tr('logout'),
                       labelColor: AppColors.bmwBlue,
@@ -309,7 +309,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   alignment: Alignment.center,
                   child: const HugeIcon(
-                    icon: HugeIcons.strokeRoundedLogout03,
+                    icon: HugeIcons.strokeRoundedInformationCircle,
                     color: AppColors.bmwBlue,
                     size: 28,
                   ),
