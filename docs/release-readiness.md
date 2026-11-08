@@ -29,6 +29,7 @@
 4. Confirm final Android application ID and iOS bundle ID, then set version/build numbers for the first store submission. Changing an existing store identifier requires a separate app listing.
 5. Obtain and verify the project's own Android release signing certificate and iOS provisioning. No signed APK, App Store archive, or store listing has been verified.
 6. Smoke-test startup, navigation, missing-model fallback, and native plugins on physical Android and iOS devices. No device was attached during this review.
+7. Android currently permits cleartext traffic because `model_viewer_plus` serves bundled models through a loopback HTTP proxy. Before production, restrict this permission to the needed local origin and verify 3D rendering on a device; no external HTTP endpoint was found in the app source.
 
 Do not tag or publish a binary GitHub Release until these blockers are resolved. If Android direct download is intended, compare its certificate against Play Console's **app signing** certificate when applicable, verify package/version/signature and SHA-256, install the APK on a real device, and only then attach it to the exact source tag. A Play upload key alone does not prove it can upgrade a Play-installed APK.
 
