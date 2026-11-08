@@ -35,6 +35,16 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.en: 'BMW Connect',
     AppLanguage.ru: 'BMW Connect',
   },
+  'demo_notice': {
+    AppLanguage.tk: 'DEMO — hakyky ulag ýa-da hyzmat bilen birikdirilmedik',
+    AppLanguage.en: 'DEMO — no vehicle or service is connected',
+    AppLanguage.ru: 'ДЕМО — автомобиль и сервисы не подключены',
+  },
+  'model_unavailable': {
+    AppLanguage.tk: '3D ulag modeli elýeterli däl',
+    AppLanguage.en: '3D vehicle model unavailable',
+    AppLanguage.ru: '3D-модель автомобиля недоступна',
+  },
   'greeting': {
     AppLanguage.tk: 'Salam, Ahmet!',
     AppLanguage.en: 'Hello, Ahmet!',
@@ -250,9 +260,9 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.ru: 'Удалённое управление',
   },
   'connected': {
-    AppLanguage.tk: 'Birikdirildi',
-    AppLanguage.en: 'Connected',
-    AppLanguage.ru: 'Подключено',
+    AppLanguage.tk: 'Demo ulagy',
+    AppLanguage.en: 'Demo vehicle',
+    AppLanguage.ru: 'Демо-автомобиль',
   },
   'lock': {
     AppLanguage.tk: 'Gulplamak',
@@ -265,14 +275,14 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.ru: 'Разблокировать',
   },
   'unlocked': {
-    AppLanguage.tk: 'Gapylar açyk',
-    AppLanguage.en: 'Doors unlocked',
-    AppLanguage.ru: 'Двери открыты',
+    AppLanguage.tk: 'Demo: gapylar açyk',
+    AppLanguage.en: 'Demo: doors unlocked',
+    AppLanguage.ru: 'Демо: двери открыты',
   },
   'locked': {
-    AppLanguage.tk: 'Gapylar gulplandy',
-    AppLanguage.en: 'Doors locked',
-    AppLanguage.ru: 'Двери заблокированы',
+    AppLanguage.tk: 'Demo: gapylar gulply',
+    AppLanguage.en: 'Demo: doors locked',
+    AppLanguage.ru: 'Демо: двери заблокированы',
   },
   'horn': {
     AppLanguage.tk: 'Gyžžyrma',
@@ -363,14 +373,14 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.ru: 'Выберите дату',
   },
   'confirm_booking': {
-    AppLanguage.tk: 'Bron etmegi tassykla',
-    AppLanguage.en: 'Confirm Booking',
-    AppLanguage.ru: 'Подтвердить запись',
+    AppLanguage.tk: 'Bron etmegi synap gör',
+    AppLanguage.en: 'Preview Booking',
+    AppLanguage.ru: 'Просмотреть запись',
   },
   'booking_confirmed': {
-    AppLanguage.tk: 'Bron edildi!',
-    AppLanguage.en: 'Booking confirmed!',
-    AppLanguage.ru: 'Запись подтверждена!',
+    AppLanguage.tk: 'Demo bron: hyzmat bilen habarlaşylmady',
+    AppLanguage.en: 'Demo booking: no service was contacted',
+    AppLanguage.ru: 'Демо-запись: сервис не уведомлён',
   },
   'oil_change': {
     AppLanguage.tk: 'Ýag çalyşmak',
@@ -571,22 +581,19 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.ru: 'Итого',
   },
   'place_order': {
-    AppLanguage.tk: 'Sargyt bermek',
-    AppLanguage.en: 'Place Order',
-    AppLanguage.ru: 'Оформить заказ',
+    AppLanguage.tk: 'Sargydy synap gör',
+    AppLanguage.en: 'Preview Checkout',
+    AppLanguage.ru: 'Просмотреть заказ',
   },
   'order_placed_title': {
-    AppLanguage.tk: 'Sargyt kabul edildi!',
-    AppLanguage.en: 'Order placed!',
-    AppLanguage.ru: 'Заказ оформлен!',
+    AppLanguage.tk: 'Demo sargyt',
+    AppLanguage.en: 'Demo checkout',
+    AppLanguage.ru: 'Демо-заказ',
   },
   'order_placed_message': {
-    AppLanguage.tk:
-        'Sargydyňyz üstünlikli kabul edildi. Iň gysga wagtda siziň bilen habarlaşarys.',
-    AppLanguage.en:
-        'Your order has been placed successfully. We will contact you shortly.',
-    AppLanguage.ru:
-        'Ваш заказ успешно оформлен. Мы свяжемся с вами в ближайшее время.',
+    AppLanguage.tk: 'Sargyt ugradylmady. Sebet diňe şu demo üçin saklanýar.',
+    AppLanguage.en: 'No order was sent. Your cart remains in this demo.',
+    AppLanguage.ru: 'Заказ не отправлен. Корзина осталась в демо.',
   },
   'order_history_title': {
     AppLanguage.tk: 'Sargyt taryhy',
@@ -616,14 +623,16 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.ru: 'Настройки',
   },
   'logout': {
-    AppLanguage.tk: 'Ulgamdan çykmak',
-    AppLanguage.en: 'Log Out',
-    AppLanguage.ru: 'Выйти',
+    AppLanguage.tk: 'Demo barada',
+    AppLanguage.en: 'About this demo',
+    AppLanguage.ru: 'О демо',
   },
   'logout_confirm_message': {
-    AppLanguage.tk: 'Hakykatdanam ulgamdan çykmak isleýärsiňizmi?',
-    AppLanguage.en: 'Are you sure you want to log out?',
-    AppLanguage.ru: 'Вы уверены, что хотите выйти?',
+    AppLanguage.tk:
+        'Bu programmada hakyky hasap ýok. Maglumatlar diňe demo üçin.',
+    AppLanguage.en:
+        'There is no real account. All displayed data is for this demo.',
+    AppLanguage.ru: 'Реального аккаунта нет. Все данные показаны для демо.',
   },
   'cancel': {
     AppLanguage.tk: 'Ýatyr',
@@ -749,22 +758,19 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.ru: 'Особенности',
   },
   'showroom_request_quote': {
-    AppLanguage.tk: 'Bahalandyryş sora',
-    AppLanguage.en: 'Request a Quote',
-    AppLanguage.ru: 'Запросить предложение',
+    AppLanguage.tk: 'Bahalandyrmany synap gör',
+    AppLanguage.en: 'Preview Quote Request',
+    AppLanguage.ru: 'Просмотреть запрос предложения',
   },
   'showroom_quote_sent_title': {
-    AppLanguage.tk: 'Sorag ugradyldy!',
-    AppLanguage.en: 'Quote requested!',
-    AppLanguage.ru: 'Запрос отправлен!',
+    AppLanguage.tk: 'Demo bahalandyrma',
+    AppLanguage.en: 'Demo quote request',
+    AppLanguage.ru: 'Демо-запрос предложения',
   },
   'showroom_quote_sent_body': {
-    AppLanguage.tk:
-        'Bahalandyryş soragyňyz kabul edildi. 24 sagadyň dowamynda siz bilen habarlaşarys.',
-    AppLanguage.en:
-        'Your quote request has been received. We will contact you within 24 hours.',
-    AppLanguage.ru:
-        'Ваш запрос принят. Мы свяжемся с вами в течение 24 часов.',
+    AppLanguage.tk: 'Sorag hiç bir dilere ugradylmady.',
+    AppLanguage.en: 'No request was sent to a dealer.',
+    AppLanguage.ru: 'Запрос не отправлен дилеру.',
   },
   'showroom_engine': {
     AppLanguage.tk: 'Motor',
@@ -879,19 +885,19 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.ru: 'Номер телефона',
   },
   'td_confirm': {
-    AppLanguage.tk: 'Belläp tassykla',
-    AppLanguage.en: 'Confirm Booking',
-    AppLanguage.ru: 'Подтвердить запись',
+    AppLanguage.tk: 'Bron etmegi synap gör',
+    AppLanguage.en: 'Preview Booking',
+    AppLanguage.ru: 'Просмотреть запись',
   },
   'td_confirmed_title': {
-    AppLanguage.tk: 'Synag sürüşi bellendi!',
-    AppLanguage.en: 'Test drive booked!',
-    AppLanguage.ru: 'Тест-драйв забронирован!',
+    AppLanguage.tk: 'Demo synag sürüşi',
+    AppLanguage.en: 'Demo test drive',
+    AppLanguage.ru: 'Демо-тест-драйв',
   },
   'td_confirmed_body': {
-    AppLanguage.tk: 'Diler siz bilen tassyklamak üçin habarlaşar.',
-    AppLanguage.en: 'The dealer will contact you to confirm the details.',
-    AppLanguage.ru: 'Дилер свяжется с вами для подтверждения деталей.',
+    AppLanguage.tk: 'Bron hiç bir dilere ugradylmady.',
+    AppLanguage.en: 'No booking was sent to a dealer.',
+    AppLanguage.ru: 'Запись не отправлена дилеру.',
   },
   // Finance calculator
   'finance_title': {
@@ -1201,34 +1207,37 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.ru: 'Помощь на дороге',
   },
   'sos_hold_to_call': {
-    AppLanguage.tk: 'Kömek çagyrmak üçin basyp saklaň',
-    AppLanguage.en: 'Hold to call for help',
-    AppLanguage.ru: 'Удерживайте, чтобы вызвать помощь',
+    AppLanguage.tk: 'SOS görnüşini synap görmek üçin basyp saklaň',
+    AppLanguage.en: 'Hold to preview SOS',
+    AppLanguage.ru: 'Удерживайте для просмотра демо SOS',
   },
   'sos_help_dispatched': {
-    AppLanguage.tk: 'Kömek ýola çykdy',
-    AppLanguage.en: 'Help is on the way',
-    AppLanguage.ru: 'Помощь в пути',
+    AppLanguage.tk: 'Demo: kömek çagyrylmady',
+    AppLanguage.en: 'Demo: no help was requested',
+    AppLanguage.ru: 'Демо: помощь не вызвана',
   },
   'sos_eta_minutes': {
-    AppLanguage.tk: 'Çak edilýän wagt: ~25 min',
-    AppLanguage.en: 'Estimated arrival: ~25 min',
-    AppLanguage.ru: 'Ожидаемое время: ~25 мин',
+    AppLanguage.tk:
+        'Bu ugur diňe görkezme. Hakyky kömek üçin ýerli gyssagly gulluga jaň ediň.',
+    AppLanguage.en:
+        'This route is simulated. Call local emergency services for real help.',
+    AppLanguage.ru:
+        'Маршрут условный. Для реальной помощи звоните в местные службы.',
   },
   'sos_tow_truck_label': {
-    AppLanguage.tk: 'Ýardam ulagy',
-    AppLanguage.en: 'Tow truck',
-    AppLanguage.ru: 'Эвакуатор',
+    AppLanguage.tk: 'Demo ýardam ulagy',
+    AppLanguage.en: 'Demo tow truck',
+    AppLanguage.ru: 'Демо-эвакуатор',
   },
   'sos_your_location': {
-    AppLanguage.tk: 'Siziň ýeriňiz',
-    AppLanguage.en: 'Your location',
-    AppLanguage.ru: 'Ваше местоположение',
+    AppLanguage.tk: 'Demo ýeri',
+    AppLanguage.en: 'Demo location',
+    AppLanguage.ru: 'Демо-местоположение',
   },
   'sos_cancel_request': {
-    AppLanguage.tk: 'Islegi ýatyr',
-    AppLanguage.en: 'Cancel request',
-    AppLanguage.ru: 'Отменить запрос',
+    AppLanguage.tk: 'Demo görnüşini ýap',
+    AppLanguage.en: 'Close preview',
+    AppLanguage.ru: 'Закрыть демо',
   },
   // Digital key sharing
   'keyshare_title': {
@@ -1242,12 +1251,11 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.ru: 'Поделитесь цифровым ключом',
   },
   'keyshare_card_body': {
-    AppLanguage.tk:
-        'Maşgala agzasyna wagtlaýyn açar beriň, olar ulagy açyp/gulplap bilerler.',
+    AppLanguage.tk: 'Diňe demo: at ýazgysy goşulýar, hakyky açar berilmeýär.',
     AppLanguage.en:
-        'Grant a family member temporary access to unlock/lock the car.',
+        'Demo only: adds a name to this list, not access to a real car.',
     AppLanguage.ru:
-        'Предоставьте члену семьи временный доступ для открытия/блокировки авто.',
+        'Только демо: имя добавится в список, доступ к авто не выдаётся.',
   },
   'keyshare_recipient_name': {
     AppLanguage.tk: 'Alyjynyň ady',
@@ -1275,14 +1283,14 @@ const Map<String, Map<AppLanguage, String>> _strings = {
     AppLanguage.ru: '1 месяц',
   },
   'keyshare_active_keys': {
-    AppLanguage.tk: 'Işjeň açarlar',
-    AppLanguage.en: 'Active keys',
-    AppLanguage.ru: 'Активные ключи',
+    AppLanguage.tk: 'Demo ýazgylary',
+    AppLanguage.en: 'Demo entries',
+    AppLanguage.ru: 'Демо-записи',
   },
   'keyshare_grant': {
-    AppLanguage.tk: 'Açar ber',
-    AppLanguage.en: 'Grant Key',
-    AppLanguage.ru: 'Выдать ключ',
+    AppLanguage.tk: 'Demo ýazgysyny goş',
+    AppLanguage.en: 'Add Demo Entry',
+    AppLanguage.ru: 'Добавить демо-запись',
   },
   'keyshare_revoke': {
     AppLanguage.tk: 'Yza al',
