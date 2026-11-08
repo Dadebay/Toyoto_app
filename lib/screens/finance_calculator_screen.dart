@@ -145,15 +145,33 @@ class _FinanceCalculatorScreenState extends State<FinanceCalculatorScreen> {
           size: tablet ? 160 : 130,
         ),
         const SizedBox(height: 20),
-        _breakdownRow(context.tr('finance_principal'), _principal, AppColors.bmwBlue),
-        _breakdownRow(context.tr('finance_total_interest'), _totalInterest, AppColors.warning),
+        _breakdownRow(
+          context.tr('finance_principal'),
+          _principal,
+          AppColors.bmwBlue,
+        ),
+        _breakdownRow(
+          context.tr('finance_total_interest'),
+          _totalInterest,
+          AppColors.warning,
+        ),
         const Divider(height: 24),
-        _breakdownRow(context.tr('finance_total_payment'), _totalPayment, AppColors.textPrimary, bold: true),
+        _breakdownRow(
+          context.tr('finance_total_payment'),
+          _totalPayment,
+          AppColors.textPrimary,
+          bold: true,
+        ),
       ],
     );
   }
 
-  Widget _breakdownRow(String label, double value, Color dotColor, {bool bold = false}) {
+  Widget _breakdownRow(
+    String label,
+    double value,
+    Color dotColor, {
+    bool bold = false,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
@@ -167,7 +185,9 @@ class _FinanceCalculatorScreenState extends State<FinanceCalculatorScreen> {
           Expanded(child: Text(label)),
           Text(
             _money(value),
-            style: TextStyle(fontWeight: bold ? FontWeight.w800 : FontWeight.w600),
+            style: TextStyle(
+              fontWeight: bold ? FontWeight.w800 : FontWeight.w600,
+            ),
           ),
         ],
       ),

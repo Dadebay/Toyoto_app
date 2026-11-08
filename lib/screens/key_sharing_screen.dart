@@ -177,7 +177,11 @@ class _KeySharingScreenState extends State<KeySharingScreen> {
     );
   }
 
-  Widget _activeKeysList(BuildContext context, List<SharedKey> keys, bool tablet) {
+  Widget _activeKeysList(
+    BuildContext context,
+    List<SharedKey> keys,
+    bool tablet,
+  ) {
     if (keys.isEmpty) {
       return AppCard(
         child: Text(

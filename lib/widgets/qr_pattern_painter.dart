@@ -9,11 +9,18 @@ class QrPattern extends StatelessWidget {
   final double size;
   final String seed;
 
-  const QrPattern({super.key, this.size = 72, this.seed = 'BMW-CONNECT-LOYALTY'});
+  const QrPattern({
+    super.key,
+    this.size = 72,
+    this.seed = 'BMW-CONNECT-LOYALTY',
+  });
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(size: Size(size, size), painter: _QrPainter(seed: seed));
+    return CustomPaint(
+      size: Size(size, size),
+      painter: _QrPainter(seed: seed),
+    );
   }
 }
 
@@ -24,7 +31,14 @@ class _QrPainter extends CustomPainter {
 
   static const _grid = 9;
 
-  void _finder(Canvas canvas, Paint dark, Paint light, double x, double y, double cell) {
+  void _finder(
+    Canvas canvas,
+    Paint dark,
+    Paint light,
+    double x,
+    double y,
+    double cell,
+  ) {
     canvas.drawRect(Rect.fromLTWH(x, y, cell * 3, cell * 3), dark);
     canvas.drawRect(
       Rect.fromLTWH(x + cell * 0.5, y + cell * 0.5, cell * 2, cell * 2),

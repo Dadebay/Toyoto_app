@@ -31,12 +31,13 @@ class _SosScreenState extends State<SosScreen>
   @override
   void initState() {
     super.initState();
-    _fillController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1500),
-    )..addStatusListener((status) {
-      if (status == AnimationStatus.completed) _dispatch();
-    });
+    _fillController =
+        AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 1500),
+        )..addStatusListener((status) {
+          if (status == AnimationStatus.completed) _dispatch();
+        });
 
     final v = MockData.myVehicle;
     final destination = LatLng(v.latitude, v.longitude);
@@ -240,10 +241,7 @@ class _SosScreenState extends State<SosScreen>
     final truckPoint = _positionAlongRoute(_routeT);
 
     final map = FlutterMap(
-      options: MapOptions(
-        initialCenter: vehiclePoint,
-        initialZoom: 14,
-      ),
+      options: MapOptions(initialCenter: vehiclePoint, initialZoom: 14),
       children: [
         TileLayer(
           urlTemplate: 'https://map.ayterek.com/tile/{z}/{x}/{y}.png',
@@ -251,7 +249,11 @@ class _SosScreenState extends State<SosScreen>
         ),
         PolylineLayer(
           polylines: [
-            Polyline(points: _route, strokeWidth: 3, color: AppColors.bmwBlue.withValues(alpha: 0.6)),
+            Polyline(
+              points: _route,
+              strokeWidth: 3,
+              color: AppColors.bmwBlue.withValues(alpha: 0.6),
+            ),
           ],
         ),
         MarkerLayer(

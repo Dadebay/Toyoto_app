@@ -330,7 +330,10 @@ class _HomeScreenState extends State<HomeScreen> {
         _upcomingServiceCard(context, vehicle),
         if (context.watch<AppState>().activeServiceTicket != null) ...[
           const SizedBox(height: 14),
-          _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!),
+          _activeServiceCard(
+            context,
+            context.watch<AppState>().activeServiceTicket!,
+          ),
         ],
         const SizedBox(height: 24),
         SectionHeader(title: context.tr('nav_home')),
@@ -372,7 +375,10 @@ class _HomeScreenState extends State<HomeScreen> {
         _upcomingServiceCard(context, vehicle),
         if (context.watch<AppState>().activeServiceTicket != null) ...[
           const SizedBox(height: 18),
-          _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!),
+          _activeServiceCard(
+            context,
+            context.watch<AppState>().activeServiceTicket!,
+          ),
         ],
         const SizedBox(height: 28),
         SectionHeader(title: context.tr('nav_home')),
@@ -415,7 +421,10 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 18),
               Text(
                 title,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
               const SizedBox(height: 8),
               Text(

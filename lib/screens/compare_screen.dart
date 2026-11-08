@@ -126,25 +126,40 @@ class _CompareScreenState extends State<CompareScreen> {
           ),
           Expanded(
             flex: 2,
-            child: Text(valueA, textAlign: TextAlign.center, style: valueStyle(0)),
+            child: Text(
+              valueA,
+              textAlign: TextAlign.center,
+              style: valueStyle(0),
+            ),
           ),
           Expanded(
             flex: 2,
-            child: Text(valueB, textAlign: TextAlign.center, style: valueStyle(1)),
+            child: Text(
+              valueB,
+              textAlign: TextAlign.center,
+              style: valueStyle(1),
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget _specTable(BuildContext context, NewCarListing a, NewCarListing b, AppLanguage lang) {
+  Widget _specTable(
+    BuildContext context,
+    NewCarListing a,
+    NewCarListing b,
+    AppLanguage lang,
+  ) {
     return Column(
       children: [
         _specRow(
           context.tr('compare_price'),
           '\$${a.basePrice.toStringAsFixed(0)}',
           '\$${b.basePrice.toStringAsFixed(0)}',
-          a.basePrice == b.basePrice ? null : (a.basePrice < b.basePrice ? 0 : 1),
+          a.basePrice == b.basePrice
+              ? null
+              : (a.basePrice < b.basePrice ? 0 : 1),
         ),
         const Divider(height: 1),
         _specRow(
@@ -192,7 +207,9 @@ class _CompareScreenState extends State<CompareScreen> {
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: tablet ? 900 : double.infinity),
+            constraints: BoxConstraints(
+              maxWidth: tablet ? 900 : double.infinity,
+            ),
             child: ListView(
               padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
               children: [
@@ -200,11 +217,23 @@ class _CompareScreenState extends State<CompareScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: _carSlot(context, carA, true, lang, tablet ? 220 : 150),
+                      child: _carSlot(
+                        context,
+                        carA,
+                        true,
+                        lang,
+                        tablet ? 220 : 150,
+                      ),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: _carSlot(context, carB, false, lang, tablet ? 220 : 150),
+                      child: _carSlot(
+                        context,
+                        carB,
+                        false,
+                        lang,
+                        tablet ? 220 : 150,
+                      ),
                     ),
                   ],
                 ),

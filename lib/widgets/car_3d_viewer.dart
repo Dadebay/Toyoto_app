@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -87,6 +88,8 @@ class Car3DViewer extends StatefulWidget {
 
 class _Car3DViewerState extends State<Car3DViewer> {
   static const String _bridgeChannel = 'Car3DViewerBridge';
+  static final Future<AssetManifest> _assetManifest =
+      AssetManifest.loadFromAssetBundle(rootBundle);
 
   bool _modelLoaded = false;
 
@@ -131,6 +134,46 @@ customElements.whenDefined('model-viewer').then(() => {
 
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder<AssetManifest>(
+      future: _assetManifest,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return const ColoredBox(
+            color: AppColors.black,
+            child: Center(
+              child: CircularProgressIndicator(color: AppColors.bmwBlue),
+            ),
+          );
+        }
+        if (snapshot.data?.listAssets().contains(widget.modelAsset) != true) {
+          return ColoredBox(
+            color: AppColors.black,
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.directions_car_outlined,
+                    color: Colors.white70,
+                    size: 42,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    context.tr('model_unavailable'),
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(color: Colors.white70),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+        return _buildAvailableModel(context);
+      },
+    );
+  }
+
+  Widget _buildAvailableModel(BuildContext context) {
     return Stack(
       fit: StackFit.expand,
       children: [

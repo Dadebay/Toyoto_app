@@ -173,12 +173,15 @@ class _MyCarScreenState extends State<MyCarScreen> {
     );
   }
 
-  Widget _serviceHistoryCard(BuildContext context, Vehicle vehicle, bool tablet) {
+  Widget _serviceHistoryCard(
+    BuildContext context,
+    Vehicle vehicle,
+    bool tablet,
+  ) {
     final lang = context.watch<AppState>().language;
-    final records = MockData.serviceHistory
-        .where((r) => r.vehicle == vehicle)
-        .toList()
-      ..sort((a, b) => b.date.compareTo(a.date));
+    final records =
+        MockData.serviceHistory.where((r) => r.vehicle == vehicle).toList()
+          ..sort((a, b) => b.date.compareTo(a.date));
     final preview = records.take(3).toList();
 
     if (preview.isEmpty) {
@@ -358,7 +361,10 @@ class _MyCarScreenState extends State<MyCarScreen> {
         ),
         if (context.watch<AppState>().activeServiceTicket != null) ...[
           const SizedBox(height: 16),
-          _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!),
+          _activeServiceCard(
+            context,
+            context.watch<AppState>().activeServiceTicket!,
+          ),
         ],
         const SizedBox(height: 24),
         SectionHeader(title: context.tr('my_car_title')),
@@ -413,7 +419,10 @@ class _MyCarScreenState extends State<MyCarScreen> {
         ),
         if (context.watch<AppState>().activeServiceTicket != null) ...[
           const SizedBox(height: 18),
-          _activeServiceCard(context, context.watch<AppState>().activeServiceTicket!),
+          _activeServiceCard(
+            context,
+            context.watch<AppState>().activeServiceTicket!,
+          ),
         ],
         const SizedBox(height: 28),
         SectionHeader(title: context.tr('my_car_title')),
@@ -464,11 +473,7 @@ class _MyCarScreenState extends State<MyCarScreen> {
                   color: AppColors.bmwBlue.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
-                child: HugeIcon(
-                  icon: icon,
-                  color: AppColors.bmwBlue,
-                  size: 28,
-                ),
+                child: HugeIcon(icon: icon, color: AppColors.bmwBlue, size: 28),
               ),
               const SizedBox(height: 18),
               Text(

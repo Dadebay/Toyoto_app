@@ -117,12 +117,12 @@ class ProfileScreen extends StatelessWidget {
         AppCard(
           padding: EdgeInsets.zero,
           child: _MenuTile(
-            icon: HugeIcons.strokeRoundedLogout03,
+            icon: HugeIcons.strokeRoundedInformationCircle,
             iconColor: AppColors.bmwBlue,
             label: context.tr('logout'),
             labelColor: AppColors.bmwBlue,
             showChevron: false,
-            onTap: () => _confirmLogout(context),
+            onTap: () => _showDemoInfo(context),
           ),
         ),
       ],
@@ -155,13 +155,13 @@ class ProfileScreen extends StatelessWidget {
                   AppCard(
                     padding: EdgeInsets.zero,
                     child: _MenuTile(
-                      icon: HugeIcons.strokeRoundedLogout03,
+                      icon: HugeIcons.strokeRoundedInformationCircle,
                       iconColor: AppColors.bmwBlue,
                       label: context.tr('logout'),
                       labelColor: AppColors.bmwBlue,
                       showChevron: false,
                       tablet: true,
-                      onTap: () => _confirmLogout(context),
+                      onTap: () => _showDemoInfo(context),
                     ),
                   ),
                 ],
@@ -283,7 +283,7 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  void _confirmLogout(BuildContext context) {
+  void _showDemoInfo(BuildContext context) {
     showDialog(
       context: context,
       builder: (_) => Dialog(
@@ -309,7 +309,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   alignment: Alignment.center,
                   child: const HugeIcon(
-                    icon: HugeIcons.strokeRoundedLogout03,
+                    icon: HugeIcons.strokeRoundedInformationCircle,
                     color: AppColors.bmwBlue,
                     size: 28,
                   ),
@@ -336,7 +336,7 @@ class ProfileScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.bmwBlue,
                     ),
-                    child: Text(context.tr('logout')),
+                    child: Text(context.tr('got_it')),
                   ),
                 ),
                 const SizedBox(height: 8),

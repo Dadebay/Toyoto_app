@@ -121,9 +121,9 @@ class _TestDriveScreenState extends State<TestDriveScreen> {
                   dealer.address,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyMedium?.copyWith(fontSize: tablet ? 14 : null),
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    fontSize: tablet ? 14 : null,
+                  ),
                 ),
               ],
             ),
@@ -272,8 +272,10 @@ class _TestDriveScreenState extends State<TestDriveScreen> {
         titleTk: 'Synag sürüşi tassyklandy',
         titleEn: 'Test drive confirmed',
         titleRu: 'Тест-драйв подтверждён',
-        bodyTk: '${car.name(AppLanguage.tk)} üçin synag sürüşiňiz kabul edildi.',
-        bodyEn: 'Your test drive for the ${car.name(AppLanguage.en)} is confirmed.',
+        bodyTk:
+            '${car.name(AppLanguage.tk)} üçin synag sürüşiňiz kabul edildi.',
+        bodyEn:
+            'Your test drive for the ${car.name(AppLanguage.en)} is confirmed.',
         bodyRu: 'Ваш тест-драйв ${car.name(AppLanguage.ru)} подтверждён.',
         icon: HugeIcons.strokeRoundedSteering,
         time: DateTime.now(),
@@ -313,7 +315,10 @@ class _TestDriveScreenState extends State<TestDriveScreen> {
               Text(
                 context.tr('td_confirmed_title'),
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
               const SizedBox(height: 8),
               Text(

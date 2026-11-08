@@ -38,10 +38,16 @@ class BmwBadge extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: Container(height: size * 0.1, color: AppColors.mLightBlue),
+                  child: Container(
+                    height: size * 0.1,
+                    color: AppColors.mLightBlue,
+                  ),
                 ),
                 Expanded(
-                  child: Container(height: size * 0.1, color: AppColors.mDarkBlue),
+                  child: Container(
+                    height: size * 0.1,
+                    color: AppColors.mDarkBlue,
+                  ),
                 ),
                 Expanded(
                   child: Container(height: size * 0.1, color: AppColors.mRed),

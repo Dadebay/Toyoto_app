@@ -12,7 +12,13 @@ import 'package:hugeicons/hugeicons.dart';
 class ExpensesScreen extends StatelessWidget {
   const ExpensesScreen({super.key});
 
-  Widget _iconAmount(BuildContext context, List<List<dynamic>> icon, Color color, String label, double amount) {
+  Widget _iconAmount(
+    BuildContext context,
+    List<List<dynamic>> icon,
+    Color color,
+    String label,
+    double amount,
+  ) {
     return Expanded(
       child: Column(
         children: [
@@ -67,9 +73,27 @@ class ExpensesScreen extends StatelessWidget {
           const SizedBox(height: 18),
           Row(
             children: [
-              _iconAmount(context, HugeIcons.strokeRoundedFuelStation, AppColors.bmwBlue, context.tr('expenses_fuel'), thisMonth.fuelCost),
-              _iconAmount(context, HugeIcons.strokeRoundedWrench01, AppColors.warning, context.tr('expenses_service'), thisMonth.serviceCost),
-              _iconAmount(context, HugeIcons.strokeRoundedSettings02, const Color(0xFF2B7DE9), context.tr('expenses_parts'), thisMonth.partsCost),
+              _iconAmount(
+                context,
+                HugeIcons.strokeRoundedFuelStation,
+                AppColors.bmwBlue,
+                context.tr('expenses_fuel'),
+                thisMonth.fuelCost,
+              ),
+              _iconAmount(
+                context,
+                HugeIcons.strokeRoundedWrench01,
+                AppColors.warning,
+                context.tr('expenses_service'),
+                thisMonth.serviceCost,
+              ),
+              _iconAmount(
+                context,
+                HugeIcons.strokeRoundedSettings02,
+                const Color(0xFF2B7DE9),
+                context.tr('expenses_parts'),
+                thisMonth.partsCost,
+              ),
             ],
           ),
         ],
@@ -87,7 +111,9 @@ class ExpensesScreen extends StatelessWidget {
     final isLower = diffPercent < 0;
     final color = isLower ? AppColors.success : AppColors.warning;
     final key = isLower ? 'expenses_insight_lower' : 'expenses_insight_higher';
-    final text = context.tr(key).replaceFirst('{n}', diffPercent.abs().round().toString());
+    final text = context
+        .tr(key)
+        .replaceFirst('{n}', diffPercent.abs().round().toString());
 
     return Container(
       padding: const EdgeInsets.all(14),
@@ -126,7 +152,10 @@ class ExpensesScreen extends StatelessWidget {
           decoration: BoxDecoration(color: color, shape: BoxShape.circle),
         ),
         const SizedBox(width: 6),
-        Text(label, style: const TextStyle(fontSize: 12, color: AppColors.textSecondary)),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
+        ),
       ],
     );
     return Builder(

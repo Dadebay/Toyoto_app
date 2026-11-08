@@ -26,7 +26,12 @@ class LoyaltyScreen extends StatelessWidget {
     return 1.0;
   }
 
-  Widget _membershipCard(BuildContext context, int points, String tier, bool tablet) {
+  Widget _membershipCard(
+    BuildContext context,
+    int points,
+    String tier,
+    bool tablet,
+  ) {
     final gradient = _tierGradients[tier]!;
     return Container(
       padding: EdgeInsets.all(tablet ? 26 : 20),
@@ -107,7 +112,12 @@ class LoyaltyScreen extends StatelessWidget {
     );
   }
 
-  Widget _balanceSection(BuildContext context, int points, String tier, bool tablet) {
+  Widget _balanceSection(
+    BuildContext context,
+    int points,
+    String tier,
+    bool tablet,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -140,7 +150,12 @@ class LoyaltyScreen extends StatelessWidget {
     );
   }
 
-  Widget _historyTile(BuildContext context, LoyaltyTransaction t, AppLanguage lang, bool tablet) {
+  Widget _historyTile(
+    BuildContext context,
+    LoyaltyTransaction t,
+    AppLanguage lang,
+    bool tablet,
+  ) {
     final positive = t.points >= 0;
     return Container(
       margin: const EdgeInsets.only(bottom: 10),

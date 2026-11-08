@@ -45,7 +45,13 @@ app.*.map.json
 /android/app/release
 
 # 3D vehicle models are too large for git (pushed separately)
-/assets/models/
+/assets/models/*.glb
+*.jks
+*.keystore
+/android/key.properties
+.env
+.env.*
+!.env.example
 
 # Spare/unused 3D models kept locally, not bundled or committed
 /unused_models/

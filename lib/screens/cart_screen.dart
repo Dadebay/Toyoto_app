@@ -207,7 +207,7 @@ class CartScreen extends StatelessWidget {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () => _placeOrder(context, appState),
+                            onPressed: () => _previewCheckout(context),
                             style: tablet
                                 ? ElevatedButton.styleFrom(
                                     padding: const EdgeInsets.symmetric(
@@ -228,7 +228,7 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  void _placeOrder(BuildContext context, AppState appState) {
+  void _previewCheckout(BuildContext context) {
     showDialog(
       context: context,
       builder: (_) => Dialog(
@@ -250,12 +250,12 @@ class CartScreen extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: AppColors.success.withValues(alpha: 0.1),
+                    color: AppColors.bmwBlue.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
                   child: const HugeIcon(
-                    icon: HugeIcons.strokeRoundedCheckmarkCircle02,
-                    color: AppColors.success,
+                    icon: HugeIcons.strokeRoundedInformationCircle,
+                    color: AppColors.bmwBlue,
                     size: 28,
                   ),
                 ),
@@ -274,52 +274,11 @@ class CartScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                const SizedBox(height: 14),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 14,
-                    vertical: 8,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.bmwBlue.withValues(alpha: 0.08),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const HugeIcon(
-                        icon: HugeIcons.strokeRoundedAward01,
-                        color: AppColors.bmwBlue,
-                        size: 16,
-                      ),
-                      const SizedBox(width: 6),
-                      Text(
-                        '+120 ${context.tr('loyalty_earned_toast')}',
-                        style: const TextStyle(
-                          color: AppColors.bmwBlue,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 12.5,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 const SizedBox(height: 24),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {
-                      appState.addLoyaltyPoints(
-                        120,
-                        descriptionTk: 'Ätiýaçlyk şaý satyn alnyşy',
-                        descriptionEn: 'Spare part purchase',
-                        descriptionRu: 'Покупка запчасти',
-                        icon: HugeIcons.strokeRoundedShoppingCart01,
-                      );
-                      appState.clearCart();
-                      Navigator.pop(context);
-                      Navigator.pop(context);
-                    },
+                    onPressed: () => Navigator.pop(context),
                     child: Text(context.tr('got_it')),
                   ),
                 ),

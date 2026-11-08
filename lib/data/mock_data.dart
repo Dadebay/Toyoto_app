@@ -100,14 +100,7 @@ class MockData {
 
   static final Vehicle myVehicle = m5;
 
-  static final List<Vehicle> vehicles = [
-    m5,
-    xb7,
-    m340i,
-    m8,
-    m4,
-    x6m,
-  ];
+  static final List<Vehicle> vehicles = [m5, xb7, m340i, m8, m4, x6m];
 
   static final List<Dealer> dealers = [
     const Dealer(
@@ -580,9 +573,21 @@ class MockData {
           nameEn: 'First Edition',
           nameRu: 'First Edition',
           priceDelta: 14000,
-          featuresTk: ['Merino deri salon', 'Bowers & Wilkins ses', 'Karbon üçek'],
-          featuresEn: ['Merino leather', 'Bowers & Wilkins sound', 'Carbon roof'],
-          featuresRu: ['Кожа Merino', 'Аудио Bowers & Wilkins', 'Карбоновая крыша'],
+          featuresTk: [
+            'Merino deri salon',
+            'Bowers & Wilkins ses',
+            'Karbon üçek',
+          ],
+          featuresEn: [
+            'Merino leather',
+            'Bowers & Wilkins sound',
+            'Carbon roof',
+          ],
+          featuresRu: [
+            'Кожа Merino',
+            'Аудио Bowers & Wilkins',
+            'Карбоновая крыша',
+          ],
         ),
       ],
     ),
@@ -641,7 +646,11 @@ class MockData {
           nameEn: 'Standard',
           nameRu: 'Standard',
           priceDelta: 0,
-          featuresTk: ['630 at güýji', '7 orunlyk salon', '23" Alpina tigirler'],
+          featuresTk: [
+            '630 at güýji',
+            '7 orunlyk salon',
+            '23" Alpina tigirler',
+          ],
           featuresEn: ['630 hp', '7-seat cabin', '23" Alpina wheels'],
           featuresRu: ['630 л.с.', 'Салон на 7 мест', 'Диски Alpina 23"'],
         ),
@@ -650,9 +659,21 @@ class MockData {
           nameEn: 'Exclusive',
           nameRu: 'Exclusive',
           priceDelta: 18000,
-          featuresTk: ['Lavalina deri', 'Bowers & Wilkins ses', 'Sky Lounge üçek'],
-          featuresEn: ['Lavalina leather', 'Bowers & Wilkins sound', 'Sky Lounge roof'],
-          featuresRu: ['Кожа Lavalina', 'Аудио Bowers & Wilkins', 'Крыша Sky Lounge'],
+          featuresTk: [
+            'Lavalina deri',
+            'Bowers & Wilkins ses',
+            'Sky Lounge üçek',
+          ],
+          featuresEn: [
+            'Lavalina leather',
+            'Bowers & Wilkins sound',
+            'Sky Lounge roof',
+          ],
+          featuresRu: [
+            'Кожа Lavalina',
+            'Аудио Bowers & Wilkins',
+            'Крыша Sky Lounge',
+          ],
         ),
       ],
     ),
@@ -701,8 +722,7 @@ class MockData {
       bodyTk:
           'Şu aý motor ýagyňyzy çalyşdyranyňyzda %20 arzanladyşdan peýdalanyň.',
       bodyEn: 'Change your engine oil this month and enjoy a 20% discount.',
-      bodyRu:
-          'Замените моторное масло в этом месяце и получите скидку 20%.',
+      bodyRu: 'Замените моторное масло в этом месяце и получите скидку 20%.',
       icon: HugeIcons.strokeRoundedOilBarrel,
       gradient: [AppColors.bmwBlue, AppColors.bmwBlueDark],
       linkedProductOemCode: 'BMW-08880-01',
@@ -715,8 +735,7 @@ class MockData {
           'Täze BMW alanlar üçin ilkinji 10,000 km çenli tehniki hyzmat mugt.',
       bodyEn:
           'New BMW owners get free maintenance up to their first 10,000 km.',
-      bodyRu:
-          'Для новых владельцев BMW бесплатное ТО до первых 10 000 км.',
+      bodyRu: 'Для новых владельцев BMW бесплатное ТО до первых 10 000 км.',
       icon: HugeIcons.strokeRoundedWrench01,
       gradient: [AppColors.black, AppColors.charcoal],
     ),
@@ -724,10 +743,8 @@ class MockData {
       titleTk: 'BMW M5 synag sürüşi hepdesi',
       titleEn: 'BMW M5 test drive week',
       titleRu: 'Неделя тест-драйва BMW M5',
-      bodyTk:
-          'Bu hepde islendik dilerde BMW M5-i mugt synag sürüşinde synaň.',
-      bodyEn:
-          'Test drive the BMW M5 for free at any dealership this week.',
+      bodyTk: 'Bu hepde islendik dilerde BMW M5-i mugt synag sürüşinde synaň.',
+      bodyEn: 'Test drive the BMW M5 for free at any dealership this week.',
       bodyRu:
           'На этой неделе бесплатный тест-драйв BMW M5 в любом дилерском центре.',
       icon: HugeIcons.strokeRoundedSteering,
@@ -756,11 +773,7 @@ class MockData {
     final yearsOld = (DateTime.now().year - year).clamp(0, 30);
     double value = basePrice * (1 - 0.08 * yearsOld).clamp(0.35, 1.0);
     value -= (mileageKm / 10000) * 300;
-    const conditionMultiplier = {
-      'excellent': 1.0,
-      'good': 0.92,
-      'fair': 0.8,
-    };
+    const conditionMultiplier = {'excellent': 1.0, 'good': 0.92, 'fair': 0.8};
     value *= conditionMultiplier[condition] ?? 0.85;
     return value.clamp(500, basePrice);
   }

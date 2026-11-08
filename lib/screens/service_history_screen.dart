@@ -96,23 +96,31 @@ class _ServiceHistoryScreenState extends State<ServiceHistoryScreen> {
       width: double.infinity,
       child: OutlinedButton.icon(
         onPressed: _sharePdf,
-        icon: HugeIcon(
-          icon: _shared
-              ? HugeIcons.strokeRoundedTick01
-              : HugeIcons.strokeRoundedShare08,
-          color: AppColors.bmwBlue,
-          size: 18,
-        ).animate(target: _shared ? 1 : 0).scaleXY(begin: 1, end: 1.2, duration: const Duration(milliseconds: 200)),
+        icon:
+            HugeIcon(
+                  icon: _shared
+                      ? HugeIcons.strokeRoundedTick01
+                      : HugeIcons.strokeRoundedShare08,
+                  color: AppColors.bmwBlue,
+                  size: 18,
+                )
+                .animate(target: _shared ? 1 : 0)
+                .scaleXY(
+                  begin: 1,
+                  end: 1.2,
+                  duration: const Duration(milliseconds: 200),
+                ),
         label: Text(context.tr('svc_history_share_pdf')),
       ),
     );
   }
 
   Widget _timelineList(AppLanguage lang, bool tablet) {
-    final records = MockData.serviceHistory
-        .where((r) => r.vehicle == widget.vehicle)
-        .toList()
-      ..sort((a, b) => b.date.compareTo(a.date));
+    final records =
+        MockData.serviceHistory
+            .where((r) => r.vehicle == widget.vehicle)
+            .toList()
+          ..sort((a, b) => b.date.compareTo(a.date));
 
     if (records.isEmpty) {
       return AppCard(
@@ -206,9 +214,7 @@ class _ServiceHistoryScreenState extends State<ServiceHistoryScreen> {
         centerTitle: true,
         title: Text(context.tr('svc_history_title')),
       ),
-      body: tablet
-          ? _buildTabletLayout(lang)
-          : _buildPhoneLayout(lang),
+      body: tablet ? _buildTabletLayout(lang) : _buildPhoneLayout(lang),
     );
   }
 
@@ -234,7 +240,11 @@ class _ServiceHistoryScreenState extends State<ServiceHistoryScreen> {
           SizedBox(
             width: 360,
             child: Column(
-              children: [_warrantyCard(true), const SizedBox(height: 16), _shareButton()],
+              children: [
+                _warrantyCard(true),
+                const SizedBox(height: 16),
+                _shareButton(),
+              ],
             ),
           ),
           const SizedBox(width: 32),

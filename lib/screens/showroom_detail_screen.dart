@@ -182,7 +182,9 @@ class _ShowroomDetailScreenState extends State<ShowroomDetailScreen> {
                 color: _kPaintOptions[i].color,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: selected ? Colors.white : Colors.white.withValues(alpha: 0.2),
+                  color: selected
+                      ? Colors.white
+                      : Colors.white.withValues(alpha: 0.2),
                   width: selected ? 3 : 1,
                 ),
               ),
@@ -208,13 +210,17 @@ class _ShowroomDetailScreenState extends State<ShowroomDetailScreen> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             decoration: BoxDecoration(
-              color: selected ? AppColors.bmwBlue : Colors.white.withValues(alpha: 0.08),
+              color: selected
+                  ? AppColors.bmwBlue
+                  : Colors.white.withValues(alpha: 0.08),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(
               trims[i].name(lang),
               style: TextStyle(
-                color: selected ? Colors.white : Colors.white.withValues(alpha: 0.7),
+                color: selected
+                    ? Colors.white
+                    : Colors.white.withValues(alpha: 0.7),
                 fontWeight: FontWeight.w600,
                 fontSize: 13.5,
               ),

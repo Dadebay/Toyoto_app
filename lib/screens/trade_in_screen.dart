@@ -29,7 +29,8 @@ class _CountUpValue extends StatelessWidget {
       tween: Tween(begin: 0, end: value),
       duration: const Duration(milliseconds: 900),
       curve: Curves.easeOutCubic,
-      builder: (context, v, _) => Text('\$${v.toStringAsFixed(0)}', style: style),
+      builder: (context, v, _) =>
+          Text('\$${v.toStringAsFixed(0)}', style: style),
     );
   }
 }
