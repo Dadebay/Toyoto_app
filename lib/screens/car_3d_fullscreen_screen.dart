@@ -315,9 +315,7 @@ class _Car3DFullscreenScreenState extends State<Car3DFullscreenScreen>
                             borderRadius: BorderRadius.circular(30),
                             boxShadow: [
                               BoxShadow(
-                                color: AppColors.bmwBlue.withValues(
-                                  alpha: 0.5,
-                                ),
+                                color: AppColors.bmwBlue.withValues(alpha: 0.5),
                                 blurRadius: 20,
                                 spreadRadius: 1,
                               ),

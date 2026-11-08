@@ -23,7 +23,11 @@ class QuickActionGrid extends StatelessWidget {
   /// the built-in phone (4) / iPad (6) defaults.
   final int? crossAxisCount;
 
-  const QuickActionGrid({super.key, required this.actions, this.crossAxisCount});
+  const QuickActionGrid({
+    super.key,
+    required this.actions,
+    this.crossAxisCount,
+  });
 
   @override
   Widget build(BuildContext context) {

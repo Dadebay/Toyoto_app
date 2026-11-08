@@ -365,9 +365,7 @@ class _ToggleCard extends StatelessWidget {
               : Colors.white.withValues(alpha: 0.06),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: on
-                ? AppColors.bmwBlue
-                : Colors.white.withValues(alpha: 0.1),
+            color: on ? AppColors.bmwBlue : Colors.white.withValues(alpha: 0.1),
           ),
         ),
         child: Column(

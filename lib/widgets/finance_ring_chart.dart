@@ -70,7 +70,13 @@ class _FinanceRingPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;
-    canvas.drawArc(rect, -pi / 2, 2 * pi * principalFraction, false, principalPaint);
+    canvas.drawArc(
+      rect,
+      -pi / 2,
+      2 * pi * principalFraction,
+      false,
+      principalPaint,
+    );
 
     final interestPaint = Paint()
       ..color = AppColors.warning

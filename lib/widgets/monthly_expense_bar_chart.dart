@@ -14,7 +14,11 @@ class MonthlyExpenseBarChart extends StatelessWidget {
   final List<MonthlyExpense> data;
   final double height;
 
-  const MonthlyExpenseBarChart({super.key, required this.data, this.height = 160});
+  const MonthlyExpenseBarChart({
+    super.key,
+    required this.data,
+    this.height = 160,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +33,18 @@ class MonthlyExpenseBarChart extends StatelessWidget {
         Row(
           children: data.map((e) {
             const monthNames = [
-              'Ýan', 'Few', 'Mart', 'Apr', 'Maý', 'Iýun',
-              'Iýul', 'Awg', 'Sen', 'Okt', 'Noý', 'Dek',
+              'Ýan',
+              'Few',
+              'Mart',
+              'Apr',
+              'Maý',
+              'Iýun',
+              'Iýul',
+              'Awg',
+              'Sen',
+              'Okt',
+              'Noý',
+              'Dek',
             ];
             return Expanded(
               child: Text(
@@ -59,7 +73,13 @@ class _BarChartPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (data.isEmpty) return;
     final maxTotal = data
-        .map((e) => [e.fuelCost, e.serviceCost, e.partsCost].reduce((a, b) => a > b ? a : b))
+        .map(
+          (e) => [
+            e.fuelCost,
+            e.serviceCost,
+            e.partsCost,
+          ].reduce((a, b) => a > b ? a : b),
+        )
         .reduce((a, b) => a > b ? a : b);
     if (maxTotal <= 0) return;
 
